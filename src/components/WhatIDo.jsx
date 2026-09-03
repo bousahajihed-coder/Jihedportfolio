@@ -34,7 +34,7 @@ const cardItem = {
 
 export default function WhatIDo() {
   return (
-    <section id="what-i-do" className="relative w-full bg-teal/5 text-ink py-24 md:py-32">
+    <section id="what-i-do" className="relative w-full bg-paper text-ink border-t border-ink/10 py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6 md:px-10">
         <Reveal>
           <p className="text-teal text-sm font-medium tracking-[0.3em] uppercase mb-6">What I Do</p>
@@ -56,7 +56,7 @@ export default function WhatIDo() {
             <motion.div
               key={role.title}
               variants={cardItem}
-              className="bg-paper border border-ink/10 rounded-xl p-8 hover:border-orange transition-colors"
+              className="bg-neutral-50 border border-ink/10 rounded-xl p-8 hover:border-orange transition-colors"
             >
               <span className="text-orange text-sm font-semibold tracking-widest">{role.number}</span>
               <h3 className="text-xl font-bold mt-4 mb-3">{role.title}</h3>

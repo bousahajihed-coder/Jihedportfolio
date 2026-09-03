@@ -3,7 +3,7 @@ import Reveal from './Reveal'
 
 export default function Work() {
   return (
-    <section id="work" className="relative w-full bg-paper text-ink py-24 md:py-32">
+    <section id="work" className="relative w-full bg-paper text-ink border-t border-ink/10 py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6 md:px-10">
         <Reveal>
           <p className="text-teal text-sm font-medium tracking-[0.3em] uppercase mb-6">Work</p>
