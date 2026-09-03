@@ -7,12 +7,17 @@ const links = [
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-paper/90 backdrop-blur-md border-b border-ink/10">
-      <div className="max-w-6xl mx-auto px-6 md:px-10 h-18 py-4 flex items-center justify-between">
-        <a href="#top" className="text-sm font-semibold tracking-[0.2em] uppercase text-ink">
-          Jihed Bousaha
+    <header className="fixed top-0 left-0 w-full z-50 bg-teal border-b border-ink/10">
+      <div className="max-w-6xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
+        <a
+          href="#top"
+          className="font-display font-black uppercase leading-[0.9] text-xl tracking-tight text-ink"
+        >
+          Jihed
+          <br />
+          Bousaha
         </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm text-ink/60">
+        <nav className="hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-wide text-ink/70">
           {links.map((link) => (
             <a key={link.href} href={link.href} className="hover:text-ink transition-colors">
               {link.label}
@@ -21,7 +26,7 @@ export default function Header() {
         </nav>
         <a
           href="#contact"
-          className="text-sm font-semibold bg-orange text-ink rounded-full px-4 py-2 hover:bg-orange/90 transition-colors"
+          className="text-sm font-semibold bg-ink text-lime rounded-full px-4 py-2 hover:bg-ink/80 transition-colors"
         >
           Get in touch
         </a>
