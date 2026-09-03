@@ -13,8 +13,7 @@ const languages = [
   { name: 'English', level: 'Fluent' },
   { name: 'French', level: 'Fluent' },
   { name: 'German', level: 'Fluent' },
-  { name: 'Italian', level: 'In progress' },
-  { name: 'Spanish', level: 'In progress' },
+  { name: 'Italian', level: 'Working knowledge' },
 ]
 
 const staggerContainer = {
@@ -36,19 +35,28 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 mb-20">
             <Reveal>
               <p className="font-display font-black text-3xl md:text-4xl leading-[1.1]">
-                Ideas don&rsquo;t <span className="italic">shoot themselves.</span> I produce
-                commercial and independent work across Europe&mdash;Germany, Poland,
-                Spain&mdash;with heavy experience in automotive and high-performance car
-                campaigns.
+                I started small and worked my way through productions of all sizes, from small,
+                hands-on, <span className="italic">run and gun</span> teams to large scale
+                campaigns with budgets reaching over <span className="italic">€500k</span> and
+                brand ambassadors across multiple European markets.
               </p>
             </Reveal>
             <Reveal delay={0.15}>
               <div className="text-ink/70 text-base md:text-lg leading-relaxed space-y-5">
                 <p>
-                  Six years bridging creative vision and execution, fluent in German, English,
-                  French, and Arabic; Italian and Spanish in progress.
+                  I like being close to the process. From developing an idea and building the
+                  right team to casting, budgets, locations, production and delivery, I stay
+                  involved from the first conversation to the final delivery.
                 </p>
-                <p>Design-trained eye, operational discipline. Based in Berlin, headed toward film.</p>
+                <p>
+                  I have produced across Europe and work comfortably in German, English, French
+                  and Arabic, with working knowledge of Italian. Working across different markets,
+                  cultures and teams has become a big part of how I produce.
+                </p>
+                <p>
+                  I am hands on, calm when things get complicated, and always focused on finding a
+                  way to make the idea work.
+                </p>
               </div>
             </Reveal>
           </div>

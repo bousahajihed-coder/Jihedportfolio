@@ -1,5 +1,9 @@
 import { motion } from 'framer-motion'
 
+const scopeTags = ['Commercials', 'Branded Content', 'Film', 'International Production']
+const locationTags = ['Berlin', 'Europe', 'Worldwide']
+const highlights = ['6+ European Markets', '€50k–€500k+ Budgets', 'Brand Ambassadors', 'End to End Production']
+
 export default function Hero() {
   return (
     <section id="top" className="relative w-full pt-20">
@@ -33,36 +37,73 @@ export default function Hero() {
               Scroll Down
             </span>
           </div>
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-            className="font-display font-black uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.02] max-w-4xl"
-          >
-            I am a <span className="italic">producer</span> and{' '}
-            <span className="italic">assistant producer</span> working in automotive, commercial &
-            European production.
-          </motion.h1>
-          <div />
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="flex flex-wrap items-center gap-4 mt-8"
-          >
-            <a
-              href="#work"
-              className="inline-flex items-center rounded-full bg-ink text-lime px-6 py-3 text-sm font-semibold hover:bg-ink/85 transition-colors"
+
+          <div>
+            <motion.div
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex flex-col gap-1.5 mb-6 text-xs font-semibold tracking-[0.15em] uppercase text-ink/60"
             >
-              View Work
-            </a>
-            <a
-              href="#contact"
-              className="inline-flex items-center rounded-full border border-ink/40 px-6 py-3 text-sm font-semibold hover:border-ink hover:bg-ink/10 transition-colors"
+              <span>{scopeTags.join(' · ')}</span>
+              <span>{locationTags.join(' · ')}</span>
+            </motion.div>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="font-display font-black uppercase text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.02] max-w-4xl"
             >
-              Get in Touch
-            </a>
-          </motion.div>
+              I am a <span className="italic">Creative Producer</span> based in Berlin, working
+              across commercials, branded content and film.
+            </motion.h1>
+
+            <motion.p
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+              className="font-display font-bold italic text-xl md:text-2xl mt-6 max-w-xl"
+            >
+              I build the plan, protect the idea, and get the thing made.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-wrap gap-2 mt-8"
+            >
+              {highlights.map((item) => (
+                <span
+                  key={item}
+                  className="text-xs font-semibold uppercase tracking-wide bg-ink/10 border border-ink/15 rounded-full px-3 py-1.5"
+                >
+                  {item}
+                </span>
+              ))}
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.35, ease: [0.16, 1, 0.3, 1] }}
+              className="flex flex-wrap items-center gap-4 mt-8"
+            >
+              <a
+                href="#work"
+                className="inline-flex items-center rounded-full bg-ink text-lime px-6 py-3 text-sm font-semibold hover:bg-ink/85 transition-colors"
+              >
+                View Work
+              </a>
+              <a
+                href="#contact"
+                className="inline-flex items-center rounded-full border border-ink/40 px-6 py-3 text-sm font-semibold hover:border-ink hover:bg-ink/10 transition-colors"
+              >
+                Get in Touch
+              </a>
+            </motion.div>
+          </div>
         </div>
       </div>
     </section>
