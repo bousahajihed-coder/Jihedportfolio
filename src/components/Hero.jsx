@@ -40,10 +40,10 @@ export default function Hero() {
         animate="show"
         className="relative z-10 max-w-6xl mx-auto w-full px-6 md:px-10"
       >
-        <motion.p variants={item} className="text-accent text-sm font-medium tracking-[0.3em] uppercase mb-6">
+        <motion.p variants={item} className="text-teal text-sm font-medium tracking-[0.3em] uppercase mb-6">
           Producer
         </motion.p>
-        <motion.h1 variants={item} className="text-5xl md:text-7xl font-extrabold leading-[1.05] mb-6 max-w-3xl">
+        <motion.h1 variants={item} className="font-serif text-5xl md:text-7xl font-semibold leading-[1.05] mb-6 max-w-3xl">
           Automotive campaigns.
           <br />
           European productions.
@@ -54,13 +54,13 @@ export default function Hero() {
         <motion.div variants={item} className="flex flex-wrap items-center gap-4">
           <a
             href="#work"
-            className="inline-flex items-center rounded-full bg-paper text-ink px-6 py-3 text-sm font-semibold hover:bg-accent transition-colors"
+            className="inline-flex items-center rounded-full bg-orange text-ink px-6 py-3 text-sm font-semibold hover:bg-orange/90 transition-colors"
           >
             View Work
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center rounded-full border border-white/25 px-6 py-3 text-sm font-semibold hover:border-accent hover:text-accent transition-colors"
+            className="inline-flex items-center rounded-full border border-white/25 px-6 py-3 text-sm font-semibold hover:border-teal hover:text-teal transition-colors"
           >
             Get in Touch
           </a>

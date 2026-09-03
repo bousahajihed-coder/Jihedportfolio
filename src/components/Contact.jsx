@@ -8,18 +8,18 @@ const socials = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative w-full bg-black border-t border-white/10 py-24 md:py-32">
+    <section id="contact" className="relative w-full bg-teal text-paper py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6 md:px-10 text-center">
         <Reveal>
-          <p className="text-accent text-sm font-medium tracking-[0.3em] uppercase mb-6">Contact</p>
+          <p className="text-paper/70 text-sm font-medium tracking-[0.3em] uppercase mb-6">Contact</p>
         </Reveal>
         <Reveal delay={0.05}>
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 max-w-2xl mx-auto">
+          <h2 className="font-serif text-3xl md:text-5xl font-semibold mb-6 max-w-2xl mx-auto">
             Let&rsquo;s work together.
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="text-paper/60 text-base md:text-lg mb-10 max-w-xl mx-auto">
+          <p className="text-paper/80 text-base md:text-lg mb-10 max-w-xl mx-auto">
             Open to freelance and full-time producer opportunities, based in Berlin and available to
             travel for production.
           </p>
@@ -27,14 +27,14 @@ export default function Contact() {
         <Reveal delay={0.15}>
           <a
             href="mailto:jihedbou@proton.me"
-            className="inline-flex items-center rounded-full bg-paper text-ink px-8 py-4 text-base font-semibold hover:bg-accent transition-colors mb-14"
+            className="inline-flex items-center rounded-full bg-orange text-ink px-8 py-4 text-base font-semibold hover:bg-orange/90 transition-colors mb-14"
           >
             jihedbou@proton.me
           </a>
         </Reveal>
 
         <Reveal delay={0.2}>
-          <div className="flex items-center justify-center gap-6 text-sm text-paper/50">
+          <div className="flex items-center justify-center gap-6 text-sm text-paper/70">
             {socials.map((social) => (
               <a
                 key={social.label}
