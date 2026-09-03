@@ -6,7 +6,7 @@ export default function Work() {
     <section id="work" className="relative w-full bg-paper text-ink border-t border-ink/10 py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6 md:px-10">
         <Reveal>
-          <p className="text-teal text-sm font-medium tracking-[0.3em] uppercase mb-6">Work</p>
+          <p className="text-ink/50 text-sm font-medium tracking-[0.3em] uppercase mb-6">Work</p>
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="font-serif text-3xl md:text-4xl font-semibold mb-20 max-w-2xl">
@@ -37,13 +37,13 @@ export default function Work() {
                   </div>
                 </div>
                 <div className="w-full md:w-5/12">
-                  <span className="text-orange text-sm font-semibold tracking-widest">
+                  <span className="font-serif text-ink/40 text-sm font-semibold tracking-widest">
                     {String(index + 1).padStart(2, '0')}
                   </span>
                   <h3 className="font-serif italic text-4xl md:text-5xl font-medium mt-3 mb-4">
                     {project.name}
                   </h3>
-                  <p className="text-teal font-medium tracking-wide">{project.tag}</p>
+                  <p className="text-ink/50 font-medium tracking-wide">{project.tag}</p>
                 </div>
               </div>
             </Reveal>

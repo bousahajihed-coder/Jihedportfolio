@@ -7,14 +7,14 @@ const links = [
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-ink/85 backdrop-blur-md border-b border-white/10">
+    <header className="fixed top-0 left-0 w-full z-50 bg-paper/90 backdrop-blur-md border-b border-ink/10">
       <div className="max-w-6xl mx-auto px-6 md:px-10 h-18 py-4 flex items-center justify-between">
-        <a href="#top" className="text-sm font-semibold tracking-[0.2em] uppercase text-paper">
+        <a href="#top" className="text-sm font-semibold tracking-[0.2em] uppercase text-ink">
           Jihed Bousaha
         </a>
-        <nav className="hidden md:flex items-center gap-8 text-sm text-paper/70">
+        <nav className="hidden md:flex items-center gap-8 text-sm text-ink/60">
           {links.map((link) => (
-            <a key={link.href} href={link.href} className="hover:text-teal transition-colors">
+            <a key={link.href} href={link.href} className="hover:text-ink transition-colors">
               {link.label}
             </a>
           ))}

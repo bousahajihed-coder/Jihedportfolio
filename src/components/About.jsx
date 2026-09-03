@@ -31,7 +31,7 @@ export default function About() {
     <section id="about" className="relative w-full bg-paper text-ink py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6 md:px-10">
         <Reveal>
-          <p className="text-teal text-sm font-medium tracking-[0.3em] uppercase mb-6">About</p>
+          <p className="text-ink/50 text-sm font-medium tracking-[0.3em] uppercase mb-6">About</p>
         </Reveal>
 
         <div className="grid md:grid-cols-2 gap-12 md:gap-16 mb-20">
@@ -62,7 +62,7 @@ export default function About() {
         >
           {stats.map((stat) => (
             <motion.div key={stat.label} variants={staggerItem} className="text-center md:text-left">
-              <div className="text-4xl md:text-5xl font-extrabold text-orange mb-1">{stat.value}</div>
+              <div className="font-serif text-4xl md:text-5xl font-semibold text-ink mb-1">{stat.value}</div>
               <div className="text-xs md:text-sm text-ink/50 tracking-wide uppercase">{stat.label}</div>
             </motion.div>
           ))}

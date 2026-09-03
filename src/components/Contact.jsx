@@ -8,10 +8,10 @@ const socials = [
 
 export default function Contact() {
   return (
-    <section id="contact" className="relative w-full bg-ink text-paper border-t border-white/10 py-24 md:py-32">
+    <section id="contact" className="relative w-full bg-paper text-ink border-t border-ink/10 py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6 md:px-10 text-center">
         <Reveal>
-          <p className="text-teal text-sm font-medium tracking-[0.3em] uppercase mb-6">Contact</p>
+          <p className="text-ink/50 text-sm font-medium tracking-[0.3em] uppercase mb-6">Contact</p>
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="font-serif text-3xl md:text-5xl font-semibold mb-6 max-w-2xl mx-auto">
@@ -19,7 +19,7 @@ export default function Contact() {
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="text-paper/60 text-base md:text-lg mb-10 max-w-xl mx-auto">
+          <p className="text-ink/60 text-base md:text-lg mb-10 max-w-xl mx-auto">
             Open to freelance and full-time producer opportunities, based in Berlin and available to
             travel for production.
           </p>
@@ -34,14 +34,14 @@ export default function Contact() {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <div className="flex items-center justify-center gap-6 text-sm text-paper/50">
+          <div className="flex items-center justify-center gap-6 text-sm text-ink/50">
             {socials.map((social) => (
               <a
                 key={social.label}
                 href={social.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-paper transition-colors"
+                className="hover:text-ink transition-colors"
               >
                 {social.label}
               </a>
