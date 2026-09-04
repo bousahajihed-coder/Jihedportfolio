@@ -37,14 +37,8 @@ export default function Work() {
                     </div>
                   </div>
                   <div className="w-full md:w-5/12">
-                    <span className="font-display font-black text-ink/30 text-sm tracking-widest">
+                    <span className="font-display font-black text-ink/20 text-5xl md:text-6xl tracking-widest">
                       {String(index + 1).padStart(2, '0')}
-                    </span>
-                    <h3 className="font-display font-black uppercase text-3xl md:text-4xl mt-3 mb-4 leading-tight">
-                      {project.name}
-                    </h3>
-                    <span className="inline-block bg-lime px-3 py-1 rounded-sm text-sm font-semibold text-ink">
-                      {project.tag}
                     </span>
                   </div>
                 </div>
