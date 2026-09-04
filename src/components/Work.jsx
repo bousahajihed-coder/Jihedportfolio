@@ -1,6 +1,7 @@
 import { projects } from '../data/projects'
 import Reveal from './Reveal'
 import VerticalLabel from './VerticalLabel'
+import VideoEmbed from './VideoEmbed'
 
 export default function Work() {
   return (
@@ -16,24 +17,15 @@ export default function Work() {
 
           <div className="space-y-20 md:space-y-28">
             {projects.map((project, index) => (
-              <Reveal key={project.name} y={40}>
+              <Reveal key={project.video.id} y={40}>
                 <div
                   className={`flex flex-col gap-8 md:gap-14 items-center ${
                     index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'
                   }`}
                 >
                   <div className="w-full md:w-7/12">
-                    <div className="relative aspect-video overflow-hidden rounded-xl bg-neutral-200 group">
-                      <img
-                        src={project.image}
-                        alt={project.name}
-                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                      />
-                      {project.markets && (
-                        <span className="absolute top-4 left-4 px-2.5 py-1 bg-ink/70 backdrop-blur-sm rounded-full text-xs text-paper/90">
-                          {project.markets}
-                        </span>
-                      )}
+                    <div className="relative aspect-video overflow-hidden rounded-xl bg-neutral-200">
+                      <VideoEmbed video={project.video} />
                     </div>
                   </div>
                   <div className="w-full md:w-5/12">

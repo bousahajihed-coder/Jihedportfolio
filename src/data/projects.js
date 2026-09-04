@@ -1,33 +1,8 @@
 export const projects = [
-  {
-    name: 'Maria Galland',
-    tag: 'Brand Ambassador Spot',
-    image: '/project-mariagalland.jpg',
-  },
-  {
-    name: 'WKDA',
-    markets: 'DE · SE · FR',
-    tag: 'Commercial Campaign',
-    image: '/project-wkda-de.jpg',
-  },
-  {
-    name: 'AutoHero',
-    tag: 'E-mobility Transition',
-    image: '/project-autohero.jpg',
-  },
-  {
-    name: 'Bayer',
-    tag: 'Medical Breakthroughs',
-    image: '/project-bayer.jpg',
-  },
-  {
-    name: 'Shell',
-    tag: 'Where Demand Meets Innovation',
-    image: '/project-shell.jpg',
-  },
-  {
-    name: 'Home Full of Clothes',
-    tag: 'Pushing Boundaries',
-    image: '/project-homefullofclothes.jpg',
-  },
+  { video: { type: 'youtube', id: 'hIf32qdSYLk' } },
+  { video: { type: 'youtube', id: 'A4SMs1jzLS8' } },
+  { video: { type: 'vimeo', id: '751195530' } },
+  { video: { type: 'youtube', id: 'T5QEZyPRVy4' } },
+  { video: { type: 'vimeo', id: '1006908953' } },
+  { video: { type: 'youtube', id: 'oqRp-wob3Og' } },
 ]
