@@ -7,25 +7,7 @@ const highlights = ['6+ European Markets', '€50k–€500k+ Budgets', 'Brand A
 export default function Hero() {
   return (
     <section id="top" className="relative w-full pt-20">
-      <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden bg-neutral-200">
-        <img
-          src="/hero-portrait.jpg"
-          alt="Jihed Bousaha on set"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        <svg
-          className="absolute w-40 h-24 md:w-56 md:h-32 top-[18%] right-[12%] md:right-[20%] text-sky"
-          viewBox="0 0 200 100"
-          fill="none"
-        >
-          <path
-            d="M20 55 C10 20, 80 5, 120 15 C170 27, 190 55, 150 75 C100 100, 20 85, 20 55 Z"
-            stroke="currentColor"
-            strokeWidth="5"
-            strokeLinecap="round"
-          />
-        </svg>
-      </div>
+      <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden bg-ink" />
 
       <div className="relative w-full bg-blue text-paper overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-[24px_1fr] md:grid-cols-[48px_1fr] gap-4 md:gap-8 py-14 md:py-20">
