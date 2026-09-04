@@ -35,7 +35,7 @@ const cardItem = {
 
 export default function WhatIDo() {
   return (
-    <section id="what-i-do" className="relative w-full bg-pink text-ink py-24 md:py-32">
+    <section id="what-i-do" className="relative w-full bg-sky text-ink py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-[24px_1fr] md:grid-cols-[48px_1fr] gap-4 md:gap-8">
         <VerticalLabel>What I Do</VerticalLabel>
         <div>
@@ -58,7 +58,7 @@ export default function WhatIDo() {
                 variants={cardItem}
                 className="bg-ink text-paper rounded-xl p-8 hover:-translate-y-1 transition-transform"
               >
-                <span className="font-display font-black text-pink text-sm tracking-widest">
+                <span className="font-display font-black text-blue text-sm tracking-widest">
                   {role.number}
                 </span>
                 <h3 className="text-xl font-bold mt-4 mb-3">{role.title}</h3>

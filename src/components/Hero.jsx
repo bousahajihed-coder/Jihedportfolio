@@ -14,7 +14,7 @@ export default function Hero() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <svg
-          className="absolute w-40 h-24 md:w-56 md:h-32 top-[18%] right-[12%] md:right-[20%] text-pink"
+          className="absolute w-40 h-24 md:w-56 md:h-32 top-[18%] right-[12%] md:right-[20%] text-sky"
           viewBox="0 0 200 100"
           fill="none"
         >
@@ -92,7 +92,7 @@ export default function Hero() {
             >
               <a
                 href="#work"
-                className="inline-flex items-center rounded-full bg-ink text-pink px-6 py-3 text-sm font-semibold hover:bg-ink/85 transition-colors"
+                className="inline-flex items-center rounded-full bg-ink text-sky px-6 py-3 text-sm font-semibold hover:bg-ink/85 transition-colors"
               >
                 View Work
               </a>

@@ -16,7 +16,7 @@ export default function Marquee() {
         {track.map((item, i) => (
           <span
             key={`${item}-${i}`}
-            className="font-display font-extrabold text-pink text-lg md:text-2xl uppercase tracking-wide mx-4 flex items-center gap-4"
+            className="font-display font-extrabold text-sky text-lg md:text-2xl uppercase tracking-wide mx-4 flex items-center gap-4"
           >
             {item}
             <span className="text-paper/30">/</span>
