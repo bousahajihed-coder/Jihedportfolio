@@ -14,7 +14,7 @@ export default function Hero() {
           className="absolute inset-0 w-full h-full object-cover"
         />
         <svg
-          className="absolute w-40 h-24 md:w-56 md:h-32 top-[18%] right-[12%] md:right-[20%] text-lime"
+          className="absolute w-40 h-24 md:w-56 md:h-32 top-[18%] right-[12%] md:right-[20%] text-pink"
           viewBox="0 0 200 100"
           fill="none"
         >
@@ -27,11 +27,11 @@ export default function Hero() {
         </svg>
       </div>
 
-      <div className="relative w-full bg-orange text-ink overflow-hidden">
+      <div className="relative w-full bg-blue text-paper overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-[24px_1fr] md:grid-cols-[48px_1fr] gap-4 md:gap-8 py-14 md:py-20">
           <div className="hidden md:flex items-start justify-center">
             <span
-              className="text-xs font-semibold tracking-[0.2em] uppercase text-ink/60 whitespace-nowrap"
+              className="text-xs font-semibold tracking-[0.2em] uppercase text-paper/60 whitespace-nowrap"
               style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
             >
               Scroll Down
@@ -43,7 +43,7 @@ export default function Hero() {
               initial={{ opacity: 0, y: 12 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="flex flex-col gap-1.5 mb-6 text-xs font-semibold tracking-[0.15em] uppercase text-ink/60"
+              className="flex flex-col gap-1.5 mb-6 text-xs font-semibold tracking-[0.15em] uppercase text-paper/70"
             >
               <span>{scopeTags.join(' · ')}</span>
               <span>{locationTags.join(' · ')}</span>
@@ -77,7 +77,7 @@ export default function Hero() {
               {highlights.map((item) => (
                 <span
                   key={item}
-                  className="text-xs font-semibold uppercase tracking-wide bg-ink/10 border border-ink/15 rounded-full px-3 py-1.5"
+                  className="text-xs font-semibold uppercase tracking-wide bg-paper/15 border border-paper/25 rounded-full px-3 py-1.5"
                 >
                   {item}
                 </span>
@@ -92,13 +92,13 @@ export default function Hero() {
             >
               <a
                 href="#work"
-                className="inline-flex items-center rounded-full bg-ink text-lime px-6 py-3 text-sm font-semibold hover:bg-ink/85 transition-colors"
+                className="inline-flex items-center rounded-full bg-ink text-pink px-6 py-3 text-sm font-semibold hover:bg-ink/85 transition-colors"
               >
                 View Work
               </a>
               <a
                 href="#contact"
-                className="inline-flex items-center rounded-full border border-ink/40 px-6 py-3 text-sm font-semibold hover:border-ink hover:bg-ink/10 transition-colors"
+                className="inline-flex items-center rounded-full border border-paper/40 px-6 py-3 text-sm font-semibold hover:border-paper hover:bg-paper/10 transition-colors"
               >
                 Get in Touch
               </a>

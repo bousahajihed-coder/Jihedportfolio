@@ -5,8 +5,8 @@
   --font-display: "Archivo", ui-sans-serif, system-ui, -apple-system, sans-serif;
   --color-ink: #0a0a0a;
   --color-paper: #ffffff;
-  --color-orange: #f4511e;
-  --color-lime: #e2ff56;
+  --color-blue: #3654f2;
+  --color-pink: #ff3d9a;
 }
 
 html {
@@ -21,7 +21,7 @@ body {
 }
 
 ::selection {
-  background-color: var(--color-orange);
+  background-color: var(--color-blue);
   color: var(--color-paper);
 }
 

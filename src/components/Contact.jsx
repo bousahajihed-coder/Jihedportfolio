@@ -11,7 +11,7 @@ export default function Contact() {
     <section id="contact" className="relative w-full bg-ink text-paper py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6 md:px-10 text-center">
         <Reveal>
-          <p className="text-lime text-sm font-semibold tracking-[0.3em] uppercase mb-6">Contact</p>
+          <p className="text-pink text-sm font-semibold tracking-[0.3em] uppercase mb-6">Contact</p>
         </Reveal>
         <Reveal delay={0.05}>
           <h2 className="font-display font-black uppercase text-4xl md:text-6xl mb-6 max-w-2xl mx-auto leading-[1.05]">
@@ -27,7 +27,7 @@ export default function Contact() {
         <Reveal delay={0.15}>
           <a
             href="mailto:jihedbou@proton.me"
-            className="inline-flex items-center rounded-full bg-orange text-ink px-8 py-4 text-base font-semibold hover:bg-orange/90 transition-colors mb-14"
+            className="inline-flex items-center rounded-full bg-blue text-paper px-8 py-4 text-base font-semibold hover:bg-blue/90 transition-colors mb-14"
           >
             jihedbou@proton.me
           </a>

@@ -7,7 +7,7 @@ const links = [
 
 export default function Header() {
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-lime border-b border-ink/10">
+    <header className="fixed top-0 left-0 w-full z-50 bg-pink border-b border-ink/10">
       <div className="max-w-6xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
         <a
           href="#top"
@@ -26,7 +26,7 @@ export default function Header() {
         </nav>
         <a
           href="#contact"
-          className="text-sm font-semibold bg-ink text-lime rounded-full px-4 py-2 hover:bg-ink/80 transition-colors"
+          className="text-sm font-semibold bg-ink text-pink rounded-full px-4 py-2 hover:bg-ink/80 transition-colors"
         >
           Get in touch
         </a>
