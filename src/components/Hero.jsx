@@ -7,8 +7,6 @@ const highlights = ['6+ European Markets', '€50k–€500k+ Budgets', 'Brand A
 export default function Hero() {
   return (
     <section id="top" className="relative w-full pt-20">
-      <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden bg-ink" />
-
       <div className="relative w-full bg-blue text-paper overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-[24px_1fr] md:grid-cols-[48px_1fr] gap-4 md:gap-8 py-14 md:py-20">
           <div className="hidden md:flex items-start justify-center">
