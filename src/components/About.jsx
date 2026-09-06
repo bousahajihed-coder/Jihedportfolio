@@ -1,4 +1,5 @@
 import { motion } from 'framer-motion'
+import Counter from './Counter'
 import Reveal from './Reveal'
 import VerticalLabel from './VerticalLabel'
 
@@ -71,7 +72,7 @@ export default function About() {
             {stats.map((stat) => (
               <motion.div key={stat.label} variants={staggerItem} className="text-center md:text-left">
                 <div className="font-display font-black text-4xl md:text-5xl text-ink mb-1">
-                  {stat.value}
+                  <Counter value={stat.value} />
                 </div>
                 <div className="text-xs md:text-sm text-ink/50 tracking-wide uppercase font-semibold">
                   {stat.label}

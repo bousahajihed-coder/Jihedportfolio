@@ -1,3 +1,6 @@
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import { useState } from 'react'
+
 const links = [
   { label: 'Work', href: '#work' },
   { label: 'About', href: '#about' },
@@ -6,8 +9,22 @@ const links = [
 ]
 
 export default function Header() {
+  const { scrollY } = useScroll()
+  const [scrolled, setScrolled] = useState(false)
+
+  useMotionValueEvent(scrollY, 'change', (latest) => {
+    setScrolled(latest > 20)
+  })
+
   return (
-    <header className="fixed top-0 left-0 w-full z-50 bg-sky border-b border-ink/10">
+    <motion.header
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className={`fixed top-0 left-0 w-full z-50 bg-sky border-b transition-shadow duration-300 ${
+        scrolled ? 'border-ink/10 shadow-md' : 'border-transparent'
+      }`}
+    >
       <div className="max-w-6xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
         <a
           href="#top"
@@ -31,6 +48,6 @@ export default function Header() {
           Get in touch
         </a>
       </div>
-    </header>
+    </motion.header>
   )
 }

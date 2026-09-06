@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import { projects } from '../data/projects'
 import Reveal from './Reveal'
 import VerticalLabel from './VerticalLabel'
@@ -18,9 +19,13 @@ export default function Work() {
           <div className="grid sm:grid-cols-2 gap-8 md:gap-10">
             {projects.map((project) => (
               <Reveal key={project.video.id} y={32}>
-                <div className="relative aspect-video overflow-hidden rounded-xl bg-neutral-200">
+                <motion.div
+                  whileHover={{ y: -6 }}
+                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  className="relative aspect-video overflow-hidden rounded-xl bg-neutral-200"
+                >
                   <VideoEmbed video={project.video} />
-                </div>
+                </motion.div>
               </Reveal>
             ))}
           </div>
