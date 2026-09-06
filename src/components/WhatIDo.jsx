@@ -23,6 +23,16 @@ const roles = [
   },
 ]
 
+const skills = [
+  'Casting',
+  'Location Scouting',
+  'Vendor & Crew Management',
+  'Budget Management',
+  'Multi-Market Localization',
+  'Post-Production Coordination',
+  'Talent & Brand Ambassador Management',
+]
+
 const staggerContainer = {
   hidden: {},
   show: { transition: { staggerChildren: 0.1 } },
@@ -64,6 +74,24 @@ export default function WhatIDo() {
                 <h3 className="text-xl font-bold mt-4 mb-3">{role.title}</h3>
                 <p className="text-paper/60 leading-relaxed">{role.description}</p>
               </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div
+            variants={staggerContainer}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true, margin: '-80px' }}
+            className="flex flex-wrap gap-2 mt-8"
+          >
+            {skills.map((skill) => (
+              <motion.span
+                key={skill}
+                variants={cardItem}
+                className="text-xs font-semibold uppercase tracking-wide bg-ink/5 border border-ink/15 rounded-full px-3 py-1.5"
+              >
+                {skill}
+              </motion.span>
             ))}
           </motion.div>
         </div>
