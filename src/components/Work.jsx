@@ -15,24 +15,11 @@ export default function Work() {
             </h2>
           </Reveal>
 
-          <div className="space-y-20 md:space-y-28">
-            {projects.map((project, index) => (
-              <Reveal key={project.video.id} y={40}>
-                <div
-                  className={`flex flex-col gap-8 md:gap-14 items-center ${
-                    index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'
-                  }`}
-                >
-                  <div className="w-full md:w-7/12">
-                    <div className="relative aspect-video overflow-hidden rounded-xl bg-neutral-200">
-                      <VideoEmbed video={project.video} />
-                    </div>
-                  </div>
-                  <div className="w-full md:w-5/12">
-                    <span className="font-display font-black text-ink/20 text-5xl md:text-6xl tracking-widest">
-                      {String(index + 1).padStart(2, '0')}
-                    </span>
-                  </div>
+          <div className="grid sm:grid-cols-2 gap-8 md:gap-10">
+            {projects.map((project) => (
+              <Reveal key={project.video.id} y={32}>
+                <div className="relative aspect-video overflow-hidden rounded-xl bg-neutral-200">
+                  <VideoEmbed video={project.video} />
                 </div>
               </Reveal>
             ))}
