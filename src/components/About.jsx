@@ -70,7 +70,13 @@ export default function About() {
             className="grid grid-cols-3 gap-6 mb-20 border-y border-ink/10 py-10"
           >
             {stats.map((stat) => (
-              <motion.div key={stat.label} variants={staggerItem} className="text-center md:text-left">
+              <motion.div
+                key={stat.label}
+                variants={staggerItem}
+                whileHover={{ scale: 1.06 }}
+                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                className="text-center md:text-left cursor-default"
+              >
                 <div className="font-display font-black text-4xl md:text-5xl text-ink mb-1">
                   <Counter value={stat.value} />
                 </div>
@@ -98,7 +104,9 @@ export default function About() {
                 <motion.div
                   key={lang.name}
                   variants={staggerItem}
-                  className="flex items-center justify-between py-2 border-b border-ink/10"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
+                  className="flex items-center justify-between py-2 border-b border-ink/10 cursor-default"
                 >
                   <span className="font-semibold">{lang.name}</span>
                   <span className="text-sm text-ink/50">{lang.level}</span>
