@@ -1,3 +1,5 @@
+import { motion } from 'framer-motion'
+
 const items = [
   'PRODUCTION',
   'ASSISTANT PRODUCING',
@@ -12,7 +14,11 @@ export default function Marquee() {
 
   return (
     <div className="w-full bg-ink overflow-hidden py-4 border-y border-white/10">
-      <div className="flex whitespace-nowrap animate-marquee">
+      <motion.div
+        className="flex whitespace-nowrap w-max"
+        animate={{ x: ['0%', '-50%'] }}
+        transition={{ duration: 22, repeat: Infinity, ease: 'linear' }}
+      >
         {track.map((item, i) => (
           <span
             key={`${item}-${i}`}
@@ -22,7 +28,7 @@ export default function Marquee() {
             <span className="text-paper/30">/</span>
           </span>
         ))}
-      </div>
+      </motion.div>
     </div>
   )
 }
