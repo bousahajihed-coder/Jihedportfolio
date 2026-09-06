@@ -5,8 +5,6 @@ export const projects = [
   { video: { type: 'youtube', id: 'T5QEZyPRVy4' } },
   { video: { type: 'vimeo', id: '1006908953' } },
   { video: { type: 'youtube', id: 'oqRp-wob3Og' } },
-  { video: { type: 'youtube', id: 'dCa4yEeVoH4' } },
   { video: { type: 'youtube', id: 'oyGP2aYT_7o' } },
   { video: { type: 'youtube', id: 'ONnw3vMT4sw' } },
-  { video: { type: 'youtube', id: 'HRYnXCVYs3w' } },
 ]
