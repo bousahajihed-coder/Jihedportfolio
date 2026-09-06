@@ -1,3 +1,4 @@
+import AvailabilityBadge from './AvailabilityBadge'
 import Reveal from './Reveal'
 
 const socials = [
@@ -18,10 +19,13 @@ export default function Contact() {
           </h2>
         </Reveal>
         <Reveal delay={0.1}>
-          <p className="text-paper/60 text-base md:text-lg mb-10 max-w-xl mx-auto">
+          <p className="text-paper/60 text-base md:text-lg mb-6 max-w-xl mx-auto">
             Open to freelance and full-time producer opportunities, based in Berlin and available to
             travel for production.
           </p>
+        </Reveal>
+        <Reveal delay={0.12}>
+          <AvailabilityBadge className="justify-center text-paper/80 mb-10" />
         </Reveal>
         <Reveal delay={0.15}>
           <a
