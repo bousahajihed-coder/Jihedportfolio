@@ -3,7 +3,7 @@ import Reveal from './Reveal'
 
 const socials = [
   { label: 'LinkedIn', href: 'https://www.linkedin.com/in/jihed-bousaha-b8a691224/' },
-  { label: 'YouTube', href: 'https://youtube.com' },
+  { label: 'YouTube', href: 'https://www.youtube.com/@Jihedbouss' },
 ]
 
 export default function Contact() {
