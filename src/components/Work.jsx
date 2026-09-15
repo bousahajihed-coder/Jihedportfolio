@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { projects } from '../data/projects'
+import { categories } from '../data/projects'
 import Reveal from './Reveal'
 import VerticalLabel from './VerticalLabel'
 import VideoEmbed from './VideoEmbed'
@@ -16,17 +16,28 @@ export default function Work() {
             </h2>
           </Reveal>
 
-          <div className="grid sm:grid-cols-2 gap-8 md:gap-10">
-            {projects.map((project) => (
-              <Reveal key={project.video.id} y={32}>
-                <motion.div
-                  whileHover={{ y: -6 }}
-                  transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-                  className="relative aspect-video overflow-hidden rounded-xl bg-neutral-200"
-                >
-                  <VideoEmbed video={project.video} />
-                </motion.div>
-              </Reveal>
+          <div className="space-y-16 md:space-y-20">
+            {categories.map((category) => (
+              <div key={category.name}>
+                <Reveal>
+                  <h3 className="text-sm font-semibold tracking-[0.3em] uppercase text-ink/50 mb-6">
+                    {category.name}
+                  </h3>
+                </Reveal>
+                <div className="grid sm:grid-cols-2 gap-8 md:gap-10">
+                  {category.videos.map((video) => (
+                    <Reveal key={video.id} y={32}>
+                      <motion.div
+                        whileHover={{ y: -6 }}
+                        transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                        className="relative aspect-video overflow-hidden rounded-xl bg-neutral-200"
+                      >
+                        <VideoEmbed video={video} />
+                      </motion.div>
+                    </Reveal>
+                  ))}
+                </div>
+              </div>
             ))}
           </div>
         </div>
