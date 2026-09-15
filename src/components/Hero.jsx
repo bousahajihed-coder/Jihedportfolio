@@ -14,7 +14,7 @@ export default function Hero() {
   return (
     <section id="top" ref={ref} className="relative w-full pt-20">
       <motion.div style={{ opacity, y }} className="relative w-full bg-blue text-paper overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-[24px_1fr] md:grid-cols-[48px_1fr] gap-4 md:gap-8 py-14 md:py-20">
+        <div className="max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-[48px_1fr] gap-4 md:gap-8 py-14 md:py-20">
           <div className="hidden md:flex items-start justify-center">
             <span
               className="text-xs font-semibold tracking-[0.2em] uppercase text-paper/60 whitespace-nowrap"

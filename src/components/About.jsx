@@ -30,7 +30,7 @@ const staggerItem = {
 export default function About() {
   return (
     <section id="about" className="relative w-full bg-paper text-ink py-24 md:py-32">
-      <div className="max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-[24px_1fr] md:grid-cols-[48px_1fr] gap-4 md:gap-8">
+      <div className="max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-[48px_1fr] gap-4 md:gap-8">
         <VerticalLabel>About</VerticalLabel>
         <div>
           <div className="grid md:grid-cols-2 gap-12 md:gap-16 mb-20">
