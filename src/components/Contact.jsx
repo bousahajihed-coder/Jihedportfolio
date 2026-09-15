@@ -29,10 +29,10 @@ export default function Contact() {
         </Reveal>
         <Reveal delay={0.15}>
           <a
-            href="mailto:jihedbou@proton.me"
+            href="mailto:contact@jihedbousaha.com"
             className="inline-flex items-center rounded-full bg-blue text-paper px-8 py-4 text-base font-semibold hover:bg-blue/90 transition-colors mb-14"
           >
-            jihedbou@proton.me
+            contact@jihedbousaha.com
           </a>
         </Reveal>
 
