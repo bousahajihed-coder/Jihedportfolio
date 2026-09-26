@@ -1,0 +1,31 @@
+.site-footer {
+  background: var(--bg);
+  color: var(--fg);
+  border-top: 1px solid var(--line);
+  padding-block: var(--space-md);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+}
+
+.site-footer__tagline {
+  font-size: var(--fs-sm);
+  margin-right: auto;
+}
+
+.site-footer__nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+@media (max-width: 699px) {
+  .site-footer__inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

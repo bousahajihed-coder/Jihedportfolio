@@ -1,0 +1,65 @@
+.clients {
+  padding-top: 0;
+}
+
+.clients__header {
+  display: grid;
+  gap: var(--space-md);
+  padding-top: var(--space-xl);
+  border-top: 1px solid var(--line);
+  margin-bottom: var(--space-lg);
+}
+
+.clients__title {
+  font-size: var(--fs-lg);
+  max-width: 18ch;
+}
+
+.clients__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border-left: 1px solid var(--line);
+  border-top: 1px solid var(--line);
+}
+
+.clients__cell {
+  display: grid;
+  place-items: center;
+  aspect-ratio: 3 / 2;
+  padding: var(--space-md);
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.clients__cell img {
+  max-height: 2.5rem;
+  width: auto;
+  filter: grayscale(1);
+  opacity: 0.85;
+}
+
+/* Typographic stand-ins, deliberately varied like a real set of marks. */
+.clients__wordmark {
+  font-size: clamp(1rem, 1.8vw, 1.5rem);
+  color: var(--muted);
+  transition: color var(--dur-fast);
+}
+
+.clients__cell:hover .clients__wordmark {
+  color: var(--fg);
+}
+
+.clients__wordmark[data-variant='0'] { font-weight: 600; letter-spacing: 0.3em; }
+.clients__wordmark[data-variant='1'] { font-family: var(--font-display); font-size: clamp(1.4rem, 2.4vw, 2.1rem); font-style: italic; }
+.clients__wordmark[data-variant='2'] { font-weight: 400; letter-spacing: -0.03em; text-transform: lowercase; font-size: clamp(1.3rem, 2.2vw, 1.9rem); }
+.clients__wordmark[data-variant='3'] { font-family: var(--font-display); letter-spacing: 0.12em; }
+
+.clients__note {
+  margin-top: var(--space-sm);
+}
+
+@media (max-width: 699px) {
+  .clients__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,93 @@
+/* The header sits above every section and inverts against whatever is
+   beneath it, so it stays quiet on both light and dark chapters. */
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  height: var(--header-h);
+  color: #f2f0eb;
+  mix-blend-mode: difference;
+  pointer-events: none;
+}
+
+.site-header__inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-md);
+}
+
+.site-header__home,
+.site-header__nav,
+.site-header__toggle {
+  pointer-events: auto;
+}
+
+.site-header__nav ul {
+  display: flex;
+  gap: clamp(1.5rem, 3vw, 3rem);
+}
+
+.site-header__toggle {
+  display: none;
+  padding: 0.5rem 0;
+}
+
+@media (max-width: 899px) {
+  .site-header__nav {
+    display: none;
+  }
+
+  .site-header__toggle {
+    display: block;
+  }
+}
+
+/* Mobile menu --------------------------------------------------------------- */
+
+.mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  display: flex;
+  align-items: flex-end;
+  background: var(--bg);
+  color: var(--fg);
+  padding-block: calc(var(--header-h) + var(--space-md)) var(--space-md);
+}
+
+.mobile-menu[hidden] {
+  display: none;
+}
+
+.mobile-menu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
+}
+
+.mobile-menu__nav li {
+  border-top: 1px solid var(--line);
+  animation: menu-in var(--dur-base) var(--ease-out) both;
+  animation-delay: calc(var(--i) * 60ms);
+}
+
+.mobile-menu__nav li a {
+  display: block;
+  padding-block: 0.35rem 0.15rem;
+  font-size: clamp(3rem, 14vw, 5rem);
+}
+
+.mobile-menu__footer {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+@keyframes menu-in {
+  from {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+}

@@ -1,0 +1,28 @@
+.interlude {
+  position: relative;
+  min-height: 90vh;
+  min-height: 90svh;
+  display: flex;
+  align-items: center;
+  background: var(--bg);
+  color: var(--fg);
+  overflow: hidden;
+}
+
+.interlude__shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 17, 16, 0.35);
+}
+
+.interlude__content {
+  position: relative;
+}
+
+.interlude__quote {
+  max-width: 14ch;
+  margin-left: auto;
+  font-size: var(--fs-xxl);
+  font-style: italic;
+  text-wrap: balance;
+}

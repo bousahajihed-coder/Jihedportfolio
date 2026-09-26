@@ -1,0 +1,29 @@
+.intro {
+  padding-block: var(--space-xxl) var(--space-xl);
+}
+
+.intro__label {
+  grid-column: 1 / -1;
+  margin-bottom: var(--space-lg);
+}
+
+.intro__statement {
+  grid-column: 1 / span 11;
+  font-size: var(--fs-xl);
+  line-height: 1;
+  text-wrap: balance;
+}
+
+.intro__aside {
+  grid-column: 8 / span 4;
+  margin-top: var(--space-lg);
+  color: var(--muted);
+  max-width: 34ch;
+}
+
+@media (max-width: 899px) {
+  .intro__statement,
+  .intro__aside {
+    grid-column: 1 / -1;
+  }
+}

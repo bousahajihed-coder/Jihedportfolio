@@ -1,0 +1,116 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: flex-end;
+  background: var(--bg);
+  color: var(--fg);
+  overflow: hidden;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 0;
+}
+
+.hero__shade {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(17, 17, 16, 0.35) 0%, transparent 25%),
+    linear-gradient(0deg, rgba(17, 17, 16, 0.85) 0%, rgba(17, 17, 16, 0.2) 45%, transparent 70%);
+}
+
+.hero__content {
+  position: relative;
+  padding-block: calc(var(--header-h) + var(--space-lg)) var(--space-md);
+}
+
+.hero__eyebrow {
+  margin-bottom: var(--space-md);
+  color: var(--muted);
+  animation: hero-fade var(--dur-slow) var(--ease-out) 200ms both;
+}
+
+.hero__title {
+  font-size: var(--fs-mega);
+  margin-left: -0.04em;
+}
+
+/* Each line rises out of its own mask on load. */
+.hero__line {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.06em;
+}
+
+.hero__line > span {
+  display: block;
+  animation: hero-rise 1.3s var(--ease-out) both;
+  animation-delay: calc(300ms + var(--i) * 120ms);
+}
+
+.hero__line:last-child {
+  font-style: italic;
+}
+
+.hero__footer {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: end;
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+  padding-top: var(--space-sm);
+  border-top: 1px solid var(--line);
+  animation: hero-fade var(--dur-slow) var(--ease-out) 800ms both;
+}
+
+.hero__lede {
+  font-size: var(--fs-md);
+  line-height: var(--lh-snug);
+}
+
+.hero__reel {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--muted);
+}
+
+.hero__dot {
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+@keyframes hero-rise {
+  from {
+    transform: translateY(105%);
+  }
+}
+
+@keyframes hero-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@media (max-width: 699px) {
+  .hero__footer {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .hero__reel {
+    display: none;
+  }
+}
+
+.hero .media-placeholder__caption {
+  top: calc(var(--header-h) + 0.25rem);
+  right: var(--gutter);
+  bottom: auto;
+  left: auto;
+}
