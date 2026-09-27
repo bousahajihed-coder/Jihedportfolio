@@ -1,0 +1,92 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  font-family: var(--font-text);
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  letter-spacing: var(--tracking-meta);
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition:
+    color 0.6s var(--ease),
+    background-color 0.6s var(--ease),
+    border-color 0.6s var(--ease);
+}
+
+.btn__arrow {
+  display: inline-block;
+  font-size: 1.1em;
+  letter-spacing: 0;
+  transition: transform 0.6s var(--ease);
+}
+
+.btn:hover .btn__arrow,
+.btn:focus-visible .btn__arrow {
+  transform: translateX(0.35rem);
+}
+
+/* Link: underline that retracts and redraws on hover */
+.btn--link {
+  position: relative;
+  padding-bottom: 0.55rem;
+}
+
+.btn--link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.5;
+  transform-origin: right;
+  transition: transform 0.7s var(--ease), background-color 0.4s, opacity 0.4s;
+}
+
+.btn--link:hover::after,
+.btn--link:focus-visible::after {
+  animation: btn-underline 0.9s var(--ease);
+  background: var(--accent, var(--copper));
+  opacity: 1;
+}
+
+@keyframes btn-underline {
+  0% { transform: scaleX(1); transform-origin: right; }
+  45% { transform: scaleX(0); transform-origin: right; }
+  46% { transform: scaleX(0); transform-origin: left; }
+  100% { transform: scaleX(1); transform-origin: left; }
+}
+
+/* Outline: hard-edged frame */
+.btn--outline {
+  min-height: 3.5rem;
+  padding: 0 1.75rem;
+  border: 1px solid currentColor;
+}
+
+.btn--outline:hover,
+.btn--outline:focus-visible {
+  border-color: var(--accent, var(--copper));
+  color: var(--accent, var(--copper));
+}
+
+/* Solid: filled in the text colour of the surface */
+.btn--solid {
+  min-height: 3.75rem;
+  padding: 0 2rem;
+  background: var(--ivory);
+  color: var(--black);
+}
+
+.btn--solid:hover,
+.btn--solid:focus-visible {
+  background: var(--orange);
+  color: var(--ivory);
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: progress;
+}

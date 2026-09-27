@@ -2,24 +2,25 @@ import { useEffect, useRef, useState } from 'react'
 import { services } from '../../content/services'
 import { servicesIntro } from '../../content/home'
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion'
+import Button from '../ui/Button'
 import Headline from '../ui/Headline'
 import Media from '../ui/Media'
-import PillButton from '../ui/PillButton'
-import ServiceMark from '../ui/ServiceMark'
+import Reveal from '../ui/Reveal'
+import SectionLabel from '../ui/SectionLabel'
 import './Services.css'
 
 const clamp = (v, min, max) => Math.min(max, Math.max(min, v))
 
 // Scroll-driven showcase. The track is tall; the stage inside it sticks to
-// the viewport. Scrolling first grows the stage from an inset panel to full
-// screen (`grow` 0 → 1), then steps through one service per viewport height.
+// the viewport. Scrolling first opens the stage from an inset frame to full
+// screen (`grow` 0 → 1), then steps through one service per viewport height,
+// dissolving slowly between stills.
 export default function Services() {
   const trackRef = useRef(null)
+  const tabsRef = useRef(null)
   const reduced = usePrefersReducedMotion()
   const [grow, setGrow] = useState(0)
   const [index, setIndex] = useState(0)
-  const [wipe, setWipe] = useState({ key: 0, dir: 1 })
-  const prevIndex = useRef(0)
 
   useEffect(() => {
     let raf
@@ -46,12 +47,13 @@ export default function Services() {
     }
   }, [])
 
-  // Trigger the colour wipe whenever the active service changes.
+  // On narrow screens the tab row scrolls sideways: keep the active tab in view.
   useEffect(() => {
-    if (index === prevIndex.current) return
-    setWipe((w) => ({ key: w.key + 1, dir: index > prevIndex.current ? 1 : -1 }))
-    prevIndex.current = index
-  }, [index])
+    const row = tabsRef.current
+    const tab = row?.children[index]
+    if (!row || !tab || row.scrollWidth <= row.clientWidth) return
+    row.scrollTo({ left: tab.offsetLeft - row.clientWidth / 2 + tab.offsetWidth / 2, behavior: reduced ? 'auto' : 'smooth' })
+  }, [index, reduced])
 
   // Jump to a service: scroll the page to that service's position.
   const goTo = (i) => {
@@ -65,26 +67,22 @@ export default function Services() {
   const g = reduced ? 1 : grow
 
   return (
-    <section id="services" className="services" aria-labelledby="services-title">
+    <section id="services" className="services surface-dark" aria-labelledby="services-title">
       <div className="services__intro container">
-        <Headline id="services-title" className="services__title" lines={[{ text: servicesIntro.title }]} />
+        <Reveal>
+          <SectionLabel index={2}>{servicesIntro.label}</SectionLabel>
+        </Reveal>
+        <Headline id="services-title" className="services__title" lines={servicesIntro.title} />
       </div>
-      <div className="services__band" aria-hidden="true" />
 
       <div className="services__track" ref={trackRef} style={{ height: `${services.length * 100 + 70}vh` }}>
-        {/* Anchors so menu links can jump to each service */}
+        {/* Anchors so menu and index links can jump to each service */}
         {services.map((s, i) => (
           <span key={s.id} id={`service-${s.id}`} className="services__anchor" style={{ top: `calc(${70 + i * 100}vh + 2px)` }} />
         ))}
 
         <div className="services__sticky">
-          <div
-            className="services__stage"
-            style={{
-              '--g': g,
-              clipPath: `inset(${(1 - g) * 22}% 0 0 ${(1 - g) * 27}%)`,
-            }}
-          >
+          <div className="services__stage" style={{ '--g': g, clipPath: `inset(${(1 - g) * 14}% ${(1 - g) * 8}% 0 ${(1 - g) * 27}%)` }}>
             {services.map((s, i) => (
               <article
                 key={s.id}
@@ -92,39 +90,33 @@ export default function Services() {
                 aria-hidden={i !== index}
                 {...(i !== index && { inert: '' })}
               >
-                <Media fill scene={s.scene} image={s.media?.image} video={s.media?.video} caption={`${s.name} — placeholder`} />
+                <Media fill scene={s.scene} image={s.media?.image} video={s.media?.video} caption={`${s.name} — placeholder still`} />
                 <div className="service-slide__shade" aria-hidden="true" />
                 <div className="service-slide__content container">
-                  <h3 className="service-slide__mark">
-                    <ServiceMark service={s} size="lg" />
-                  </h3>
+                  <p className="service-slide__index label">{String(i + 1).padStart(2, '0')} — {s.summary}</p>
+                  <h3 className="service-slide__title">{s.name}</h3>
                   <p className="service-slide__text">{s.text}</p>
-                  <PillButton href="#contact">Discover more</PillButton>
+                  <Button href="#contact">Discuss a project</Button>
                 </div>
               </article>
             ))}
 
-            {!reduced && (
-              <div key={wipe.key} className={`services__wipe ${wipe.key ? 'is-running' : ''}`} data-dir={wipe.dir} aria-hidden="true">
-                <span />
-                <span />
-              </div>
-            )}
-
-            <p className="services__counter" aria-live="polite">
+            <p className="services__counter label" aria-live="polite">
               <span className="visually-hidden">Service </span>
-              {String(index + 1).padStart(2, '0')}/{String(services.length).padStart(2, '0')}
+              <span className="services__counter-current">{String(index + 1).padStart(2, '0')}</span>
+              <span className="services__counter-rule" aria-hidden="true" />
+              {String(services.length).padStart(2, '0')}
               <span className="visually-hidden">: {current.name}</span>
             </p>
 
-            <div className="services__tabs container" role="tablist" aria-label="Services">
+            <div ref={tabsRef} className="services__tabs container" role="tablist" aria-label="Services">
               {services.map((s, i) => (
                 <button
                   key={s.id}
                   type="button"
                   role="tab"
                   aria-selected={i === index}
-                  className={`services__tab ${i === index ? 'is-active' : ''}`}
+                  className={`services__tab label ${i === index ? 'is-active' : ''}`}
                   onClick={() => goTo(i)}
                 >
                   {s.name}

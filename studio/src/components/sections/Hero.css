@@ -1,107 +1,165 @@
+/* Full-screen opening. The image settles slowly out of black like the
+   first shot of a film; type arrives after it. */
 .hero {
   position: relative;
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
   overflow: hidden;
-  background: var(--black);
 }
 
 .hero__media {
   position: absolute;
   inset: 0;
-  animation: hero-zoom 2.4s var(--ease) both;
+  animation: hero-settle 3.6s var(--ease) both;
 }
 
 .hero__shade {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.2) 40%, rgba(0, 0, 0, 0.55) 100%);
+    linear-gradient(180deg, rgba(11, 11, 10, 0.55) 0%, rgba(11, 11, 10, 0.05) 30%, rgba(11, 11, 10, 0.1) 55%, rgba(11, 11, 10, 0.82) 100%);
+}
+
+/* Black leader that lifts on load */
+.hero__fade {
+  position: absolute;
+  inset: 0;
+  background: var(--black);
+  pointer-events: none;
+  animation: hero-lift 2.2s var(--ease-in-out) 0.1s both;
 }
 
 .hero__content {
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 3rem;
-  padding-block: calc(var(--header-h) + clamp(3rem, 9vh, 8rem)) clamp(2rem, 5vh, 4rem);
+  padding-block: calc(var(--header-h) + clamp(1.5rem, 4vh, 3rem)) clamp(2rem, 6vh, 4rem);
+}
+
+.hero__meta {
+  display: flex;
+  gap: 2rem;
+  color: var(--grey);
+  animation: hero-in 1.6s var(--ease) 1.4s both;
+}
+
+.hero__meta span + span::before {
+  content: '';
+  display: inline-block;
+  width: 1.25rem;
+  height: 1px;
+  margin: 0 2rem 0.25em 0;
+  vertical-align: middle;
+  background: var(--rule-dark);
 }
 
 .hero__title {
+  margin-top: auto;
   font-size: var(--fs-hero);
-  --headline-delay: 300ms;
+  --headline-delay: 900ms;
 }
 
 .hero__footer {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 2rem;
-  animation: hero-fade 1.2s var(--ease) 0.9s both;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 2rem 4rem;
+  margin-top: clamp(2.5rem, 6vh, 4.5rem);
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--rule-dark);
+  animation: hero-in 1.6s var(--ease) 1.8s both;
 }
 
 .hero__text {
-  max-width: 34em;
-  font-size: var(--fs-lead);
-  line-height: 1.4;
+  max-width: 32em;
+  color: rgba(242, 240, 233, 0.82);
+  font-size: var(--fs-body);
+  line-height: 1.6;
 }
 
 .hero__actions {
   display: flex;
   align-items: center;
-  gap: clamp(1rem, 2.4vw, 3rem);
-  flex: none;
+  gap: clamp(1.5rem, 3vw, 3.5rem);
 }
 
 .hero__play {
-  display: grid;
-  place-items: center;
-  width: 3.75rem;
-  height: 3.75rem;
-  border: 1.5px solid var(--white);
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 0.55rem;
+  transition: color 0.5s;
+}
+
+.hero__play-icon {
+  position: relative;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin-block: -1rem;
+  border: 1px solid var(--rule-dark);
   border-radius: 50%;
-  transition: background-color 0.4s var(--ease), color 0.4s var(--ease), transform 0.4s var(--ease);
+  transition: border-color 0.6s var(--ease);
+}
+
+.hero__play-icon::after {
+  content: '';
+  position: absolute;
+  left: 52%;
+  top: 50%;
+  border-left: 0.45rem solid currentColor;
+  border-top: 0.3rem solid transparent;
+  border-bottom: 0.3rem solid transparent;
+  transform: translate(-50%, -50%);
 }
 
 .hero__play:hover,
 .hero__play:focus-visible {
-  background: var(--white);
-  color: var(--ink);
-  transform: scale(1.06);
+  color: var(--copper);
 }
 
-.hero__play-icon {
-  width: 0;
-  height: 0;
-  margin-left: 0.25rem;
-  border-left: 1.1rem solid currentColor;
-  border-top: 0.7rem solid transparent;
-  border-bottom: 0.7rem solid transparent;
-}
-
-@keyframes hero-zoom {
-  from {
-    transform: scale(1.12);
-  }
-}
-
-@keyframes hero-fade {
-  from {
-    opacity: 0;
-    transform: translateY(1.5rem);
-  }
-}
-
-@media (max-width: 899px) {
-  .hero__footer {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.hero__play:hover .hero__play-icon,
+.hero__play:focus-visible .hero__play-icon {
+  border-color: var(--copper);
 }
 
 .hero .media-placeholder__caption {
   top: auto;
   bottom: 0.9rem;
+}
+
+@keyframes hero-settle {
+  from {
+    transform: scale(1.06);
+  }
+}
+
+@keyframes hero-lift {
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes hero-in {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+}
+
+@media (max-width: 899px) {
+  .hero__footer {
+    grid-template-columns: 1fr;
+  }
+
+  .hero__actions {
+    flex-wrap: wrap;
+    gap: 1.5rem 2rem;
+  }
+}
+
+@media (max-width: 559px) {
+  .hero__meta span:last-child {
+    display: none;
+  }
 }

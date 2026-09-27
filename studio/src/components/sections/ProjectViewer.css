@@ -7,12 +7,12 @@
   padding: 0;
   border: 0;
   background: var(--black);
-  color: var(--white);
+  color: var(--ivory);
   overflow-y: auto;
 }
 
 .viewer::backdrop {
-  background: #000;
+  background: var(--black);
 }
 
 .viewer[open] {
@@ -45,7 +45,7 @@
   aspect-ratio: 16 / 9;
   width: min(100%, calc((100svh - var(--header-h) * 2) * 16 / 9));
   margin-inline: auto;
-  background: #000;
+  background: var(--black);
 }
 
 .viewer__frame > video,
@@ -65,27 +65,32 @@
 }
 
 .viewer dt {
-  color: var(--gray);
+  color: var(--grey);
+  margin-bottom: 0.3rem;
+}
+
+.viewer__bar {
+  border-bottom: 1px solid var(--rule-dark);
 }
 
 .viewer__bar button {
-  font-size: var(--fs-small);
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+  color: var(--grey);
+  transition: color 0.4s;
 }
 
-.viewer__bar button:hover {
-  color: var(--lime);
+.viewer__bar button:hover,
+.viewer__bar button:focus-visible {
+  color: var(--copper);
 }
 
 .viewer__title {
   grid-column: 1 / span 7;
-  font-size: var(--fs-title);
-  font-weight: 800;
-  line-height: 1;
+  font-family: var(--font-display);
+  font-size: var(--fs-feature);
+  font-weight: 300;
+  line-height: 0.98;
   text-transform: uppercase;
-  letter-spacing: -0.03em;
+  letter-spacing: var(--tracking-display);
 }
 
 .viewer__facts {

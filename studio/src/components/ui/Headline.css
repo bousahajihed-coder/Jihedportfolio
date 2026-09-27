@@ -1,28 +1,35 @@
+/* Oversized uppercase display headline. Most lines are set light; lines
+   marked `bold` step up to a medium weight for emphasis — contrast by
+   weight, not by size or colour. */
 .headline {
+  font-family: var(--font-display);
   font-weight: 300;
-  line-height: 0.95;
-  letter-spacing: -0.02em;
+  line-height: 0.93;
+  letter-spacing: var(--tracking-display);
   text-transform: uppercase;
 }
 
 .headline__line {
   display: block;
   overflow: hidden;
-  padding-block: 0.02em 0.06em;
+  padding-block: 0.03em 0.07em;
 }
 
 .headline__line > span {
   display: block;
-  transform: translate3d(0, 110%, 0);
-  transition: transform 1.1s var(--ease);
-  transition-delay: calc(var(--i) * 90ms + var(--headline-delay, 0ms));
+  transform: translate3d(0, 105%, 0);
+  opacity: 0;
+  transition:
+    transform 1.4s var(--ease),
+    opacity 1.4s var(--ease);
+  transition-delay: calc(var(--i) * 110ms + var(--headline-delay, 0ms));
 }
 
 .headline.is-in .headline__line > span {
   transform: none;
+  opacity: 1;
 }
 
 .headline__line.is-bold {
-  font-weight: 800;
-  letter-spacing: -0.035em;
+  font-weight: 500;
 }

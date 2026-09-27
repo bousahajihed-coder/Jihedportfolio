@@ -2,11 +2,13 @@ import { clients } from '../../content/clients'
 import { clientsIntro } from '../../content/home'
 import './Clients.css'
 
-// Endless client marquee. The list is rendered twice so the loop is seamless.
+// Slow, endless line of client names. Rendered twice for a seamless loop.
 export default function Clients() {
   return (
-    <section className="clients" aria-label={clientsIntro.label}>
-      <p className="label clients__label container">{clientsIntro.label}</p>
+    <section className="clients surface-light" aria-label={clientsIntro.label}>
+      <div className="container">
+        <p className="label text-2 clients__label">{clientsIntro.label}</p>
+      </div>
       <div className="clients__marquee">
         {[0, 1].map((copy) => (
           <ul key={copy} className="clients__row" aria-hidden={copy === 1}>

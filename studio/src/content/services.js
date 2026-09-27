@@ -1,61 +1,52 @@
-// The five services shown in the full-screen scroll slider and the menu.
-// `accent` colors the service mark; `scene` picks a placeholder image.
-// Add media: { image: { src, alt } } or { video: { src, type } }.
+// What the studio makes. Drives the intro index, the pinned service slider,
+// the menu, the contact form and the footer. Filler descriptions.
+//   `scene` picks a placeholder still until `media` is set:
+//   media: { image: { src, alt } } or { video: { src, type } }
 
 export const services = [
   {
-    id: 'image-films',
-    name: 'Image Films',
-    short: 'Image Films',
-    mark: 'triangle',
-    accent: '#ffffff',
+    id: 'films',
+    name: 'Films',
+    summary: 'Image films and corporate films',
+    text:
+      'Placeholder description. Image and corporate films that introduce a company to the world — built around one clear idea, shot with the care of a feature.',
+    scene: 'interior',
+    media: null,
+  },
+  {
+    id: 'editorial',
+    name: 'Editorial',
+    summary: 'Series, interviews and editorial content',
+    text:
+      'Placeholder description. Editorial series and interview formats that give companies a voice people want to follow, week after week.',
+    scene: 'portrait',
+    media: null,
+  },
+  {
+    id: 'brand-stories',
+    name: 'Brand Stories',
+    summary: 'Brand films, founder and company stories',
+    text:
+      'Placeholder description. Brand films, founder portraits and company stories — the people, decisions and convictions behind the name.',
     scene: 'studio',
-    text:
-      'Placeholder description. The film that introduces a company to the world, built around one clear idea instead of a list of facts.',
-    media: null,
-  },
-  {
-    id: 'founders',
-    name: 'Founders',
-    short: 'Founders',
-    mark: 'circle',
-    accent: '#ff5a36',
-    scene: 'crew',
-    text:
-      'Placeholder description. Portraits of the people behind the idea — honest, personal and specific.',
-    media: null,
-  },
-  {
-    id: 'products',
-    name: 'Products',
-    short: 'Products',
-    mark: 'diamond',
-    accent: '#6a2bff',
-    scene: 'network',
-    text:
-      'Placeholder description. Product films that go beyond features: the problem, the craft and the people who use it.',
     media: null,
   },
   {
     id: 'documentaries',
     name: 'Documentaries',
-    short: 'Docs',
-    mark: 'square',
-    accent: '#c8203a',
-    scene: 'event',
+    summary: 'Long-form and observational documentary',
     text:
-      'Placeholder description. Long-form, observational films for stories that deserve more than ninety seconds.',
+      'Placeholder description. Observational, long-form documentary made over weeks or months, for stories that deserve time.',
+    scene: 'landscape',
     media: null,
   },
   {
-    id: 'social',
-    name: 'Social',
-    short: 'Social',
-    mark: 'bars',
-    accent: '#0b0b0b',
-    scene: 'landscape',
+    id: 'production',
+    name: 'Production',
+    summary: 'International production services',
     text:
-      'Placeholder description. Series and cut-downs designed for the platforms your audience actually uses.',
+      'Placeholder description. Production services across Europe and beyond: crews, permits, locations and post-production, handled end to end.',
+    scene: 'crew',
     media: null,
   },
 ]

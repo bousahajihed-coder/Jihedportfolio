@@ -52,36 +52,44 @@ export default function Header() {
 
           <nav className="site-header__nav" aria-label="Primary">
             <ul>
-              <li>
-                <button
-                  ref={toggleRef}
-                  type="button"
-                  className="site-header__link site-header__menu-btn"
-                  aria-expanded={open}
-                  aria-controls="site-menu"
-                  onClick={() => setOpen((v) => !v)}
-                >
-                  <span className="site-header__menu-label">{open ? 'Close' : 'Services'}</span>
-                  <span className={`burger ${open ? 'is-open' : ''}`} aria-hidden="true">
-                    <span />
-                    <span />
-                    <span />
-                  </span>
-                </button>
-              </li>
-              {site.nav.map((item) => (
-                <li key={item.href} className="site-header__desktop-only">
-                  <a className="site-header__link" href={item.href}>
-                    {item.label}
-                  </a>
-                </li>
-              ))}
+              {site.nav.map((item) =>
+                item.menu ? (
+                  <li key={item.href}>
+                    <button
+                      ref={toggleRef}
+                      type="button"
+                      className="site-header__link label"
+                      aria-expanded={open}
+                      aria-controls="site-menu"
+                      onClick={() => setOpen((v) => !v)}
+                    >
+                      <span>{open ? 'Close' : item.label}</span>
+                      <span className={`burger ${open ? 'is-open' : ''}`} aria-hidden="true">
+                        <span />
+                        <span />
+                      </span>
+                    </button>
+                  </li>
+                ) : (
+                  <li key={item.href} className="site-header__desktop-only">
+                    <a className="site-header__link label" href={item.href}>
+                      {item.label}
+                    </a>
+                  </li>
+                ),
+              )}
             </ul>
           </nav>
         </div>
       </header>
 
-      <div id="site-menu" ref={menuRef} className={`site-menu ${open ? 'is-open' : ''}`} aria-hidden={!open} {...(!open && { inert: '' })}>
+      <div
+        id="site-menu"
+        ref={menuRef}
+        className={`site-menu ${open ? 'is-open' : ''}`}
+        aria-hidden={!open}
+        {...(!open && { inert: '' })}
+      >
         <div className="site-menu__inner container">
           <div className="site-menu__col">
             <p className="label site-menu__label">Services</p>
@@ -89,25 +97,26 @@ export default function Header() {
               {services.map((s, i) => (
                 <li key={s.id} style={{ '--i': i }}>
                   <a href={`#service-${s.id}`} onClick={close}>
-                    <span className="site-menu__index">{String(i + 1).padStart(2, '0')}</span>
-                    {s.name}
+                    <span className="site-menu__index label">{String(i + 1).padStart(2, '0')}</span>
+                    <span className="site-menu__name">{s.name}</span>
+                    <span className="site-menu__summary">{s.summary}</span>
                   </a>
                 </li>
               ))}
             </ul>
           </div>
           <div className="site-menu__col site-menu__col--side">
-            <p className="label site-menu__label">Menu</p>
+            <p className="label site-menu__label">Studio</p>
             <ul className="site-menu__links">
-              {site.nav.map((item, i) => (
-                <li key={item.href} style={{ '--i': i + 2 }}>
+              {[...site.nav.filter((n) => !n.menu), ...site.secondaryNav].map((item, i) => (
+                <li key={item.href} style={{ '--i': i + 3 }}>
                   <a href={item.href} onClick={close}>
                     {item.label}
                   </a>
                 </li>
               ))}
             </ul>
-            <div className="site-menu__contact" style={{ '--i': 7 }}>
+            <div className="site-menu__contact" style={{ '--i': 8 }}>
               <a href={`mailto:${site.email}`}>{site.email}</a>
               <span>{site.offices.join(' · ')}</span>
             </div>

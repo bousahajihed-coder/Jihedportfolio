@@ -13,12 +13,13 @@ html {
 body {
   margin: 0;
   background: var(--black);
-  color: var(--white);
-  font-family: var(--font);
+  color: var(--ivory);
+  font-family: var(--font-text);
   font-size: var(--fs-body);
-  line-height: 1.55;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body.is-locked {
@@ -56,9 +57,35 @@ button {
   cursor: pointer;
 }
 
+::selection {
+  background: var(--orange);
+  color: var(--ivory);
+}
+
 :focus-visible {
-  outline: 2px solid var(--lime);
-  outline-offset: 3px;
+  outline: 1px solid var(--copper);
+  outline-offset: 4px;
+}
+
+/* Surfaces ----------------------------------------------------------------
+   Sections alternate between the dark "screening room" and the ivory
+   "page". Set one of these on a section; children inherit the right
+   text and rule colours. */
+
+.surface-dark {
+  background: var(--black);
+  color: var(--ivory);
+  --text-2: var(--grey);
+  --rule: var(--rule-dark);
+  --accent: var(--copper);
+}
+
+.surface-light {
+  background: var(--ivory);
+  color: var(--black);
+  --text-2: var(--grey-dark);
+  --rule: var(--rule-light);
+  --accent: var(--orange);
 }
 
 .container {
@@ -68,11 +95,46 @@ button {
   padding-inline: var(--gutter);
 }
 
+/* Type primitives --------------------------------------------------------- */
+
+/* Metadata, navigation, labels: small, uppercase, widely tracked */
 .label {
-  font-size: var(--fs-small);
-  font-weight: 700;
-  letter-spacing: 0.08em;
+  font-family: var(--font-text);
+  font-size: var(--fs-meta);
+  font-weight: 500;
+  letter-spacing: var(--tracking-meta);
   text-transform: uppercase;
+  line-height: 1.4;
+}
+
+/* Chapter marker: "01 — Studio" with a hairline running to the edge */
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  color: var(--text-2);
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--rule);
+}
+
+.section-label__index {
+  color: var(--accent);
+  font-variant-numeric: tabular-nums;
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: 1.5;
+  letter-spacing: -0.005em;
+}
+
+.text-2 {
+  color: var(--text-2);
 }
 
 .visually-hidden {
@@ -90,8 +152,8 @@ button {
   left: 0.75rem;
   z-index: 200;
   padding: 0.75rem 1rem;
-  background: var(--white);
-  color: var(--ink);
+  background: var(--ivory);
+  color: var(--black);
   transform: translateY(-200%);
 }
 
@@ -99,14 +161,15 @@ button {
   transform: none;
 }
 
-/* Reveal system ------------------------------------------------------------ */
+/* Reveal system ------------------------------------------------------------
+   Opacity plus a short rise. Deliberately slow and small. */
 
 .reveal {
   opacity: 0;
-  transform: translate3d(0, 2.5rem, 0);
+  transform: translate3d(0, 1.25rem, 0);
   transition:
-    opacity var(--dur) var(--ease),
-    transform var(--dur) var(--ease);
+    opacity var(--dur-slow) var(--ease),
+    transform var(--dur-slow) var(--ease);
   transition-delay: var(--reveal-delay, 0ms);
 }
 

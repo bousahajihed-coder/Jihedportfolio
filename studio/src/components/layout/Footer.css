@@ -1,7 +1,7 @@
 .site-footer {
-  background: var(--black);
   padding-block: clamp(4rem, 10vh, 7rem) 2rem;
-  font-size: var(--fs-small);
+  border-top: 1px solid var(--rule-dark);
+  font-size: var(--fs-body);
 }
 
 .site-footer__top {
@@ -11,37 +11,43 @@
 }
 
 .site-footer__brand p {
-  margin-top: 1rem;
-  color: var(--gray);
+  margin-top: 1.25rem;
   max-width: 22em;
 }
 
 .site-footer .label {
-  color: var(--gray);
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .site-footer__col ul {
   display: grid;
-  gap: 0.5rem;
+  gap: 0.45rem;
 }
 
-.site-footer__col a:hover {
-  color: var(--lime);
+.site-footer a {
+  transition: color 0.4s;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+  color: var(--copper);
 }
 
 .site-footer__socials {
-  margin-top: 1.25rem;
+  margin-top: 1.5rem;
 }
 
 .site-footer__bottom {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: clamp(3rem, 8vh, 5rem);
+  margin-top: clamp(3.5rem, 9vh, 6rem);
   padding-top: 1.5rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
-  color: var(--gray);
+  border-top: 1px solid var(--rule-dark);
+}
+
+.site-footer__bottom.label {
+  margin-bottom: 0;
 }
 
 @media (max-width: 899px) {

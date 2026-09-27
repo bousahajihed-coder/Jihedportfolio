@@ -1,14 +1,29 @@
 # Studio website — Phase 1
 
-Homepage prototype. Its layout, palette and motion follow the reference
-screenshots. All wording is filler, all imagery is placeholder and all client
-and service names are fictional, ready to be replaced.
+Homepage prototype for a European film and production studio. Art
+direction: cinematic and editorial: black and ivory surfaces, warm grey
+metadata, burnt orange and copper used only as accents. All wording is
+filler, imagery is placeholder and client names are fictional.
 
-Page order: hero (background video) → intro with service card → blue
-"Services" title → pinned full-screen service slider (scroll steps through
-the services with a counter, tabs and colour wipes) → Our Work grid →
-About + Careers → client marquee → Contact → footer. "Services ☰" in the
-header opens a full-screen menu.
+Page order (each section is a numbered chapter):
+hero (full-screen film opening) → 01 Studio: statement + index of
+disciplines → 02 Services: pinned full-screen slider (one discipline per
+scroll step, slow dissolves, counter and tabs) → 03 Selected work: large
+editorial gallery → 04 About + Careers → client marquee → 05 Contact →
+footer. "Services" in the header opens a full-screen menu.
+
+## Design system
+
+- **Surfaces:** add `surface-dark` or `surface-light` to a section. It sets
+  the background, text, secondary text (`--text-2`), hairlines (`--rule`)
+  and accent (`--accent`) for everything inside.
+- **Type roles** (`tokens.css`): `--fs-hero`, `--fs-section`,
+  `--fs-feature`, `--fs-project`, `--fs-lead`, `--fs-body`, `--fs-meta`.
+  Display type is Inter Tight (uppercase, light, one medium emphasis line);
+  body and metadata are Inter.
+- **Components:** `Headline` (masked line reveals), `SectionLabel`
+  (chapter marker with hairline), `Button` (`link` / `outline` / `solid`,
+  all hard-edged), `Media` (image, video or placeholder still).
 
 ```bash
 cd studio
@@ -28,7 +43,7 @@ animation libraries.
 | Colors, fonts, type scale, spacing | `src/styles/tokens.css`               |
 | Webfont loading                    | `index.html` (`<link>` to the fonts)  |
 | Projects (Selected Work + viewer)  | `src/content/projects.js`             |
-| Services (slider, menu, footer)    | `src/content/services.js`             |
+| Disciplines (index, slider, menu)  | `src/content/services.js`             |
 | Client marquee                     | `src/content/clients.js`              |
 | All other homepage copy            | `src/content/home.js`                 |
 
@@ -53,15 +68,14 @@ form opens the visitor's mail client with the message pre-filled.
 
 ### Motion
 
-- Hero: background slowly settles from a zoom; headline lines rise in.
-- Headlines everywhere: each line rises out of a mask when scrolled into view.
-- Intro: background blocks drift at different speeds (parallax); the card's
-  accent border pulses.
-- Services: the panel grows from an inset frame to full screen, then each
-  scroll step swaps the service with a blue/indigo wipe.
-- Work tiles: staggered reveal, image zoom and arrow on hover.
-- Buttons: fill rises and the label rolls on hover.
-- Client names scroll in an endless marquee.
+- Hero: fades up from black, the image settles slowly, headline lines rise.
+- Headlines: each line rises out of a mask when scrolled into view.
+- Studio index: numbers turn to the accent, titles shift, arrow appears.
+- Services: the frame opens to full screen, then stills dissolve slowly
+  from one discipline to the next; a copper line marks the active tab.
+- Work: slow push-in and a small exposure lift on hover.
+- Links: underline retracts and redraws in the accent colour.
+- Client names drift in a slow marquee.
 
 Timing lives in the `--ease*` / `--dur` tokens. Everything is disabled
 under `prefers-reduced-motion`.

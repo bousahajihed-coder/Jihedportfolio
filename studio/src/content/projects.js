@@ -1,19 +1,19 @@
-// Work grid + project viewer. Fictional clients only — replace with real
+// Selected work. Fictional clients and filler titles — replace with real
 // work once permission is confirmed.
 //
-//   thumbnail: { src, alt }                 tile image
-//   logo:      { src, alt }                 client logo (white) on the tile
+//   thumbnail: { src, alt }                 still for the gallery
+//   logo:      { src, alt }                 optional client logo
 //   video:     { type: 'file', src } | { type: 'vimeo' | 'youtube', id }
-//   scene:     placeholder image style while no thumbnail is set
+//   scene:     placeholder still while no thumbnail is set
 
 export const projects = [
-  { id: 'nova', client: 'NOVA', title: 'Placeholder project title', service: 'Founders', year: 2026, duration: '04:20', scene: 'night', logoStyle: 'crest', description: 'Placeholder description of the project in one or two sentences.' },
-  { id: 'form', client: 'FORM', title: 'Placeholder project title', service: 'Products', year: 2026, duration: '02:10', scene: 'metal', logoStyle: 'ring', description: 'Placeholder description of the project in one or two sentences.' },
-  { id: 'atlas', client: 'ATLAS', title: 'Placeholder project title', service: 'Image Films', year: 2025, duration: '03:00', scene: 'dusk', logoStyle: 'serif', description: 'Placeholder description of the project in one or two sentences.' },
-  { id: 'kin', client: 'KIN', title: 'Placeholder project title', service: 'Documentaries', year: 2025, duration: '18:40', scene: 'interior', logoStyle: 'block', description: 'Placeholder description of the project in one or two sentences.' },
-  { id: 'motion', client: 'MOTION', title: 'Placeholder project title', service: 'Products', year: 2025, duration: '01:45', scene: 'tech', logoStyle: 'stack', description: 'Placeholder description of the project in one or two sentences.' },
-  { id: 'north', client: 'NORTH', title: 'Placeholder project title', service: 'Image Films', year: 2025, duration: '02:30', scene: 'mountain', logoStyle: 'grid', description: 'Placeholder description of the project in one or two sentences.' },
-  { id: 'origin', client: 'ORIGIN', title: 'Placeholder project title', service: 'Social', year: 2024, duration: '12 × 00:45', scene: 'coast', logoStyle: 'ring', description: 'Placeholder description of the project in one or two sentences.' },
-  { id: 'meridian', client: 'MERIDIAN', title: 'Placeholder project title', service: 'Founders', year: 2024, duration: '05:10', scene: 'forest', logoStyle: 'crest', description: 'Placeholder description of the project in one or two sentences.' },
-  { id: 'vale', client: 'VALE', title: 'Placeholder project title', service: 'Documentaries', year: 2024, duration: '22:00', scene: 'earth', logoStyle: 'serif', description: 'Placeholder description of the project in one or two sentences.' },
+  { id: 'nova', client: 'NOVA', title: 'The Long Way Round', service: 'Brand Stories', year: 2026, duration: '06:40', scene: 'dusk', description: 'Placeholder description. A founder portrait told over twenty years and three countries.' },
+  { id: 'form', client: 'FORM', title: 'Made by Hand', service: 'Films', year: 2026, duration: '02:15', scene: 'interior', description: 'Placeholder description. A furniture maker and the decisions behind a single chair.' },
+  { id: 'atlas', client: 'ATLAS', title: 'Where the Map Ends', service: 'Documentaries', year: 2025, duration: '24:10', scene: 'landscape', description: 'Placeholder description. Six months inside a company rebuilding itself.' },
+  { id: 'kin', client: 'KIN', title: 'Family Business', service: 'Brand Stories', year: 2025, duration: '03:30', scene: 'portrait', description: 'Placeholder description. Three generations and one kitchen table.' },
+  { id: 'motion', client: 'MOTION', title: 'Everything Moves', service: 'Films', year: 2025, duration: '01:30', scene: 'night', description: 'Placeholder description. A brand film shot in one continuous day across four cities.' },
+  { id: 'north', client: 'NORTH', title: 'Questions We Never Asked', service: 'Editorial', year: 2025, duration: '8 × 04:00', scene: 'studio', description: 'Placeholder description. An interview series about what work actually means.' },
+  { id: 'origin', client: 'ORIGIN', title: 'Field Notes', service: 'Editorial', year: 2024, duration: '12 × 03:00', scene: 'coast', description: 'Placeholder description. A year-long editorial series from a research station.' },
+  { id: 'meridian', client: 'MERIDIAN', title: 'Six Cities', service: 'Production', year: 2024, duration: '—', scene: 'crew', description: 'Placeholder description. Production services for an international campaign in six cities.' },
+  { id: 'vale', client: 'VALE', title: 'The Harvest', service: 'Documentaries', year: 2024, duration: '32:00', scene: 'earth', description: 'Placeholder description. A season with the people who grow what a company sells.' },
 ].map((p) => ({ thumbnail: null, logo: null, video: null, ...p }))

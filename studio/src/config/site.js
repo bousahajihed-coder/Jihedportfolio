@@ -18,13 +18,16 @@ export const site = {
     { label: 'YouTube', href: '#' },
   ],
 
-  // "Services" opens the full-screen menu; the rest are anchors.
+  // Header navigation. `menu: true` opens the full-screen menu (services,
+  // plus every link below) instead of jumping to an anchor.
   nav: [
-    { label: 'Our work', href: '#work' },
+    { label: 'Work', href: '#work' },
+    { label: 'Services', href: '#services', menu: true },
     { label: 'About', href: '#about' },
-    { label: 'Careers', href: '#careers' },
-    { label: 'Contact us', href: '#contact' },
+    { label: 'Contact', href: '#contact' },
   ],
+  // Secondary links: shown in the menu and footer, not the header.
+  secondaryNav: [{ label: 'Careers', href: '#careers' }],
 
   // POST JSON here when set (Formspree, serverless function …);
   // otherwise the contact form falls back to a mailto link.

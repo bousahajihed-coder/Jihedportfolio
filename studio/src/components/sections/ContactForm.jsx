@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { site } from '../../config/site'
 import { services } from '../../content/services'
-import PillButton from '../ui/PillButton'
+import Button from '../ui/Button'
 
 // Posts to `site.contactFormEndpoint` when configured; otherwise opens the
 // visitor's mail client with the message pre-filled.
@@ -70,9 +70,9 @@ export default function ContactForm() {
       </div>
 
       <div className="contact-form__submit">
-        <PillButton type="submit" variant="lime" disabled={status === 'sending'}>
+        <Button type="submit" variant="solid" disabled={status === 'sending'}>
           {status === 'sending' ? 'Sending…' : 'Send message'}
-        </PillButton>
+        </Button>
         <p className="contact-form__status" role="status">
           {status === 'sent' && 'Thank you — we’ll be in touch shortly.'}
           {status === 'error' && `Something went wrong. Please email us at ${site.email}.`}

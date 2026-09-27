@@ -9,8 +9,10 @@ export const hero = {
     { text: 'company', bold: true },
   ],
   text:
-    'Placeholder introduction. One or two sentences on what the studio does: films, founder stories and brand content that help companies be understood.',
+    'Placeholder introduction. A film and production studio making image films, brand stories and documentaries for companies across Europe and beyond.',
   cta: { label: 'View our work', href: '#work' },
+  reelLabel: 'Play showreel',
+  meta: ['Showreel', '2026', '02:14'],
   // Background: { src: '/media/hero.mp4', type: 'video/mp4', poster: '/media/hero.jpg' }
   video: null,
   image: null,
@@ -21,8 +23,10 @@ export const intro = {
     { text: 'Every company' },
     { text: 'has a' },
     { text: 'story worth', bold: true },
-    { text: 'telling', bold: true },
+    { text: 'telling.', bold: true },
   ],
+  label: 'Studio',
+  indexLabel: 'What we make',
   blocks: [
     {
       heading: 'What we do',
@@ -35,18 +39,19 @@ export const intro = {
         'Placeholder paragraph. The belief behind the studio: why stories matter for companies, and why every business deserves to have its story told well. Keep it human and specific.',
     },
   ],
-  closing: 'Placeholder closing line: five services, one team, one way of working.',
-  cta: { label: 'Discover more', href: '#services' },
+  closing: 'Placeholder closing line: five disciplines, one team, one way of working.',
+  cta: { label: 'Discover our services', href: '#services' },
 }
 
 export const servicesIntro = {
-  title: 'Services',
+  label: 'Services',
+  title: [{ text: 'Five ways' }, { text: 'to tell a story', bold: true }],
 }
 
 export const work = {
-  label: 'Our work',
+  label: 'Selected work',
   title: [{ text: 'Stories that' }, { text: 'move people', bold: true }],
-  cta: { label: 'View all', href: '#work' },
+  cta: { label: 'View all work', href: '#work' },
 }
 
 export const about = {
@@ -65,7 +70,7 @@ export const about = {
   careers: {
     title: 'Careers',
     text: 'Placeholder line inviting directors, producers and editors to get in touch.',
-    cta: { label: 'Join the team', href: '#contact' },
+    cta: { label: 'Get in touch', href: '#contact' },
   },
 }
 
@@ -74,7 +79,7 @@ export const clientsIntro = {
 }
 
 export const contact = {
-  label: 'Contact us',
+  label: 'Contact',
   title: [{ text: 'Have a story?' }, { text: 'Let’s tell it', bold: true }],
   text: 'Placeholder line: tell us about your company and what you have in mind. We reply within two working days.',
 }

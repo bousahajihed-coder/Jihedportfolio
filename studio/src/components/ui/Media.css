@@ -1,7 +1,7 @@
 .media {
   position: relative;
   overflow: hidden;
-  background: #1a1a1a;
+  background: var(--black-2);
   isolation: isolate;
 }
 
@@ -48,60 +48,72 @@
   position: absolute;
   right: 1rem;
   top: 0.9rem;
-  color: rgba(255, 255, 255, 0.55);
-  font-size: 0.6875rem;
+  color: rgba(242, 240, 233, 0.5);
+  font-size: 0.625rem;
   font-weight: 500;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-/* Hero: aerial of architecture in snow */
+/* Every scene is graded the same way: warm highlights, lifted blacks,
+   muted teal shadows — so the page reads as one film. */
+
+/* Hero: dusk interior, window light across a long room */
 [data-scene='hero'] { --scene:
-  radial-gradient(ellipse 48% 38% at 40% 50%, #b99d6a 0%, #8a7148 45%, transparent 72%),
-  linear-gradient(180deg, #1d2a24 0%, #26362e 38%, transparent 38%),
-  linear-gradient(180deg, transparent 62%, #c9d3dc 62%, #e7ecf0 100%),
-  linear-gradient(90deg, #1f2c27, #2b3c34); }
+  radial-gradient(ellipse 22% 60% at 70% 42%, rgba(232, 196, 150, 0.55), transparent 70%),
+  radial-gradient(ellipse 60% 40% at 65% 80%, rgba(120, 82, 52, 0.45), transparent 75%),
+  linear-gradient(100deg, #111312 0%, #1d1f1d 40%, #3a3129 70%, #1a1816 100%); }
 
-/* Dark abstract blocks */
-[data-scene='abstract'] { --scene: linear-gradient(135deg, #151515, #0b0b0b); }
-
-/* Bright studio with a single chair */
+/* Soft daylight studio */
 [data-scene='studio'] { --scene:
-  radial-gradient(ellipse 22% 34% at 76% 66%, #d7cfc4 0%, #9d7a5a 55%, transparent 72%),
-  radial-gradient(ellipse 70% 60% at 30% 35%, #a9a9a9, transparent 70%),
-  linear-gradient(180deg, #8a8a8a 0%, #b4b4b4 70%, #9c9c9c 100%); }
+  radial-gradient(ellipse 24% 36% at 72% 64%, #8a6a4e 0%, #4d3c2e 55%, transparent 72%),
+  radial-gradient(ellipse 60% 70% at 25% 30%, #a39e94, transparent 70%),
+  linear-gradient(180deg, #6f6b64 0%, #8c877e 70%, #5c5852 100%); }
 
-/* Crew on set */
+/* Crew on set, practical lights */
 [data-scene='crew'] { --scene:
-  radial-gradient(ellipse 18% 40% at 30% 60%, #d0662a 0%, transparent 70%),
-  radial-gradient(ellipse 25% 45% at 70% 58%, #3a3f48 0%, transparent 70%),
-  linear-gradient(90deg, #2b2b2e 0%, #3c3c40 40%, #e8e6e1 60%, #f1efea 100%); }
+  radial-gradient(ellipse 14% 22% at 22% 30%, rgba(236, 206, 160, 0.7), transparent 70%),
+  radial-gradient(ellipse 26% 50% at 58% 62%, #16181a, transparent 70%),
+  radial-gradient(ellipse 50% 60% at 80% 40%, #4a4036, transparent 75%),
+  linear-gradient(90deg, #1b1c1c 0%, #2c2926 55%, #4a3f34 100%); }
 
-/* Phone on a network pattern */
-[data-scene='network'] { --scene:
-  radial-gradient(ellipse 30% 45% at 72% 70%, #111 0%, #1b1b1b 60%, transparent 62%),
-  repeating-linear-gradient(35deg, transparent 0 38px, rgba(40, 40, 40, 0.35) 38px 39px),
-  repeating-linear-gradient(-55deg, transparent 0 52px, rgba(40, 40, 40, 0.3) 52px 53px),
-  linear-gradient(135deg, #c9c9c9, #9e9e9e); }
+/* Portrait: face lit from one side against a dark wall */
+[data-scene='portrait'] { --scene:
+  radial-gradient(ellipse 16% 30% at 44% 44%, #b98a62 0%, #6b4a33 50%, transparent 72%),
+  radial-gradient(ellipse 28% 50% at 44% 88%, #1e1d1c, transparent 70%),
+  linear-gradient(90deg, #0f1010 0%, #1f1e1c 55%, #2a2622 100%); }
 
-/* Conference stage */
-[data-scene='event'] { --scene:
-  linear-gradient(180deg, transparent 55%, #6d5a48 55%, #8b7560 100%),
-  radial-gradient(ellipse 30% 25% at 25% 45%, #3a3a3a, transparent 70%),
-  radial-gradient(ellipse 35% 25% at 78% 50%, #7c3a3a, transparent 70%),
-  linear-gradient(180deg, #dadbe0 0%, #b9bcc4 55%); }
-
-/* Arctic expedition */
+/* Landscape: overcast plain, low horizon */
 [data-scene='landscape'] { --scene:
-  radial-gradient(ellipse 30% 20% at 70% 18%, rgba(255, 244, 225, 0.5), transparent 70%),
-  linear-gradient(180deg, #8c8f97 0%, #a6a7ac 32%, #cfd2d8 33%, #e3e5ea 40%, #c9ccd4 100%); }
+  radial-gradient(ellipse 36% 18% at 62% 40%, rgba(236, 222, 200, 0.45), transparent 70%),
+  linear-gradient(180deg, #6d6c68 0%, #8e8b84 38%, #5b5a55 40%, #7d7a72 60%, #4c4a45 100%); }
 
-[data-scene='night'] { --scene: radial-gradient(ellipse 35% 45% at 45% 55%, #3a3a3a, transparent 70%), #050505; }
-[data-scene='metal'] { --scene: radial-gradient(ellipse 60% 40% at 55% 60%, #8a8c92, transparent 70%), linear-gradient(160deg, #3b3d42, #1a1b1e); }
-[data-scene='dusk'] { --scene: linear-gradient(180deg, #2d3558 0%, #c86a3c 55%, #3a2a2a 56%, #1b1618 100%); }
-[data-scene='interior'] { --scene: radial-gradient(ellipse 30% 40% at 60% 30%, #f2e6cf, transparent 70%), linear-gradient(135deg, #a88f73, #5b4a3b); }
-[data-scene='tech'] { --scene: radial-gradient(circle at 70% 30%, #2e6fb0 0%, transparent 35%), linear-gradient(135deg, #0b1b33, #03070f); }
-[data-scene='mountain'] { --scene: linear-gradient(170deg, #6d93c9 0%, #b9d0ea 35%, #5e6b58 36%, #7e7a3a 70%, #3b3b35 100%); }
-[data-scene='coast'] { --scene: linear-gradient(180deg, #4f8fd0 0%, #a9cdf0 45%, #6c7f8c 46%, #b0a58f 100%); }
-[data-scene='forest'] { --scene: radial-gradient(ellipse 40% 50% at 40% 50%, #6d8f4a, transparent 70%), linear-gradient(135deg, #2c3a24, #121a10); }
-[data-scene='earth'] { --scene: radial-gradient(ellipse 50% 50% at 60% 60%, #5a3b24, transparent 70%), linear-gradient(135deg, #3b2718, #140c07); }
+/* Interior: workshop, warm lamp */
+[data-scene='interior'] { --scene:
+  radial-gradient(ellipse 18% 26% at 32% 34%, rgba(240, 200, 140, 0.7), transparent 70%),
+  radial-gradient(ellipse 50% 40% at 60% 78%, #5a4332, transparent 72%),
+  linear-gradient(135deg, #2a231d, #14120f); }
+
+[data-scene='night'] { --scene:
+  radial-gradient(circle at 28% 34%, rgba(226, 170, 110, 0.45), transparent 16%),
+  radial-gradient(circle at 74% 58%, rgba(226, 170, 110, 0.25), transparent 12%),
+  linear-gradient(180deg, #0d0f10, #1a1b1a); }
+
+[data-scene='dusk'] { --scene:
+  linear-gradient(180deg, #2b2e30 0%, #7a5a44 48%, #b9804f 56%, #2a2320 57%, #141211 100%); }
+
+[data-scene='coast'] { --scene:
+  linear-gradient(180deg, #7e8584 0%, #a5a79f 44%, #4f5654 45%, #6f716a 70%, #3d3f3b 100%); }
+
+[data-scene='earth'] { --scene:
+  radial-gradient(ellipse 50% 50% at 60% 60%, #6a4a30, transparent 70%),
+  linear-gradient(135deg, #3b2a1c, #15100b); }
+
+/* Legacy names kept so existing content keeps rendering */
+[data-scene='abstract'] { --scene: linear-gradient(135deg, #1a1918, #0d0d0c); }
+[data-scene='event'] { --scene: radial-gradient(ellipse 40% 30% at 50% 40%, #6b5a48, transparent 70%), linear-gradient(180deg, #2a2724, #121110); }
+[data-scene='network'] { --scene: linear-gradient(135deg, #8e8a82, #57544e); }
+[data-scene='metal'] { --scene: radial-gradient(ellipse 60% 40% at 55% 60%, #7a766f, transparent 70%), linear-gradient(160deg, #34322f, #171615); }
+[data-scene='tech'] { --scene: radial-gradient(circle at 70% 30%, #5b4a3a 0%, transparent 35%), linear-gradient(135deg, #1b1a19, #0b0b0a); }
+[data-scene='mountain'] { --scene: linear-gradient(170deg, #8f8c86 0%, #b1ada4 35%, #55524c 36%, #6b6357 70%, #34312d 100%); }
+[data-scene='forest'] { --scene: radial-gradient(ellipse 40% 50% at 40% 50%, #4d5039, transparent 70%), linear-gradient(135deg, #23261e, #10120e); }
