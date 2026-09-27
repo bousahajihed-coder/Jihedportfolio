@@ -1,18 +1,34 @@
+import { useState } from 'react'
 import Header from './components/layout/Header'
 import Footer from './components/layout/Footer'
 import Hero from './components/sections/Hero'
 import Intro from './components/sections/Intro'
-import SelectedWork from './components/sections/SelectedWork'
 import Services from './components/sections/Services'
-import Approach from './components/sections/Approach'
-import Interlude from './components/sections/Interlude'
+import Work from './components/sections/Work'
 import About from './components/sections/About'
 import Clients from './components/sections/Clients'
 import Contact from './components/sections/Contact'
+import ProjectViewer from './components/sections/ProjectViewer'
+import { hero } from './content/home'
 
-// The homepage reads as a sequence of chapters. Each section declares its
-// own theme (light / mist / dark) to create rhythm between them.
+// The hero's play button opens the showreel in the same viewer the work
+// grid uses. Add `reel: { type, src | id }` to hero in content/home.js.
+const reel = [
+  {
+    id: 'showreel',
+    title: 'Showreel',
+    client: 'Studio Name',
+    service: 'Showreel',
+    year: new Date().getFullYear(),
+    description: 'Placeholder: the studio showreel plays here.',
+    video: hero.reel ?? null,
+    scene: 'hero',
+  },
+]
+
 export default function App() {
+  const [reelOpen, setReelOpen] = useState(null)
+
   return (
     <>
       <a className="skip-link" href="#main">
@@ -21,17 +37,16 @@ export default function App() {
       <Header />
       <main id="main">
         <span id="top" />
-        <Hero />
+        <Hero onPlayReel={() => setReelOpen(0)} />
         <Intro />
-        <SelectedWork />
         <Services />
-        <Approach />
-        <Interlude />
+        <Work />
         <About />
         <Clients />
         <Contact />
       </main>
       <Footer />
+      <ProjectViewer projects={reel} index={reelOpen} onChange={() => {}} onClose={() => setReelOpen(null)} />
     </>
   )
 }

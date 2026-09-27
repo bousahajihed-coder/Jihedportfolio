@@ -1,0 +1,103 @@
+.pill {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 3.75rem;
+  padding: 0 2.4rem;
+  border-radius: 999px;
+  font-family: var(--font-button);
+  font-size: 0.95rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    color 0.5s var(--ease),
+    background-color 0.5s var(--ease),
+    transform 0.5s var(--ease);
+}
+
+/* Label rolls up on hover: the second copy replaces the first. */
+.pill__label {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  line-height: 1.2;
+}
+
+.pill__label > span {
+  display: block;
+  transition: transform 0.55s var(--ease);
+}
+
+.pill__label > span + span {
+  position: absolute;
+  inset: 0;
+  transform: translateY(110%);
+}
+
+.pill:hover .pill__label > span:first-child,
+.pill:focus-visible .pill__label > span:first-child {
+  transform: translateY(-110%);
+}
+
+.pill:hover .pill__label > span + span,
+.pill:focus-visible .pill__label > span + span {
+  transform: none;
+}
+
+/* Fill that grows from the bottom on hover */
+.pill::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  transform: translateY(101%);
+  transition: transform 0.55s var(--ease);
+}
+
+.pill:hover::before,
+.pill:focus-visible::before {
+  transform: none;
+}
+
+.pill--outline {
+  color: var(--white);
+  border: 1.5px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(6px);
+}
+
+.pill--outline::before {
+  background: var(--white);
+}
+
+.pill--outline:hover,
+.pill--outline:focus-visible {
+  color: var(--ink);
+}
+
+.pill--lime {
+  color: var(--ink);
+  background: var(--lime);
+  min-height: 4.5rem;
+  padding: 0 3rem;
+}
+
+.pill--lime::before {
+  background: var(--ink);
+}
+
+.pill--lime:hover,
+.pill--lime:focus-visible {
+  color: var(--lime);
+}
+
+.pill:disabled {
+  opacity: 0.5;
+  cursor: progress;
+}

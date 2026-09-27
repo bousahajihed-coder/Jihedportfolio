@@ -6,13 +6,13 @@
   margin: 0;
   padding: 0;
   border: 0;
-  background: var(--bg);
-  color: var(--fg);
+  background: var(--black);
+  color: var(--white);
   overflow-y: auto;
 }
 
 .viewer::backdrop {
-  background: var(--ink);
+  background: #000;
 }
 
 .viewer[open] {
@@ -20,7 +20,7 @@
 }
 
 .viewer__inner {
-  padding-bottom: var(--space-xl);
+  padding-bottom: 5rem;
 }
 
 .viewer__bar {
@@ -32,7 +32,7 @@
   justify-content: space-between;
   gap: 1rem;
   min-height: var(--header-h);
-  background: var(--bg);
+  background: var(--black);
 }
 
 .viewer__controls {
@@ -58,33 +58,54 @@
 }
 
 .viewer__details {
-  row-gap: var(--space-md);
-  margin-top: var(--space-lg);
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.viewer dt {
+  color: var(--gray);
+}
+
+.viewer__bar button {
+  font-size: var(--fs-small);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.viewer__bar button:hover {
+  color: var(--lime);
 }
 
 .viewer__title {
   grid-column: 1 / span 7;
-  font-size: var(--fs-xl);
+  font-size: var(--fs-title);
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: -0.03em;
 }
 
 .viewer__facts {
   grid-column: 9 / span 4;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-sm);
+  gap: 1rem;
   align-self: end;
 }
 
 .viewer__desc {
   grid-column: 1 / span 6;
-  font-size: var(--fs-md);
+  font-size: var(--fs-lead);
   line-height: 1.35;
 }
 
 .viewer__credits {
   grid-column: 9 / span 4;
   display: grid;
-  gap: var(--space-sm);
+  gap: 1rem;
 }
 
 .viewer dd {

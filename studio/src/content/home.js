@@ -1,95 +1,80 @@
-// Homepage copy. Temporary Phase 1 wording, kept apart from the components
-// so it can be rewritten without touching layout code.
+// Homepage copy — filler wording for layout review only.
+// Each headline is a list of lines; `bold: true` sets a line in the heavy cut.
 
 export const hero = {
-  eyebrow: 'Film & storytelling studio',
-  title: ['Every company', 'has a story.'],
-  lede: 'We tell the stories behind companies.',
+  title: [
+    { text: 'Telling the' },
+    { text: 'stories behind' },
+    { text: 'every' },
+    { text: 'company', bold: true },
+  ],
+  text:
+    'Placeholder introduction. One or two sentences on what the studio does: films, founder stories and brand content that help companies be understood.',
   cta: { label: 'View our work', href: '#work' },
-  reelLabel: 'Showreel 2026',
-  // Background media: drop in a muted loop and a poster frame.
-  // video: { src: '/media/reel.mp4', type: 'video/mp4', poster: '/media/reel.jpg' }
+  // Background: { src: '/media/hero.mp4', type: 'video/mp4', poster: '/media/hero.jpg' }
   video: null,
   image: null,
 }
 
 export const intro = {
-  label: 'What we do',
-  statement: 'We find the story inside a company — its people, its products, its reason to exist —',
-  statementMuted: 'and turn it into films people actually want to watch.',
-  aside:
-    'Image films, founder stories, product films, documentaries, interviews and social series. Different formats, one discipline: story first.',
-}
-
-export const work = {
-  label: 'Selected work',
-  title: 'Stories we’ve told',
-  allWorkLabel: 'All work',
+  title: [
+    { text: 'Every company' },
+    { text: 'has a' },
+    { text: 'story worth', bold: true },
+    { text: 'telling', bold: true },
+  ],
+  blocks: [
+    {
+      heading: 'What we do',
+      text:
+        'Placeholder paragraph. Describe the team — directors, producers, editors and strategists — and how they turn a company’s people, products and ideas into films. Two to four sentences works best here.',
+    },
+    {
+      heading: 'Why we do it',
+      text:
+        'Placeholder paragraph. The belief behind the studio: why stories matter for companies, and why every business deserves to have its story told well. Keep it human and specific.',
+    },
+  ],
+  closing: 'Placeholder closing line: five services, one team, one way of working.',
+  cta: { label: 'Discover more', href: '#services' },
 }
 
 export const servicesIntro = {
-  label: 'Services',
-  title: 'What we make',
-  lede: 'Seven formats. Each one starts the same way — with the story.',
+  title: 'Services',
 }
 
-export const approach = {
-  label: 'Approach',
-  title: ['Story first.', 'Film second.'],
-  lede: 'Most production companies start with the camera. We start with questions.',
-  steps: [
-    {
-      title: 'Discover',
-      text: 'We get to know the company, the people, the product and the ambition — before we talk about shots.',
-    },
-    {
-      title: 'Define',
-      text: 'We find the one story worth telling and decide how it should be told: format, tone, voice.',
-    },
-    {
-      title: 'Create',
-      text: 'We produce the film with the crew, craft and production approach the story needs. Nothing more, nothing less.',
-    },
-    {
-      title: 'Deliver',
-      text: 'We shape the film for the platforms and audiences that matter, so it keeps working long after launch.',
-    },
-  ],
-}
-
-export const interlude = {
-  quote: 'The camera is the last thing we pick up.',
-  // Optional full-bleed media behind the quote.
-  video: null,
-  image: null,
+export const work = {
+  label: 'Our work',
+  title: [{ text: 'Stories that' }, { text: 'move people', bold: true }],
+  cta: { label: 'View all', href: '#work' },
 }
 
 export const about = {
   label: 'About',
-  statement:
-    'We are filmmakers, journalists and strategists. We ask more questions than most — because the best story is rarely the first one we’re told.',
-  body: [
-    'We work closely with a small number of companies at a time, from the first conversation to the final cut. The people you meet at the start are the people on set.',
-    'Based in [City], working wherever the story is.',
+  title: [{ text: 'A studio built' }, { text: 'around stories', bold: true }],
+  text: [
+    'Placeholder paragraph about the studio: where it started, who is behind it and how it works with companies from first conversation to final cut.',
+    'Placeholder paragraph about approach: discovering the story first, then choosing the right format, crew and platform for it.',
   ],
-  traits: [
-    { title: 'Human', text: 'People first, logos second.' },
-    { title: 'Curious', text: 'We ask until we understand.' },
-    { title: 'Strategic', text: 'Every film has a job to do.' },
-    { title: 'Cinematic', text: 'Crafted for the big screen, even on a phone.' },
-    { title: 'International', text: 'Multilingual crews, global productions.' },
-    { title: 'Hands on', text: 'Small team, no hand-offs.' },
+  stats: [
+    { value: '00+', label: 'Films produced' },
+    { value: '00', label: 'Countries filmed in' },
+    { value: '00', label: 'Languages spoken' },
+    { value: '00+', label: 'Companies served' },
   ],
+  careers: {
+    title: 'Careers',
+    text: 'Placeholder line inviting directors, producers and editors to get in touch.',
+    cta: { label: 'Join the team', href: '#contact' },
+  },
 }
 
 export const clientsIntro = {
-  label: 'Clients',
-  title: 'Companies we’ve told stories for',
-  note: 'Placeholder marks — fictional names for layout purposes.',
+  label: 'Trusted by',
 }
 
 export const contact = {
-  label: 'Contact',
-  title: ['Have a story?', 'Let’s tell it.'],
-  lede: 'Tell us a little about your company and what you have in mind. We reply within two working days.',
+  label: 'Contact us',
+  title: [{ text: 'Have a story?' }, { text: 'Let’s tell it', bold: true }],
+  text: 'Placeholder line: tell us about your company and what you have in mind. We reply within two working days.',
 }

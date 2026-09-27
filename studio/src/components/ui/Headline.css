@@ -1,0 +1,28 @@
+.headline {
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+.headline__line {
+  display: block;
+  overflow: hidden;
+  padding-block: 0.02em 0.06em;
+}
+
+.headline__line > span {
+  display: block;
+  transform: translate3d(0, 110%, 0);
+  transition: transform 1.1s var(--ease);
+  transition-delay: calc(var(--i) * 90ms + var(--headline-delay, 0ms));
+}
+
+.headline.is-in .headline__line > span {
+  transform: none;
+}
+
+.headline__line.is-bold {
+  font-weight: 800;
+  letter-spacing: -0.035em;
+}

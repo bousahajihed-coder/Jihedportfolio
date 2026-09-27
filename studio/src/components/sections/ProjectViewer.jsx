@@ -25,7 +25,6 @@ export default function ProjectViewer({ projects, index, onChange, onClose }) {
     <dialog
       ref={ref}
       className="viewer"
-      data-theme="dark"
       aria-labelledby="viewer-title"
       onClose={() => {
         document.body.classList.remove('is-locked')
@@ -39,12 +38,16 @@ export default function ProjectViewer({ projects, index, onChange, onClose }) {
               {String(index + 1).padStart(2, '0')} / {String(projects.length).padStart(2, '0')}
             </p>
             <div className="viewer__controls">
-              <button type="button" className="text-link label" onClick={() => step(-1)}>
-                ← Previous
-              </button>
-              <button type="button" className="text-link label" onClick={() => step(1)}>
-                Next →
-              </button>
+              {projects.length > 1 && (
+                <>
+                  <button type="button" className="text-link label" onClick={() => step(-1)}>
+                    ← Previous
+                  </button>
+                  <button type="button" className="text-link label" onClick={() => step(1)}>
+                    Next →
+                  </button>
+                </>
+              )}
               <button type="button" className="text-link label" onClick={() => ref.current.close()} autoFocus>
                 Close ✕
               </button>
@@ -52,16 +55,16 @@ export default function ProjectViewer({ projects, index, onChange, onClose }) {
           </div>
 
           <div className="viewer__player container">
-            <Player key={project.id} project={project} tone={index} />
+            <Player key={project.id} project={project} />
           </div>
 
-          <div className="viewer__details container grid">
+          <div className="viewer__details container">
             <h2 id="viewer-title" className="viewer__title display">
               {project.title}
             </h2>
             <dl className="viewer__facts">
               <Fact term="Client" value={project.client} />
-              <Fact term="Category" value={project.category} />
+              <Fact term="Service" value={project.service} />
               <Fact term="Year" value={project.year} />
               <Fact term="Duration" value={project.duration} />
             </dl>
@@ -84,13 +87,13 @@ function Fact({ term, value }) {
   if (!value) return null
   return (
     <div>
-      <dt className="label muted">{term}</dt>
+      <dt className="label">{term}</dt>
       <dd>{value}</dd>
     </div>
   )
 }
 
-function Player({ project, tone }) {
+function Player({ project }) {
   const { video, title } = project
 
   if (video?.type === 'file') {
@@ -120,7 +123,7 @@ function Player({ project, tone }) {
 
   return (
     <div className="viewer__frame">
-      <Media fill image={project.thumbnail} tone={tone} caption="Film placeholder — add a video in projects.js" />
+      <Media fill image={project.thumbnail} scene={project.scene} caption="Film placeholder — add a video in projects.js" />
     </div>
   )
 }

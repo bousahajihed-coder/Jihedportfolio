@@ -1,35 +1,28 @@
 import { hero } from '../../content/home'
+import Headline from '../ui/Headline'
 import Media from '../ui/Media'
+import PillButton from '../ui/PillButton'
 import './Hero.css'
 
-export default function Hero() {
+export default function Hero({ onPlayReel }) {
   return (
-    <section className="hero" data-theme="dark" aria-labelledby="hero-title">
+    <section className="hero" aria-labelledby="hero-title">
       <div className="hero__media">
-        <Media fill video={hero.video} image={hero.image} tone={4} priority caption="Showreel — placeholder" />
+        <Media fill video={hero.video} image={hero.image} scene="hero" priority caption="Background video — placeholder" />
       </div>
       <div className="hero__shade" aria-hidden="true" />
 
       <div className="hero__content container">
-        <p className="hero__eyebrow label">{hero.eyebrow}</p>
-
-        <h1 id="hero-title" className="hero__title display">
-          {hero.title.map((line, i) => (
-            <span className="hero__line" key={line}>
-              <span style={{ '--i': i }}>{line}</span>
-            </span>
-          ))}
-        </h1>
+        <Headline as="h1" id="hero-title" className="hero__title" lines={hero.title} immediate />
 
         <div className="hero__footer">
-          <p className="hero__lede">{hero.lede}</p>
-          <p className="hero__reel label">
-            <span className="hero__dot" aria-hidden="true" />
-            {hero.reelLabel}
-          </p>
-          <a className="hero__cta text-link text-link--underlined label" href={hero.cta.href}>
-            {hero.cta.label} <span aria-hidden="true">↓</span>
-          </a>
+          <p className="hero__text">{hero.text}</p>
+          <div className="hero__actions">
+            <button type="button" className="hero__play" onClick={onPlayReel} aria-label="Play showreel">
+              <span className="hero__play-icon" aria-hidden="true" />
+            </button>
+            <PillButton href={hero.cta.href}>{hero.cta.label}</PillButton>
+          </div>
         </div>
       </div>
     </section>

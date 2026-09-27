@@ -1,68 +1,61 @@
-// What we do. Each service is an expandable row on the homepage.
-// `projectId` links a service to an example in projects.js.
+// The five services shown in the full-screen scroll slider and the menu.
+// `accent` colors the service mark; `scene` picks a placeholder image.
+// Add media: { image: { src, alt } } or { video: { src, type } }.
 
 export const services = [
   {
     id: 'image-films',
-    title: 'Image Films',
-    summary: 'Who you are, in a few minutes.',
-    description:
-      'The film that introduces a company to the world — to clients, talent and investors. Built around one clear idea instead of a list of facts.',
-    formats: ['Company image film', 'Employer branding', 'Cut-downs for web & events'],
-    projectId: 'kin',
+    name: 'Image Films',
+    short: 'Image Films',
+    mark: 'triangle',
+    accent: '#ffffff',
+    scene: 'studio',
+    text:
+      'Placeholder description. The film that introduces a company to the world, built around one clear idea instead of a list of facts.',
+    media: null,
   },
   {
     id: 'founders',
-    title: 'Founders',
-    summary: 'The person behind the idea.',
-    description:
-      'Portraits of the people who started it all. Honest, personal and specific — because people trust people before they trust companies.',
-    formats: ['Founder portrait', 'Leadership film', 'Keynote openers'],
-    projectId: 'nova',
+    name: 'Founders',
+    short: 'Founders',
+    mark: 'circle',
+    accent: '#ff5a36',
+    scene: 'crew',
+    text:
+      'Placeholder description. Portraits of the people behind the idea — honest, personal and specific.',
+    media: null,
   },
   {
     id: 'products',
-    title: 'Products',
-    summary: 'What it does and why it matters.',
-    description:
-      'Product films that go beyond features: the problem, the craft, the people who use it.',
-    formats: ['Product launch film', 'Explainer', 'Craft & making-of'],
-    projectId: 'form',
-  },
-  {
-    id: 'company-stories',
-    title: 'Company Stories',
-    summary: 'Milestones, change and culture.',
-    description:
-      'Anniversaries, transformations, mergers, new chapters. Moments when a company needs to explain itself — inside and out.',
-    formats: ['Anniversary film', 'Change communication', 'Culture film'],
-    projectId: 'kin',
+    name: 'Products',
+    short: 'Products',
+    mark: 'diamond',
+    accent: '#6a2bff',
+    scene: 'network',
+    text:
+      'Placeholder description. Product films that go beyond features: the problem, the craft and the people who use it.',
+    media: null,
   },
   {
     id: 'documentaries',
-    title: 'Documentaries',
-    summary: 'Time, access and patience.',
-    description:
-      'Long-form, observational films made over weeks or months. For stories that deserve more than ninety seconds.',
-    formats: ['Corporate documentary', 'Docu-series', 'Festival cut'],
-    projectId: 'atlas',
-  },
-  {
-    id: 'interviews',
-    title: 'Interviews',
-    summary: 'Real voices, well asked.',
-    description:
-      'Interview-led films and series. We prepare like journalists and shoot like filmmakers, so people say what they actually mean.',
-    formats: ['Interview series', 'Testimonials', 'Expert formats'],
-    projectId: 'north',
+    name: 'Documentaries',
+    short: 'Docs',
+    mark: 'square',
+    accent: '#c8203a',
+    scene: 'event',
+    text:
+      'Placeholder description. Long-form, observational films for stories that deserve more than ninety seconds.',
+    media: null,
   },
   {
     id: 'social',
-    title: 'Social Content',
-    summary: 'The story, made for the feed.',
-    description:
-      'Series and cut-downs designed for the platforms your audience actually uses — planned from day one, not cropped as an afterthought.',
-    formats: ['Vertical series', 'Campaign cut-downs', 'Always-on content'],
-    projectId: 'origin',
+    name: 'Social',
+    short: 'Social',
+    mark: 'bars',
+    accent: '#0b0b0b',
+    scene: 'landscape',
+    text:
+      'Placeholder description. Series and cut-downs designed for the platforms your audience actually uses.',
+    media: null,
   },
 ]

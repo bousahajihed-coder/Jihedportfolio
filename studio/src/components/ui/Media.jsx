@@ -7,7 +7,7 @@ import './Media.css'
 //   video: { src, type, poster } or { sources: [{ src, type }], poster }
 //          → muted, looping, plays only while visible
 //   image: { src, srcSet, alt, width, height }
-//   neither → a neutral cinematic placeholder frame (Phase 1)
+//   neither → a colour-graded placeholder frame; `scene` picks its look
 //
 // `ratio` sets the aspect ratio ('16 / 9', '21 / 9' …) — pass null to size
 // it from CSS instead. `fill` makes the media cover its positioned parent.
@@ -17,7 +17,7 @@ export default function Media({
   alt = '',
   ratio = '16 / 9',
   fill = false,
-  tone = 0,
+  scene = 'studio',
   caption,
   sizes = '100vw',
   priority = false,
@@ -44,7 +44,7 @@ export default function Media({
           decoding="async"
         />
       ) : (
-        <Placeholder tone={tone} caption={caption} alt={alt} />
+        <Placeholder scene={scene} caption={caption} alt={alt} />
       )}
     </div>
   )
@@ -81,11 +81,11 @@ function AmbientVideo({ video, poster }) {
   )
 }
 
-function Placeholder({ tone, caption, alt }) {
+function Placeholder({ scene, caption, alt }) {
   return (
     <div
       className="media-placeholder"
-      data-tone={tone % 7}
+      data-scene={scene}
       role={alt ? 'img' : undefined}
       aria-label={alt || undefined}
       aria-hidden={alt ? undefined : 'true'}

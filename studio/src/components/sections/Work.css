@@ -1,0 +1,140 @@
+.work {
+  background: var(--white);
+  color: var(--ink);
+}
+
+.work__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding-block: clamp(5rem, 12vh, 9rem) clamp(4rem, 10vh, 8rem);
+}
+
+.work__label {
+  color: var(--gray);
+  margin-bottom: clamp(1.5rem, 3vh, 2.5rem);
+}
+
+.work__title {
+  font-size: var(--fs-title);
+}
+
+.work__title .is-bold {
+  color: var(--indigo);
+}
+
+.work__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.work-tile {
+  aspect-ratio: 1 / 0.96;
+}
+
+.work-tile__btn {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  color: var(--white);
+  text-align: left;
+}
+
+.work-tile__btn .media-placeholder__light,
+.work-tile__btn .media > img,
+.work-tile__btn .media > video {
+  transition: transform 1.2s var(--ease);
+}
+
+.work-tile__btn:hover .media-placeholder__light,
+.work-tile__btn:hover .media > img,
+.work-tile__btn:focus-visible .media-placeholder__light,
+.work-tile__btn:focus-visible .media > img {
+  transform: scale(1.08);
+}
+
+.work-tile__shade {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.42);
+  transition: background-color 0.6s var(--ease);
+}
+
+.work-tile__btn:hover .work-tile__shade,
+.work-tile__btn:focus-visible .work-tile__shade {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.work-tile__btn:focus-visible {
+  outline-offset: -4px;
+}
+
+/* Typographic stand-ins for client logos */
+.work-tile__logo {
+  position: absolute;
+  top: clamp(1.5rem, 3vw, 3rem);
+  left: clamp(1.5rem, 2.6vw, 3rem);
+  font-size: clamp(1.6rem, 3vw, 3.4rem);
+  line-height: 1;
+}
+
+.work-tile__logo img {
+  max-width: 12rem;
+  max-height: 5rem;
+}
+
+.work-tile__logo[data-style='crest'] { font-weight: 800; letter-spacing: 0.12em; padding: 0.4em 0.5em; border: 3px solid currentColor; border-radius: 0 0 50% 50% / 0 0 30% 30%; font-size: clamp(1rem, 1.6vw, 1.6rem); }
+.work-tile__logo[data-style='ring'] { display: grid; place-items: center; width: 2.8em; height: 2.8em; border: 3px solid currentColor; border-radius: 50%; font-size: clamp(0.8rem, 1.2vw, 1.25rem); font-weight: 800; letter-spacing: 0.08em; }
+.work-tile__logo[data-style='serif'] { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; letter-spacing: 0.04em; }
+.work-tile__logo[data-style='block'] { font-weight: 900; letter-spacing: -0.04em; font-size: clamp(2.2rem, 4.4vw, 5rem); }
+.work-tile__logo[data-style='stack'] { font-weight: 500; text-transform: lowercase; letter-spacing: -0.02em; }
+.work-tile__logo[data-style='grid'] { font-weight: 600; padding-left: 1.6em; background: linear-gradient(currentColor, currentColor) 0 0 / 0.55em 0.55em no-repeat, linear-gradient(currentColor, currentColor) 0.7em 0 / 0.55em 0.55em no-repeat, linear-gradient(currentColor, currentColor) 0 0.7em / 0.55em 0.55em no-repeat, linear-gradient(currentColor, currentColor) 0.7em 0.7em / 0.55em 0.55em no-repeat; }
+
+.work-tile__meta {
+  position: absolute;
+  left: clamp(1.5rem, 2.6vw, 3rem);
+  bottom: clamp(1.5rem, 3.2vw, 3.5rem);
+  display: grid;
+  gap: 0.5rem;
+  font-size: clamp(1rem, 1.25vw, 1.35rem);
+}
+
+.work-tile__service {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.work-tile__arrow {
+  position: absolute;
+  right: clamp(1.5rem, 2.6vw, 3rem);
+  bottom: clamp(1.5rem, 3.2vw, 3.5rem);
+  font-size: 1.6rem;
+  opacity: 0;
+  transform: translateX(-1rem);
+  transition: opacity 0.4s, transform 0.6s var(--ease);
+}
+
+.work-tile__btn:hover .work-tile__arrow,
+.work-tile__btn:focus-visible .work-tile__arrow {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 899px) {
+  .work__header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 559px) {
+  .work__grid {
+    grid-template-columns: 1fr;
+  }
+}

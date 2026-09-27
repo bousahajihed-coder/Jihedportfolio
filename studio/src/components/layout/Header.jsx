@@ -1,21 +1,30 @@
 import { useEffect, useRef, useState } from 'react'
 import { site } from '../../config/site'
+import { services } from '../../content/services'
 import Logo from '../ui/Logo'
 import './Header.css'
 
 export default function Header() {
+  const [solid, setSolid] = useState(false)
   const [open, setOpen] = useState(false)
   const toggleRef = useRef(null)
   const menuRef = useRef(null)
 
-  // Lock scroll, close on Escape, and keep focus inside while the menu is open.
+  // Transparent over the hero, solid bar after that.
+  useEffect(() => {
+    const onScroll = () => setSolid(window.scrollY > window.innerHeight * 0.6)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
+  // Menu open: lock scroll, make the page inert, Escape closes.
   useEffect(() => {
     if (!open) return
     const background = document.querySelectorAll('main, .site-footer')
     document.body.classList.add('is-locked')
     background.forEach((el) => el.setAttribute('inert', ''))
-    menuRef.current?.querySelector('a')?.focus()
-
+    const t = setTimeout(() => menuRef.current?.querySelector('a')?.focus(), 350)
     const onKey = (e) => {
       if (e.key === 'Escape') {
         setOpen(false)
@@ -24,75 +33,86 @@ export default function Header() {
     }
     window.addEventListener('keydown', onKey)
     return () => {
+      clearTimeout(t)
       document.body.classList.remove('is-locked')
       background.forEach((el) => el.removeAttribute('inert'))
       window.removeEventListener('keydown', onKey)
     }
   }, [open])
 
-  // Close the mobile menu if the viewport grows to desktop size.
-  useEffect(() => {
-    const mql = window.matchMedia('(min-width: 900px)')
-    const onChange = () => mql.matches && setOpen(false)
-    mql.addEventListener('change', onChange)
-    return () => mql.removeEventListener('change', onChange)
-  }, [])
+  const close = () => setOpen(false)
 
   return (
     <>
-      <header className="site-header">
+      <header className={`site-header ${solid ? 'is-solid' : ''} ${open ? 'is-menu-open' : ''}`}>
         <div className="site-header__inner container">
-          <a href="#top" className="site-header__home" aria-label={`${site.name} — home`}>
+          <a href="#top" className="site-header__home" aria-label={`${site.name} — home`} onClick={close}>
             <Logo />
           </a>
 
           <nav className="site-header__nav" aria-label="Primary">
             <ul>
+              <li>
+                <button
+                  ref={toggleRef}
+                  type="button"
+                  className="site-header__link site-header__menu-btn"
+                  aria-expanded={open}
+                  aria-controls="site-menu"
+                  onClick={() => setOpen((v) => !v)}
+                >
+                  <span className="site-header__menu-label">{open ? 'Close' : 'Services'}</span>
+                  <span className={`burger ${open ? 'is-open' : ''}`} aria-hidden="true">
+                    <span />
+                    <span />
+                    <span />
+                  </span>
+                </button>
+              </li>
               {site.nav.map((item) => (
-                <li key={item.href}>
-                  <a className="text-link label" href={item.href}>
+                <li key={item.href} className="site-header__desktop-only">
+                  <a className="site-header__link" href={item.href}>
                     {item.label}
                   </a>
                 </li>
               ))}
             </ul>
           </nav>
-
-          <button
-            ref={toggleRef}
-            type="button"
-            className="site-header__toggle label"
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            onClick={() => setOpen((v) => !v)}
-          >
-            {open ? 'Close' : 'Menu'}
-          </button>
         </div>
       </header>
 
-      <div
-        id="mobile-menu"
-        ref={menuRef}
-        className={`mobile-menu ${open ? 'is-open' : ''}`}
-        data-theme="dark"
-        hidden={!open}
-      >
-        <nav className="mobile-menu__nav container" aria-label="Mobile">
-          <ul>
-            {site.nav.map((item, i) => (
-              <li key={item.href} style={{ '--i': i }}>
-                <a className="display" href={item.href} onClick={() => setOpen(false)}>
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-          <div className="mobile-menu__footer label">
-            <a href={`mailto:${site.email}`}>{site.email}</a>
-            <span className="muted">{site.locations[0]?.city}</span>
+      <div id="site-menu" ref={menuRef} className={`site-menu ${open ? 'is-open' : ''}`} aria-hidden={!open} {...(!open && { inert: '' })}>
+        <div className="site-menu__inner container">
+          <div className="site-menu__col">
+            <p className="label site-menu__label">Services</p>
+            <ul className="site-menu__services">
+              {services.map((s, i) => (
+                <li key={s.id} style={{ '--i': i }}>
+                  <a href={`#service-${s.id}`} onClick={close}>
+                    <span className="site-menu__index">{String(i + 1).padStart(2, '0')}</span>
+                    {s.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
-        </nav>
+          <div className="site-menu__col site-menu__col--side">
+            <p className="label site-menu__label">Menu</p>
+            <ul className="site-menu__links">
+              {site.nav.map((item, i) => (
+                <li key={item.href} style={{ '--i': i + 2 }}>
+                  <a href={item.href} onClick={close}>
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+            <div className="site-menu__contact" style={{ '--i': 7 }}>
+              <a href={`mailto:${site.email}`}>{site.email}</a>
+              <span>{site.offices.join(' · ')}</span>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )

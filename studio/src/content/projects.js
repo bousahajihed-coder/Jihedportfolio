@@ -1,109 +1,19 @@
-// Selected work. The homepage gallery and the project viewer are driven
-// entirely by this list. Order here is display order.
+// Work grid + project viewer. Fictional clients only — replace with real
+// work once permission is confirmed.
 //
-// Media fields (all optional; missing media renders a neutral placeholder frame):
-//   thumbnail: { src, srcSet, alt }                    still used in the gallery
-//   preview:   { src, type }                           short muted loop, plays in view
-//   video:     { type: 'file', src, poster }           full film in the viewer
-//              { type: 'vimeo' | 'youtube', id }
-//
-// layout (optional) overrides the gallery rhythm: 'full' | 'left' | 'right'
+//   thumbnail: { src, alt }                 tile image
+//   logo:      { src, alt }                 client logo (white) on the tile
+//   video:     { type: 'file', src } | { type: 'vimeo' | 'youtube', id }
+//   scene:     placeholder image style while no thumbnail is set
 
 export const projects = [
-  {
-    id: 'nova',
-    title: 'The Long Way Round',
-    client: 'NOVA',
-    category: 'Founder Story',
-    year: 2026,
-    duration: '06:40',
-    description:
-      'Twenty years, two near-bankruptcies and one stubborn idea. A portrait of the founder who refused to take the shortcut.',
-    thumbnail: null,
-    preview: null,
-    video: null,
-    credits: [
-      ['Director', 'Name Surname'],
-      ['Director of Photography', 'Name Surname'],
-      ['Editor', 'Name Surname'],
-    ],
-  },
-  {
-    id: 'form',
-    title: 'Made by Hand, Built to Last',
-    client: 'FORM',
-    category: 'Product Film',
-    year: 2025,
-    duration: '02:15',
-    description:
-      'A furniture maker, a single chair and the three hundred decisions behind it.',
-    thumbnail: null,
-    preview: null,
-    video: null,
-  },
-  {
-    id: 'atlas',
-    title: 'Where the Map Ends',
-    client: 'ATLAS',
-    category: 'Corporate Documentary',
-    year: 2025,
-    duration: '24:10',
-    description:
-      'Six months inside a logistics company rebuilding itself — told by the people who keep it moving at four in the morning.',
-    thumbnail: null,
-    preview: null,
-    video: null,
-  },
-  {
-    id: 'kin',
-    title: 'Family Business',
-    client: 'KIN',
-    category: 'Company Story',
-    year: 2025,
-    duration: '03:30',
-    description:
-      'Three generations, one kitchen table. What a family company passes on besides the business.',
-    thumbnail: null,
-    preview: null,
-    video: null,
-  },
-  {
-    id: 'motion',
-    title: 'Everything Moves',
-    client: 'MOTION',
-    category: 'Brand Film',
-    year: 2024,
-    duration: '01:30',
-    description:
-      'A brand film about momentum, shot in a single continuous day across four cities.',
-    thumbnail: null,
-    preview: null,
-    video: null,
-  },
-  {
-    id: 'north',
-    title: 'Questions We Never Asked',
-    client: 'NORTH',
-    category: 'Interview Series',
-    year: 2024,
-    duration: '8 × 04:00',
-    description:
-      'Eight employees, one chair, no script. An interview series about what work actually means.',
-    thumbnail: null,
-    preview: null,
-    video: null,
-  },
-  {
-    id: 'origin',
-    title: 'Origin, Weekly',
-    client: 'ORIGIN',
-    category: 'Social Content',
-    year: 2024,
-    duration: '24 × 00:45',
-    description:
-      'A year-long vertical series turning a research lab into a story people follow every week.',
-    thumbnail: null,
-    preview: null,
-    video: null,
-  },
-]
+  { id: 'nova', client: 'NOVA', title: 'Placeholder project title', service: 'Founders', year: 2026, duration: '04:20', scene: 'night', logoStyle: 'crest', description: 'Placeholder description of the project in one or two sentences.' },
+  { id: 'form', client: 'FORM', title: 'Placeholder project title', service: 'Products', year: 2026, duration: '02:10', scene: 'metal', logoStyle: 'ring', description: 'Placeholder description of the project in one or two sentences.' },
+  { id: 'atlas', client: 'ATLAS', title: 'Placeholder project title', service: 'Image Films', year: 2025, duration: '03:00', scene: 'dusk', logoStyle: 'serif', description: 'Placeholder description of the project in one or two sentences.' },
+  { id: 'kin', client: 'KIN', title: 'Placeholder project title', service: 'Documentaries', year: 2025, duration: '18:40', scene: 'interior', logoStyle: 'block', description: 'Placeholder description of the project in one or two sentences.' },
+  { id: 'motion', client: 'MOTION', title: 'Placeholder project title', service: 'Products', year: 2025, duration: '01:45', scene: 'tech', logoStyle: 'stack', description: 'Placeholder description of the project in one or two sentences.' },
+  { id: 'north', client: 'NORTH', title: 'Placeholder project title', service: 'Image Films', year: 2025, duration: '02:30', scene: 'mountain', logoStyle: 'grid', description: 'Placeholder description of the project in one or two sentences.' },
+  { id: 'origin', client: 'ORIGIN', title: 'Placeholder project title', service: 'Social', year: 2024, duration: '12 × 00:45', scene: 'coast', logoStyle: 'ring', description: 'Placeholder description of the project in one or two sentences.' },
+  { id: 'meridian', client: 'MERIDIAN', title: 'Placeholder project title', service: 'Founders', year: 2024, duration: '05:10', scene: 'forest', logoStyle: 'crest', description: 'Placeholder description of the project in one or two sentences.' },
+  { id: 'vale', client: 'VALE', title: 'Placeholder project title', service: 'Documentaries', year: 2024, duration: '22:00', scene: 'earth', logoStyle: 'serif', description: 'Placeholder description of the project in one or two sentences.' },
+].map((p) => ({ thumbnail: null, logo: null, video: null, ...p }))
