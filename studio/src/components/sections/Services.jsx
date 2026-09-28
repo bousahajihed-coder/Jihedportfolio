@@ -72,7 +72,12 @@ export default function Services() {
         <Reveal>
           <SectionLabel index={2}>{servicesIntro.label}</SectionLabel>
         </Reveal>
-        <Headline id="services-title" className="services__title" lines={servicesIntro.title} />
+        <div className="services__head">
+          <Headline id="services-title" className="services__title" lines={servicesIntro.title} />
+          <Reveal as="p" className="services__lede lead" delay={200}>
+            {servicesIntro.text}
+          </Reveal>
+        </div>
       </div>
 
       <div className="services__track" ref={trackRef} style={{ height: `${services.length * 100 + 70}vh` }}>
@@ -90,13 +95,16 @@ export default function Services() {
                 aria-hidden={i !== index}
                 {...(i !== index && { inert: '' })}
               >
-                <Media fill scene={s.scene} image={s.media?.image} video={s.media?.video} caption={`${s.name} — placeholder still`} />
+                <Media fill image={s.image} video={s.video} />
                 <div className="service-slide__shade" aria-hidden="true" />
                 <div className="service-slide__content container">
-                  <p className="service-slide__index label">{String(i + 1).padStart(2, '0')} — {s.summary}</p>
+                  <p className="service-slide__index label">
+                    <span>{String(i + 1).padStart(2, '0')}</span>
+                    {s.summary}
+                  </p>
                   <h3 className="service-slide__title">{s.name}</h3>
                   <p className="service-slide__text">{s.text}</p>
-                  <Button href="#contact">Discuss a project</Button>
+                  <Button href="#contact">Start a project</Button>
                 </div>
               </article>
             ))}
@@ -109,7 +117,13 @@ export default function Services() {
               <span className="visually-hidden">: {current.name}</span>
             </p>
 
-            <div ref={tabsRef} className="services__tabs container" role="tablist" aria-label="Services">
+            <div
+              ref={tabsRef}
+              className="services__tabs container"
+              role="tablist"
+              aria-label="Services"
+              style={{ '--count': services.length }}
+            >
               {services.map((s, i) => (
                 <button
                   key={s.id}
@@ -119,6 +133,7 @@ export default function Services() {
                   className={`services__tab label ${i === index ? 'is-active' : ''}`}
                   onClick={() => goTo(i)}
                 >
+                  <span className="services__tab-num">{String(i + 1).padStart(2, '0')}</span>
                   {s.name}
                 </button>
               ))}

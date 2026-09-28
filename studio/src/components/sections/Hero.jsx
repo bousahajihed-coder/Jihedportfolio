@@ -8,28 +8,33 @@ export default function Hero({ onPlayReel }) {
   return (
     <section className="hero surface-dark" aria-labelledby="hero-title">
       <div className="hero__media">
-        <Media fill video={hero.video} image={hero.image} scene="hero" priority caption="Background film — placeholder" />
+        <Media fill video={hero.video} image={hero.image} priority />
       </div>
       <div className="hero__shade" aria-hidden="true" />
       <div className="hero__fade" aria-hidden="true" />
 
       <div className="hero__content container">
-        <p className="hero__meta label" aria-hidden="true">
-          {hero.meta.map((m) => (
-            <span key={m}>{m}</span>
-          ))}
-        </p>
+        <div className="hero__top">
+          <p className="hero__meta label">
+            {hero.meta.map((m) => (
+              <span key={m}>{m}</span>
+            ))}
+          </p>
+          <button type="button" className="hero__play label" onClick={onPlayReel}>
+            <span className="hero__play-icon" aria-hidden="true" />
+            {hero.reelLabel}
+          </button>
+        </div>
 
         <Headline as="h1" id="hero-title" className="hero__title" lines={hero.title} immediate />
 
         <div className="hero__footer">
-          <p className="hero__text">{hero.text}</p>
+          <p className="hero__text lead">{hero.text}</p>
           <div className="hero__actions">
-            <button type="button" className="hero__play label" onClick={onPlayReel}>
-              <span className="hero__play-icon" aria-hidden="true" />
-              {hero.reelLabel}
-            </button>
-            <Button href={hero.cta.href}>{hero.cta.label}</Button>
+            <Button href={hero.cta.href} variant="outline">
+              {hero.cta.label}
+            </Button>
+            <Button href={hero.secondary.href}>{hero.secondary.label}</Button>
           </div>
         </div>
       </div>

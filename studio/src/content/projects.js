@@ -1,19 +1,17 @@
-// Selected work. Fictional clients and filler titles — replace with real
-// work once permission is confirmed.
+// Selected work. Fictional placeholder companies, not ASTRA clients.
 //
-//   thumbnail: { src, alt }                 still for the gallery
-//   logo:      { src, alt }                 optional client logo
-//   video:     { type: 'file', src } | { type: 'vimeo' | 'youtube', id }
-//   scene:     placeholder still while no thumbnail is set
+//   image:  still for the gallery (see content/images.js)
+//   video:  full film for the viewer —
+//           { type: 'file', src } | { type: 'vimeo' | 'youtube', id }
+//   layout: optional 'wide' | 'half' to override the gallery rhythm
+
+import { images } from './images'
 
 export const projects = [
-  { id: 'nova', client: 'NOVA', title: 'The Long Way Round', service: 'Brand Stories', year: 2026, duration: '06:40', scene: 'dusk', description: 'Placeholder description. A founder portrait told over twenty years and three countries.' },
-  { id: 'form', client: 'FORM', title: 'Made by Hand', service: 'Films', year: 2026, duration: '02:15', scene: 'interior', description: 'Placeholder description. A furniture maker and the decisions behind a single chair.' },
-  { id: 'atlas', client: 'ATLAS', title: 'Where the Map Ends', service: 'Documentaries', year: 2025, duration: '24:10', scene: 'landscape', description: 'Placeholder description. Six months inside a company rebuilding itself.' },
-  { id: 'kin', client: 'KIN', title: 'Family Business', service: 'Brand Stories', year: 2025, duration: '03:30', scene: 'portrait', description: 'Placeholder description. Three generations and one kitchen table.' },
-  { id: 'motion', client: 'MOTION', title: 'Everything Moves', service: 'Films', year: 2025, duration: '01:30', scene: 'night', description: 'Placeholder description. A brand film shot in one continuous day across four cities.' },
-  { id: 'north', client: 'NORTH', title: 'Questions We Never Asked', service: 'Editorial', year: 2025, duration: '8 × 04:00', scene: 'studio', description: 'Placeholder description. An interview series about what work actually means.' },
-  { id: 'origin', client: 'ORIGIN', title: 'Field Notes', service: 'Editorial', year: 2024, duration: '12 × 03:00', scene: 'coast', description: 'Placeholder description. A year-long editorial series from a research station.' },
-  { id: 'meridian', client: 'MERIDIAN', title: 'Six Cities', service: 'Production', year: 2024, duration: '—', scene: 'crew', description: 'Placeholder description. Production services for an international campaign in six cities.' },
-  { id: 'vale', client: 'VALE', title: 'The Harvest', service: 'Documentaries', year: 2024, duration: '32:00', scene: 'earth', description: 'Placeholder description. A season with the people who grow what a company sells.' },
-].map((p) => ({ thumbnail: null, logo: null, video: null, ...p }))
+  { id: 'north', title: 'NORTH', type: 'Company Film', location: 'Berlin', year: 2026, duration: '04:30', image: images.workNorth, description: 'A company film about a Berlin business at the start of its next chapter, told by the people who run it.' },
+  { id: 'form', title: 'FORM', type: 'Founder Story', location: 'Hamburg', year: 2026, duration: '06:10', image: images.workForm, description: 'A founder portrait filmed across one working week in Hamburg, from the factory floor to the board room.' },
+  { id: 'orbit', title: 'ORBIT', type: 'Brand Film', location: 'Munich', year: 2025, duration: '01:45', image: images.workOrbit, description: 'A brand film built around a single interior and one long afternoon of light.' },
+  { id: 'field-notes', title: 'FIELD NOTES', type: 'Documentary', location: 'Berlin', year: 2025, duration: '28:00', image: images.workFieldNotes, description: 'An observational documentary filmed over four months with a research team outside Berlin.' },
+  { id: 'monument', title: 'MONUMENT', type: 'Image Film', location: 'Paris', year: 2025, duration: '02:20', image: images.workMonument, description: 'An image film shot in Paris over two early mornings, before the city wakes up.' },
+  { id: 'kin', title: 'KIN', type: 'Editorial Film', location: 'Copenhagen', year: 2024, duration: '09:40', image: images.workKin, description: 'An editorial film about three generations of a family business in Copenhagen.' },
+].map((p) => ({ video: null, ...p }))

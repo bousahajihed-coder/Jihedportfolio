@@ -18,30 +18,29 @@ export default function About() {
 
       {/* A large, near full-bleed still carries the section */}
       <Reveal className="about__image">
-        <Media ratio="21 / 9" scene="crew" caption="On set — placeholder still" />
+        <Media ratio="21 / 9" image={about.image} />
       </Reveal>
 
       <div className="container">
         <div className="about__body">
-          {about.text.map((t, i) => (
-            <Reveal as="p" key={i} className={i === 0 ? 'lead' : 'text-2'} delay={i * 120}>
-              {t}
+          <Reveal as="p" className="about__lead">
+            {about.lead}
+          </Reveal>
+          <div className="about__text">
+            {about.text.map((t, i) => (
+              <Reveal as="p" key={i} className={i === about.text.length - 1 ? '' : 'text-2'} delay={100 + i * 100}>
+                {t}
+              </Reveal>
+            ))}
+            <Reveal delay={400}>
+              <Button href={about.cta.href}>{about.cta.label}</Button>
             </Reveal>
-          ))}
+          </div>
         </div>
-
-        <ul className="about__stats">
-          {about.stats.map((s, i) => (
-            <Reveal as="li" key={s.label} delay={i * 100}>
-              <span className="about__stat-value">{s.value}</span>
-              <span className="about__stat-label label">{s.label}</span>
-            </Reveal>
-          ))}
-        </ul>
 
         <Reveal id="careers" className="about__careers">
           <h3 className="label about__careers-title">{about.careers.title}</h3>
-          <p className="lead">{about.careers.text}</p>
+          <p>{about.careers.text}</p>
           <Button href={about.careers.cta.href}>{about.careers.cta.label}</Button>
         </Reveal>
       </div>

@@ -1,5 +1,4 @@
 import { site } from '../../config/site'
-import { services } from '../../content/services'
 import Logo from '../ui/Logo'
 import './Footer.css'
 
@@ -10,24 +9,29 @@ export default function Footer() {
         <div className="site-footer__top">
           <div className="site-footer__brand">
             <Logo />
-            <p className="text-2">{site.tagline}</p>
+            <p className="site-footer__tagline">
+              Films for companies,
+              <br />
+              people and ideas.
+            </p>
           </div>
 
-          <nav className="site-footer__col" aria-label="Services">
-            <p className="label text-2">Services</p>
-            <ul>
-              {services.map((s) => (
-                <li key={s.id}>
-                  <a href={`#service-${s.id}`}>{s.name}</a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <nav className="site-footer__col" aria-label="Studio">
+          <div className="site-footer__col">
             <p className="label text-2">Studio</p>
             <ul>
-              {[...site.nav, ...site.secondaryNav].map((item) => (
+              {site.offices.map((o) => (
+                <li key={o}>{o}</li>
+              ))}
+              <li>
+                <a href={`mailto:${site.email}`}>{site.email}</a>
+              </li>
+            </ul>
+          </div>
+
+          <nav className="site-footer__col" aria-label="Footer">
+            <p className="label text-2">Menu</p>
+            <ul className="site-footer__nav label">
+              {site.nav.map((item) => (
                 <li key={item.href}>
                   <a href={item.href}>{item.label}</a>
                 </li>
@@ -36,19 +40,11 @@ export default function Footer() {
           </nav>
 
           <div className="site-footer__col">
-            <p className="label text-2">Contact</p>
+            <p className="label text-2">Follow</p>
             <ul>
-              <li>
-                <a href={`mailto:${site.email}`}>{site.email}</a>
-              </li>
-              <li className="text-2">{site.offices.join(' · ')}</li>
-            </ul>
-            <ul className="site-footer__socials">
               {site.socials.map((s) => (
                 <li key={s.label}>
-                  <a href={s.href} target="_blank" rel="noreferrer">
-                    {s.label}
-                  </a>
+                  <a href={s.href}>{s.label}</a>
                 </li>
               ))}
             </ul>

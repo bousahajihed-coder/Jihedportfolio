@@ -6,8 +6,9 @@ import './Media.css'
 //
 //   video: { src, type, poster } or { sources: [{ src, type }], poster }
 //          → muted, looping, plays only while visible
-//   image: { src, srcSet, alt, width, height }
-//   neither → a colour-graded placeholder frame; `scene` picks its look
+//   image: { src, srcSet, alt, width, height }   (or a slot from content/images.js)
+//   neither → a graded placeholder frame. For a slot without `src`, the
+//   slot's `scene` sets the look and its shot brief becomes the caption.
 //
 // `ratio` sets the aspect ratio ('16 / 9', '21 / 9' …) — pass null to size
 // it from CSS instead. `fill` makes the media cover its positioned parent.
@@ -26,6 +27,8 @@ export default function Media({
   const classes = ['media', fill && 'media--fill', className].filter(Boolean).join(' ')
   const style = fill || !ratio ? undefined : { aspectRatio: ratio }
   const hasVideo = Boolean(video?.src || video?.sources?.length)
+  const placeholderScene = image?.scene ?? scene
+  const placeholderCaption = image?.brief ?? caption
 
   return (
     <div className={classes} style={style}>
@@ -44,7 +47,7 @@ export default function Media({
           decoding="async"
         />
       ) : (
-        <Placeholder scene={scene} caption={caption} alt={alt} />
+        <Placeholder scene={placeholderScene} caption={placeholderCaption} alt={image?.alt ?? alt} />
       )}
     </div>
   )
@@ -92,7 +95,12 @@ function Placeholder({ scene, caption, alt }) {
     >
       <span className="media-placeholder__light" />
       <span className="media-placeholder__grain" />
-      {caption && <span className="media-placeholder__caption label">{caption}</span>}
+      {caption && (
+        <span className="media-placeholder__caption">
+          <span className="media-placeholder__tag">Still</span>
+          {caption}
+        </span>
+      )}
     </div>
   )
 }

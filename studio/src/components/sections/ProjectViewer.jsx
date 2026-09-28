@@ -63,8 +63,8 @@ export default function ProjectViewer({ projects, index, onChange, onClose }) {
               {project.title}
             </h2>
             <dl className="viewer__facts">
-              <Fact term="Client" value={project.client} />
-              <Fact term="Service" value={project.service} />
+              <Fact term="Type" value={project.type} />
+              <Fact term="Location" value={project.location} />
               <Fact term="Year" value={project.year} />
               <Fact term="Duration" value={project.duration} />
             </dl>
@@ -123,7 +123,9 @@ function Player({ project }) {
 
   return (
     <div className="viewer__frame">
-      <Media fill image={project.thumbnail} scene={project.scene} caption="Film placeholder — add a video in projects.js" />
+      <Media fill image={project.image} />
+      {/* Shown until a video is set on the project in content/projects.js */}
+      <span className="viewer__note label">Film available on request</span>
     </div>
   )
 }

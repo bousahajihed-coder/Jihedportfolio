@@ -6,13 +6,28 @@
 
 .site-footer__top {
   display: grid;
-  grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
+  grid-template-columns: minmax(0, 1.8fr) repeat(3, minmax(0, 1fr));
+  align-items: end;
   gap: 2.5rem;
 }
 
-.site-footer__brand p {
-  margin-top: 1.25rem;
-  max-width: 22em;
+.site-footer__brand .logo--text {
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-weight: 300;
+  letter-spacing: 0.18em;
+}
+
+.site-footer__tagline {
+  margin-top: 1.5rem;
+  font-family: var(--font-display);
+  font-size: var(--fs-lead);
+  line-height: 1.25;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.site-footer__nav {
+  gap: 0.6rem !important;
 }
 
 .site-footer .label {

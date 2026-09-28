@@ -1,29 +1,23 @@
-# Studio website — Phase 1
+# ASTRA — website
 
-Homepage prototype for a European film and production studio. Art
-direction: cinematic and editorial: black and ivory surfaces, warm grey
-metadata, burnt orange and copper used only as accents. All wording is
-filler, imagery is placeholder and client names are fictional.
+Homepage for ASTRA, a Berlin film production studio making films about
+companies, people and ideas. Art direction: cinematic and editorial —
+black and ivory surfaces, warm grey metadata, burnt orange and copper as
+accents only. Project companies are fictional placeholders.
 
-Page order (each section is a numbered chapter):
-hero (full-screen film opening) → 01 Studio: statement + index of
-disciplines → 02 Services: pinned full-screen slider (one discipline per
-scroll step, slow dissolves, counter and tabs) → 03 Selected work: large
-editorial gallery → 04 About + Careers → client marquee → 05 Contact →
-footer. "Services" in the header opens a full-screen menu.
+Page order (numbered chapters): hero → 01 Studio → 02 What we do (pinned
+service slider) → 03 Selected work → 04 About + Careers → 05 Production →
+06 International → 07 Contact → footer. "Services" in the header opens a
+full-screen menu.
 
-## Design system
+## Photography
 
-- **Surfaces:** add `surface-dark` or `surface-light` to a section. It sets
-  the background, text, secondary text (`--text-2`), hairlines (`--rule`)
-  and accent (`--accent`) for everything inside.
-- **Type roles** (`tokens.css`): `--fs-hero`, `--fs-section`,
-  `--fs-feature`, `--fs-project`, `--fs-lead`, `--fs-body`, `--fs-meta`.
-  Display type is Inter Tight (uppercase, light, one medium emphasis line);
-  body and metadata are Inter.
-- **Components:** `Headline` (masked line reveals), `SectionLabel`
-  (chapter marker with hairline), `Button` (`link` / `outline` / `solid`,
-  all hard-edged), `Media` (image, video or placeholder still).
+Every image slot lives in `src/content/images.js`, with a shot brief for
+each. Until a slot has a `src`, it shows a graded placeholder frame with
+the brief as its caption. To add a photograph, set `src` (a URL or a file
+in `public/media/`) and `alt`; sizing, cropping and overlays are handled
+by the layout. Keep the set consistent: natural light, warm grade, real
+locations and people at work.
 
 ```bash
 cd studio
@@ -40,11 +34,11 @@ animation libraries.
 | To change…                         | Edit                                  |
 | ---------------------------------- | ------------------------------------- |
 | Company name, logo, contact, nav   | `src/config/site.js`                  |
+| Photographs (all slots)            | `src/content/images.js`               |
 | Colors, fonts, type scale, spacing | `src/styles/tokens.css`               |
 | Webfont loading                    | `index.html` (`<link>` to the fonts)  |
 | Projects (Selected Work + viewer)  | `src/content/projects.js`             |
-| Disciplines (index, slider, menu)  | `src/content/services.js`             |
-| Client marquee                     | `src/content/clients.js`              |
+| Services (slider, menu, form)      | `src/content/services.js`             |
 | All other homepage copy            | `src/content/home.js`                 |
 
 ### Media
@@ -56,8 +50,8 @@ Every image and video goes through `src/components/ui/Media.jsx`:
 - `image: { src, srcSet, alt }` → lazy-loaded responsive image
 - neither → a colour-graded placeholder; the `scene` field picks its look
 
-The hero, service slides (`media`), work tiles (`thumbnail`, `logo`) and
-client marquee (`logo`) all accept these fields in the content files. A project's full film goes in `video`:
+Image slots come from `content/images.js`; the hero also accepts a
+background `video`. A project's full film goes in `video`:
 `{ type: 'file', src }`, `{ type: 'vimeo', id }` or `{ type: 'youtube', id }`.
 
 ### Contact form
@@ -70,12 +64,12 @@ form opens the visitor's mail client with the message pre-filled.
 
 - Hero: fades up from black, the image settles slowly, headline lines rise.
 - Headlines: each line rises out of a mask when scrolled into view.
-- Studio index: numbers turn to the accent, titles shift, arrow appears.
+- Production stages: numbers turn to the accent, titles shift on hover.
 - Services: the frame opens to full screen, then stills dissolve slowly
   from one discipline to the next; a copper line marks the active tab.
-- Work: slow push-in and a small exposure lift on hover.
+- Work: slow push-in, the still drifts with the pointer, a "View film"
+  label follows the cursor and the title takes the accent colour.
 - Links: underline retracts and redraws in the accent colour.
-- Client names drift in a slow marquee.
 
 Timing lives in the `--ease*` / `--dur` tokens. Everything is disabled
 under `prefers-reduced-motion`.

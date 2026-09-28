@@ -23,11 +23,28 @@
 .contact__details {
   display: grid;
   align-content: start;
-  gap: 3rem;
+  gap: 1.5rem;
+  max-width: 30em;
 }
 
-.contact__details .lead {
-  max-width: 26em;
+.contact__details .text-2 {
+  line-height: 1.7;
+}
+
+.contact__lead {
+  font-family: var(--font-display);
+  font-size: var(--fs-project);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+}
+
+.contact__facts {
+  margin-top: 1.5rem;
+}
+
+.contact__facts > .label {
+  margin-bottom: 0.75rem;
 }
 
 .contact__email {

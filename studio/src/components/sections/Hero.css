@@ -17,8 +17,11 @@
 .hero__shade {
   position: absolute;
   inset: 0;
+  /* Only where text sits: a light veil under the header, a deeper one
+     behind the headline and copy at the bottom-left. */
   background:
-    linear-gradient(180deg, rgba(11, 11, 10, 0.55) 0%, rgba(11, 11, 10, 0.05) 30%, rgba(11, 11, 10, 0.1) 55%, rgba(11, 11, 10, 0.82) 100%);
+    linear-gradient(180deg, rgba(11, 11, 10, 0.4) 0%, transparent 18%),
+    linear-gradient(20deg, rgba(11, 11, 10, 0.72) 0%, rgba(11, 11, 10, 0.35) 35%, transparent 60%);
 }
 
 /* Black leader that lifts on load */
@@ -37,11 +40,22 @@
   padding-block: calc(var(--header-h) + clamp(1.5rem, 4vh, 3rem)) clamp(2rem, 6vh, 4rem);
 }
 
+.hero__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  animation: hero-in 1.6s var(--ease) 1.4s both;
+}
+
 .hero__meta {
   display: flex;
   gap: 2rem;
-  color: var(--grey);
-  animation: hero-in 1.6s var(--ease) 1.4s both;
+  color: rgba(242, 240, 233, 0.85);
+}
+
+.hero__meta span:first-child {
+  color: var(--ivory);
 }
 
 .hero__meta span + span::before {
@@ -51,7 +65,7 @@
   height: 1px;
   margin: 0 2rem 0.25em 0;
   vertical-align: middle;
-  background: var(--rule-dark);
+  background: rgba(242, 240, 233, 0.45);
 }
 
 .hero__title {
@@ -67,15 +81,13 @@
   gap: 2rem 4rem;
   margin-top: clamp(2.5rem, 6vh, 4.5rem);
   padding-top: 1.5rem;
-  border-top: 1px solid var(--rule-dark);
+  border-top: 1px solid rgba(242, 240, 233, 0.3);
   animation: hero-in 1.6s var(--ease) 1.8s both;
 }
 
 .hero__text {
-  max-width: 32em;
-  color: rgba(242, 240, 233, 0.82);
-  font-size: var(--fs-body);
-  line-height: 1.6;
+  max-width: 28em;
+  color: var(--ivory);
 }
 
 .hero__actions {
@@ -88,7 +100,6 @@
   display: inline-flex;
   align-items: center;
   gap: 1rem;
-  padding-bottom: 0.55rem;
   transition: color 0.5s;
 }
 
@@ -97,7 +108,7 @@
   width: 2.5rem;
   height: 2.5rem;
   margin-block: -1rem;
-  border: 1px solid var(--rule-dark);
+  border: 1px solid rgba(242, 240, 233, 0.55);
   border-radius: 50%;
   transition: border-color 0.6s var(--ease);
 }
@@ -124,8 +135,8 @@
 }
 
 .hero .media-placeholder__caption {
-  top: auto;
-  bottom: 0.9rem;
+  top: calc(var(--header-h) + 4.5rem);
+  bottom: auto;
 }
 
 @keyframes hero-settle {
@@ -159,7 +170,7 @@
 }
 
 @media (max-width: 559px) {
-  .hero__meta span:last-child {
+  .hero__meta span:not(:first-child) {
     display: none;
   }
 }

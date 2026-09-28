@@ -1,85 +1,94 @@
-// Homepage copy — filler wording for layout review only.
-// Each headline is a list of lines; `bold: true` sets a line in the heavy cut.
+// Homepage copy. Headlines are lists of lines; `bold: true` sets a line in
+// the heavier cut.
+import { images } from './images'
 
 export const hero = {
-  title: [
-    { text: 'Telling the' },
-    { text: 'stories behind' },
-    { text: 'every' },
-    { text: 'company', bold: true },
-  ],
-  text:
-    'Placeholder introduction. A film and production studio making image films, brand stories and documentaries for companies across Europe and beyond.',
+  meta: ['ASTRA', 'Film production', 'Berlin'],
+  title: [{ text: 'Films for' }, { text: 'companies,' }, { text: 'people' }, { text: 'and ideas.', bold: true }],
+  text: 'We develop and produce films that make companies, people and ideas worth paying attention to.',
   cta: { label: 'View our work', href: '#work' },
+  secondary: { label: 'Start a project', href: '#contact' },
   reelLabel: 'Play showreel',
-  meta: ['Showreel', '2026', '02:14'],
   // Background: { src: '/media/hero.mp4', type: 'video/mp4', poster: '/media/hero.jpg' }
   video: null,
-  image: null,
+  image: images.hero,
 }
 
 export const intro = {
-  title: [
-    { text: 'Every company' },
-    { text: 'has a' },
-    { text: 'story worth', bold: true },
-    { text: 'telling.', bold: true },
-  ],
   label: 'Studio',
-  indexLabel: 'What we make',
-  blocks: [
-    {
-      heading: 'What we do',
-      text:
-        'Placeholder paragraph. Describe the team — directors, producers, editors and strategists — and how they turn a company’s people, products and ideas into films. Two to four sentences works best here.',
-    },
-    {
-      heading: 'Why we do it',
-      text:
-        'Placeholder paragraph. The belief behind the studio: why stories matter for companies, and why every business deserves to have its story told well. Keep it human and specific.',
-    },
+  title: [{ text: 'Every company' }, { text: 'has a story.', bold: true }],
+  lead: 'The strongest stories are not always the loudest.',
+  text: [
+    'They are found in the people behind a company, the ideas that shaped it, the products that changed something and the moments that deserve to be remembered.',
+    'ASTRA develops and produces films that bring those stories into focus.',
   ],
-  closing: 'Placeholder closing line: five disciplines, one team, one way of working.',
-  cta: { label: 'Discover our services', href: '#services' },
+  image: images.intro,
 }
 
 export const servicesIntro = {
-  label: 'Services',
-  title: [{ text: 'Five ways' }, { text: 'to tell a story', bold: true }],
+  label: 'What we do',
+  title: [{ text: 'From the first' }, { text: 'idea to the' }, { text: 'final frame.', bold: true }],
+  text: 'We work across the entire production process, building the right creative and production team around every project.',
 }
 
 export const work = {
   label: 'Selected work',
-  title: [{ text: 'Stories that' }, { text: 'move people', bold: true }],
-  cta: { label: 'View all work', href: '#work' },
+  title: [{ text: 'Selected', bold: true }, { text: 'work' }],
+  text: 'A selection of films, stories and productions.',
+  cta: { label: 'Start a project', href: '#contact' },
 }
 
 export const about = {
   label: 'About',
-  title: [{ text: 'A studio built' }, { text: 'around stories', bold: true }],
+  title: [{ text: 'We are' }, { text: 'producers,' }, { text: 'storytellers' }, { text: 'and filmmakers.', bold: true }],
+  lead: 'ASTRA is a production studio working with companies, brands and people to create films with substance.',
   text: [
-    'Placeholder paragraph about the studio: where it started, who is behind it and how it works with companies from first conversation to final cut.',
-    'Placeholder paragraph about approach: discovering the story first, then choosing the right format, crew and platform for it.',
+    'We bring together directors, cinematographers, editors, designers, crews and production partners depending on what each project requires.',
+    'From a focused interview shoot to a multi-market production, we build the production around the story.',
+    'We are based in Berlin and work internationally.',
   ],
-  stats: [
-    { value: '00+', label: 'Films produced' },
-    { value: '00', label: 'Countries filmed in' },
-    { value: '00', label: 'Languages spoken' },
-    { value: '00+', label: 'Companies served' },
-  ],
+  cta: { label: 'More about ASTRA', href: '#production' },
+  image: images.about,
   careers: {
     title: 'Careers',
-    text: 'Placeholder line inviting directors, producers and editors to get in touch.',
+    text: 'Directors, cinematographers, editors and producers: we are always glad to hear from you.',
     cta: { label: 'Get in touch', href: '#contact' },
   },
 }
 
-export const clientsIntro = {
-  label: 'Trusted by',
+export const production = {
+  label: 'Production',
+  title: [{ text: 'Built for' }, { text: 'the real world.', bold: true }],
+  lead: 'Good production is invisible when it works.',
+  text: [
+    'It means the right people, the right locations, the right equipment, the right schedule and enough attention to detail that the creative can stay at the centre.',
+    'ASTRA handles the practical side of production from development and pre-production through shoot management and post-production.',
+  ],
+  stages: [
+    'Development',
+    'Pre-production',
+    'Casting',
+    'Locations',
+    'Crew',
+    'Production',
+    'Post-production',
+    'International production',
+  ],
+  image: images.production,
+}
+
+export const international = {
+  label: 'International',
+  title: [{ text: 'Berlin' }, { text: 'and beyond.', bold: true }],
+  text: 'We produce locally and internationally, working with trusted crews and creative partners across different markets.',
+  places: ['Based in Berlin', 'Productions across Europe', 'Partners worldwide'],
+  image: images.international,
 }
 
 export const contact = {
   label: 'Contact',
-  title: [{ text: 'Have a story?' }, { text: 'Let’s tell it', bold: true }],
-  text: 'Placeholder line: tell us about your company and what you have in mind. We reply within two working days.',
+  title: [{ text: 'Have a story' }, { text: 'to make?', bold: true }],
+  lead: 'Tell us what you are working on.',
+  text: 'Whether you already have a script, a creative concept or simply the beginning of an idea, we can help shape the production around it.',
+  emailLabel: 'Contact ASTRA',
 }

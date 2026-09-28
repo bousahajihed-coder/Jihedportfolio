@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import { projects } from '../../content/projects'
 import { work } from '../../content/home'
 import Button from '../ui/Button'
@@ -25,45 +25,72 @@ export default function Work() {
 
         <div className="work__header">
           <Headline id="work-title" className="work__title" lines={work.title} />
-          <Reveal delay={200}>
-            <Button href={work.cta.href}>{work.cta.label}</Button>
+          <Reveal className="work__intro" delay={200}>
+            <p className="lead text-2">{work.text}</p>
           </Reveal>
         </div>
 
         <ul className="work__gallery">
-          {projects.map((p, i) => {
-            const layout = p.layout ?? RHYTHM[i % RHYTHM.length]
-            return (
-              <Reveal as="li" key={p.id} className={`project project--${layout}`} delay={layout === 'half' && i % 3 === 2 ? 150 : 0}>
-                <button type="button" className="project__frame" onClick={() => setOpenIndex(i)} aria-label={`Watch ${p.title} — ${p.client}`}>
-                  <Media
-                    fill
-                    scene={p.scene}
-                    image={p.thumbnail}
-                    caption="Production still — placeholder"
-                    sizes={layout === 'wide' ? '100vw' : '(min-width: 800px) 50vw, 100vw'}
-                  />
-                  {p.logo?.src && <img className="project__logo" src={p.logo.src} alt="" />}
-                  <span className="project__play label" aria-hidden="true">
-                    Watch film <span>{p.duration}</span>
-                  </span>
-                </button>
-                <div className="project__caption">
-                  <p className="project__meta label">
-                    <span className="project__num">{String(i + 1).padStart(2, '0')}</span>
-                    <span>{p.client}</span>
-                    <span className="text-2">{p.service}</span>
-                    <span className="text-2">{p.year}</span>
-                  </p>
-                  <h3 className="project__title">{p.title}</h3>
-                </div>
-              </Reveal>
-            )
-          })}
+          {projects.map((p, i) => (
+            <Project
+              key={p.id}
+              project={p}
+              index={i}
+              layout={p.layout ?? RHYTHM[i % RHYTHM.length]}
+              onOpen={() => setOpenIndex(i)}
+            />
+          ))}
         </ul>
+
+        <Reveal className="work__footer">
+          <p className="text-2">Full case studies and showreel on request.</p>
+          <Button href={work.cta.href}>{work.cta.label}</Button>
+        </Reveal>
       </div>
 
       <ProjectViewer projects={projects} index={openIndex} onChange={setOpenIndex} onClose={() => setOpenIndex(null)} />
     </section>
+  )
+}
+
+function Project({ project, index, layout, onOpen }) {
+  const frameRef = useRef(null)
+
+  // Pointer position drives a small drift of the still and the cursor label.
+  const onPointerMove = (e) => {
+    if (e.pointerType !== 'mouse') return
+    const el = frameRef.current
+    const r = el.getBoundingClientRect()
+    el.style.setProperty('--px', ((e.clientX - r.left) / r.width).toFixed(3))
+    el.style.setProperty('--py', ((e.clientY - r.top) / r.height).toFixed(3))
+  }
+
+  return (
+    <Reveal as="li" className={`project project--${layout}`} delay={layout === 'half' && index % 3 === 2 ? 150 : 0}>
+      <button
+        ref={frameRef}
+        type="button"
+        className="project__frame"
+        onClick={onOpen}
+        onPointerMove={onPointerMove}
+        aria-label={`Watch ${project.title}, ${project.type}, ${project.location}`}
+      >
+        <span className="project__image">
+          <Media fill image={project.image} sizes={layout === 'wide' ? '100vw' : '(min-width: 800px) 50vw, 100vw'} />
+        </span>
+        <span className="project__cursor label" aria-hidden="true">
+          View film
+        </span>
+      </button>
+
+      <div className="project__caption">
+        <h3 className="project__title">{project.title}</h3>
+        <p className="project__meta label">
+          <span className="project__num">{String(index + 1).padStart(2, '0')}</span>
+          <span>{project.type}</span>
+          <span className="text-2">{project.location}</span>
+        </p>
+      </div>
+    </Reveal>
   )
 }

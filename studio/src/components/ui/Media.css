@@ -39,81 +39,130 @@
 .media-placeholder__grain {
   position: absolute;
   inset: 0;
-  opacity: 0.18;
+  opacity: 0.12;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
+/* Shot brief, bottom right, so the frame says what belongs in it */
 .media-placeholder__caption {
   position: absolute;
-  right: 1rem;
-  top: 0.9rem;
-  color: rgba(242, 240, 233, 0.5);
-  font-size: 0.625rem;
-  font-weight: 500;
+  right: clamp(0.75rem, 1.5vw, 1.25rem);
+  bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  max-width: min(28rem, 75%);
+  padding: 0.45rem 0.6rem;
+  background: rgba(11, 11, 10, 0.5);
+  color: rgba(242, 240, 233, 0.9);
+  font-size: 0.6875rem;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+  text-align: left;
+}
+
+.media-placeholder__tag {
+  flex: none;
+  padding: 0.1rem 0.35rem;
+  border: 1px solid rgba(242, 240, 233, 0.45);
+  font-size: 0.5625rem;
   letter-spacing: 0.16em;
   text-transform: uppercase;
 }
 
-/* Every scene is graded the same way: warm highlights, lifted blacks,
-   muted teal shadows — so the page reads as one film. */
+/* --------------------------------------------------------------------------
+   Placeholder scenes. Mid-to-high key, warm grade, lifted shadows — each one
+   roughs out the composition described by its brief, so the page can be
+   judged with real light in it until the photographs are dropped in.
+   -------------------------------------------------------------------------- */
 
-/* Hero: dusk interior, window light across a long room */
+/* Crew on location at golden hour: low sun, horizon, figures and tripod */
 [data-scene='hero'] { --scene:
-  radial-gradient(ellipse 22% 60% at 70% 42%, rgba(232, 196, 150, 0.55), transparent 70%),
-  radial-gradient(ellipse 60% 40% at 65% 80%, rgba(120, 82, 52, 0.45), transparent 75%),
-  linear-gradient(100deg, #111312 0%, #1d1f1d 40%, #3a3129 70%, #1a1816 100%); }
+  radial-gradient(ellipse 30% 26% at 72% 50%, rgba(255, 214, 160, 0.95), rgba(236, 170, 110, 0.6) 40%, transparent 75%),
+  linear-gradient(180deg, #8d9aa0 0%, #c9b79c 38%, #e2b988 52%, #6f5a45 53%, #4c3e31 72%, #2e2720 100%); }
 
-/* Soft daylight studio */
-[data-scene='studio'] { --scene:
-  radial-gradient(ellipse 24% 36% at 72% 64%, #8a6a4e 0%, #4d3c2e 55%, transparent 72%),
-  radial-gradient(ellipse 60% 70% at 25% 30%, #a39e94, transparent 70%),
-  linear-gradient(180deg, #6f6b64 0%, #8c877e 70%, #5c5852 100%); }
+/* Founder in an industrial workshop: high windows, steel, figure */
+[data-scene='workshop'] { --scene:
+  repeating-linear-gradient(90deg, rgba(250, 244, 230, 0.55) 0 7%, transparent 7% 10%) 0 0 / 100% 38% no-repeat,
+  radial-gradient(ellipse 60% 50% at 50% 20%, rgba(250, 236, 210, 0.6), transparent 70%),
+  linear-gradient(180deg, #a7a296 0%, #8e877a 40%, #6d655a 70%, #4a443c 100%); }
 
-/* Crew on set, practical lights */
+/* Bright modern office: window wall, desks, people */
+[data-scene='office'] { --scene:
+  linear-gradient(180deg, transparent 66%, #b9ab98 66%, #b9ab98 68%, transparent 68%),
+  repeating-linear-gradient(90deg, #f3efe6 0 15%, #d9d4ca 15% 16%) 0 0 / 100% 60% no-repeat,
+  linear-gradient(180deg, #e6e1d6 0%, #cfc8bb 60%, #a89f91 100%); }
+
+/* Documentary interview: subject by a window, camera foreground */
+[data-scene='interview'] { --scene:
+  linear-gradient(90deg, #8d8578 0%, #a79f91 45%, #e9e2d3 72%, #f6f0e2 100%); }
+
+/* Product being filmed: table, product, monitor, soft box */
+[data-scene='product'] { --scene:
+  linear-gradient(90deg, transparent 12%, #262422 12%, #262422 26%, transparent 26%) 0 30% / 100% 22% no-repeat,
+  radial-gradient(ellipse 22% 30% at 82% 22%, rgba(255, 250, 240, 0.9), transparent 70%),
+  linear-gradient(180deg, #d9d3c8 0%, #cbc3b6 58%, #8d8174 58.4%, #9d9083 100%); }
+
+/* Crew and gear on an exterior location */
 [data-scene='crew'] { --scene:
-  radial-gradient(ellipse 14% 22% at 22% 30%, rgba(236, 206, 160, 0.7), transparent 70%),
-  radial-gradient(ellipse 26% 50% at 58% 62%, #16181a, transparent 70%),
-  radial-gradient(ellipse 50% 60% at 80% 40%, #4a4036, transparent 75%),
-  linear-gradient(90deg, #1b1c1c 0%, #2c2926 55%, #4a3f34 100%); }
+  linear-gradient(180deg, #a9b8bf 0%, #c9cfcc 42%, #9c9278 50%, #7d7458 70%, #5d5642 100%); }
 
-/* Portrait: face lit from one side against a dark wall */
+/* Office building at dusk */
+[data-scene='city'] { --scene:
+  radial-gradient(circle at 18% 62%, rgba(255, 200, 130, 0.9) 0 0.5%, transparent 1.2%),
+  radial-gradient(circle at 27% 60%, rgba(255, 200, 130, 0.7) 0 0.4%, transparent 1%),
+  radial-gradient(circle at 41% 63%, rgba(255, 200, 130, 0.85) 0 0.5%, transparent 1.2%),
+  radial-gradient(circle at 58% 61%, rgba(255, 200, 130, 0.6) 0 0.4%, transparent 1%),
+  radial-gradient(circle at 73% 64%, rgba(255, 200, 130, 0.8) 0 0.5%, transparent 1.2%),
+  radial-gradient(ellipse 50% 22% at 50% 66%, rgba(214, 150, 96, 0.55), transparent 70%),
+  linear-gradient(180deg, #56667a 0%, #8b8190 38%, #c69a78 62%, #3a3432 66%, #25221f 100%); }
+
+/* Founder portrait in a factory */
 [data-scene='portrait'] { --scene:
-  radial-gradient(ellipse 16% 30% at 44% 44%, #b98a62 0%, #6b4a33 50%, transparent 72%),
-  radial-gradient(ellipse 28% 50% at 44% 88%, #1e1d1c, transparent 70%),
-  linear-gradient(90deg, #0f1010 0%, #1f1e1c 55%, #2a2622 100%); }
+  radial-gradient(ellipse 40% 60% at 80% 30%, rgba(240, 222, 190, 0.7), transparent 70%),
+  linear-gradient(90deg, #5e584f 0%, #7c7467 50%, #a39886 100%); }
 
-/* Landscape: overcast plain, low horizon */
+/* Styled interior for a brand film */
+[data-scene='studio'] { --scene:
+  linear-gradient(90deg, transparent 8%, rgba(255, 250, 238, 0.85) 8%, rgba(255, 250, 238, 0.85) 30%, transparent 30%) 0 12% / 100% 55% no-repeat,
+  linear-gradient(180deg, #d7cdbd 0%, #c8bca9 66%, #a58f76 66.5%, #b39e84 100%); }
+
+/* Wide landscape, figure walking, overcast */
 [data-scene='landscape'] { --scene:
-  radial-gradient(ellipse 36% 18% at 62% 40%, rgba(236, 222, 200, 0.45), transparent 70%),
-  linear-gradient(180deg, #6d6c68 0%, #8e8b84 38%, #5b5a55 40%, #7d7a72 60%, #4c4a45 100%); }
+  linear-gradient(180deg, #c3c6c3 0%, #d8d7d0 45%, #9e9f93 46%, #8a8b7e 70%, #6d6e62 100%); }
 
-/* Interior: workshop, warm lamp */
-[data-scene='interior'] { --scene:
-  radial-gradient(ellipse 18% 26% at 32% 34%, rgba(240, 200, 140, 0.7), transparent 70%),
-  radial-gradient(ellipse 50% 40% at 60% 78%, #5a4332, transparent 72%),
-  linear-gradient(135deg, #2a231d, #14120f); }
+/* Paris square in morning light */
+[data-scene='architecture'] { --scene:
+  repeating-linear-gradient(90deg, #d8c7a8 0 6%, #bfae90 6% 7%, #d8c7a8 7% 10%, #9c8c71 10% 11%) 0 10% / 100% 55% no-repeat,
+  linear-gradient(180deg, #b7c6d0 0%, #d6cfbf 10%, #cdbb9c 65%, #b6a58b 66%, #a19078 100%); }
 
-[data-scene='night'] { --scene:
-  radial-gradient(circle at 28% 34%, rgba(226, 170, 110, 0.45), transparent 16%),
-  radial-gradient(circle at 74% 58%, rgba(226, 170, 110, 0.25), transparent 12%),
-  linear-gradient(180deg, #0d0f10, #1a1b1a); }
+/* Family at a kitchen table, warm afternoon */
+[data-scene='kitchen'] { --scene:
+  linear-gradient(180deg, transparent 68%, #7b5a40 68%, #7b5a40 74%, transparent 74%),
+  radial-gradient(ellipse 30% 40% at 85% 25%, rgba(255, 220, 170, 0.85), transparent 70%),
+  linear-gradient(180deg, #c9b69c 0%, #b9a384 60%, #8f7a60 100%); }
 
-[data-scene='dusk'] { --scene:
-  linear-gradient(180deg, #2b2e30 0%, #7a5a44 48%, #b9804f 56%, #2a2320 57%, #141211 100%); }
+/* Director and DoP at the monitor */
+[data-scene='team'] { --scene:
+  radial-gradient(ellipse 35% 40% at 20% 20%, rgba(250, 236, 206, 0.65), transparent 70%),
+  linear-gradient(180deg, #928a7d 0%, #7a7266 55%, #5b554c 100%); }
 
-[data-scene='coast'] { --scene:
-  linear-gradient(180deg, #7e8584 0%, #a5a79f 44%, #4f5654 45%, #6f716a 70%, #3d3f3b 100%); }
+/* Lighting set-up on a large interior */
+[data-scene='set'] { --scene:
+  radial-gradient(ellipse 9% 13% at 26% 30%, rgba(255, 248, 232, 0.95), transparent 65%),
+  radial-gradient(ellipse 9% 13% at 74% 30%, rgba(255, 238, 210, 0.85), transparent 65%),
+  linear-gradient(90deg, transparent 25.6%, #2b2724 25.6%, #2b2724 26.2%, transparent 26.2%) 0 40% / 100% 55% no-repeat,
+  linear-gradient(90deg, transparent 73.6%, #2b2724 73.6%, #2b2724 74.2%, transparent 74.2%) 0 40% / 100% 55% no-repeat,
+  linear-gradient(180deg, #8e8578 0%, #a89e8f 55%, #6d655a 56%, #5a534a 100%); }
 
-[data-scene='earth'] { --scene:
-  radial-gradient(ellipse 50% 50% at 60% 60%, #6a4a30, transparent 70%),
-  linear-gradient(135deg, #3b2a1c, #15100b); }
+/* City harbour at blue hour */
+[data-scene='harbour'] { --scene:
+  radial-gradient(ellipse 40% 8% at 50% 46%, rgba(255, 204, 140, 0.55), transparent 70%),
+  radial-gradient(ellipse 30% 22% at 50% 62%, rgba(236, 176, 110, 0.28), transparent 70%),
+  linear-gradient(180deg, #56697f 0%, #8a93a2 30%, #b5a39a 45%, #3e454e 47%, #56606c 62%, #2f353c 100%); }
 
-/* Legacy names kept so existing content keeps rendering */
-[data-scene='abstract'] { --scene: linear-gradient(135deg, #1a1918, #0d0d0c); }
-[data-scene='event'] { --scene: radial-gradient(ellipse 40% 30% at 50% 40%, #6b5a48, transparent 70%), linear-gradient(180deg, #2a2724, #121110); }
-[data-scene='network'] { --scene: linear-gradient(135deg, #8e8a82, #57544e); }
-[data-scene='metal'] { --scene: radial-gradient(ellipse 60% 40% at 55% 60%, #7a766f, transparent 70%), linear-gradient(160deg, #34322f, #171615); }
-[data-scene='tech'] { --scene: radial-gradient(circle at 70% 30%, #5b4a3a 0%, transparent 35%), linear-gradient(135deg, #1b1a19, #0b0b0a); }
-[data-scene='mountain'] { --scene: linear-gradient(170deg, #8f8c86 0%, #b1ada4 35%, #55524c 36%, #6b6357 70%, #34312d 100%); }
-[data-scene='forest'] { --scene: radial-gradient(ellipse 40% 50% at 40% 50%, #4d5039, transparent 70%), linear-gradient(135deg, #23261e, #10120e); }
+/* Legacy scene names still referenced by older content */
+[data-scene='interior'], [data-scene='night'], [data-scene='dusk'], [data-scene='coast'], [data-scene='earth'],
+[data-scene='abstract'], [data-scene='event'], [data-scene='network'], [data-scene='metal'], [data-scene='tech'],
+[data-scene='mountain'], [data-scene='forest'] { --scene: linear-gradient(180deg, #a39a8c, #6c655b); }

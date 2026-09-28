@@ -6,9 +6,27 @@
   padding-block: var(--section-pad) clamp(3rem, 8vh, 6rem);
 }
 
-.services__title {
+.services__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  gap: 2rem clamp(3rem, 7vw, 8rem);
+  align-items: end;
   margin-top: clamp(3rem, 9vh, 7rem);
+}
+
+.services__title {
   font-size: var(--fs-section);
+}
+
+.services__lede {
+  max-width: 24em;
+  color: var(--text-2);
+}
+
+@media (max-width: 899px) {
+  .services__head {
+    grid-template-columns: 1fr;
+  }
 }
 
 .services__track {
@@ -68,9 +86,11 @@
 .service-slide__shade {
   position: absolute;
   inset: 0;
+  /* Just enough behind the copy (bottom-left) and the tabs (bottom) */
   background:
-    linear-gradient(90deg, rgba(11, 11, 10, 0.72) 0%, rgba(11, 11, 10, 0.35) 45%, rgba(11, 11, 10, 0.05) 100%),
-    linear-gradient(0deg, rgba(11, 11, 10, 0.7) 0%, transparent 40%);
+    linear-gradient(180deg, rgba(11, 11, 10, 0.4) 0%, transparent 16%),
+    linear-gradient(25deg, rgba(11, 11, 10, 0.82) 0%, rgba(11, 11, 10, 0.5) 34%, transparent 60%),
+    linear-gradient(0deg, rgba(11, 11, 10, 0.6) 0%, transparent 20%);
 }
 
 .service-slide__content {
@@ -100,6 +120,12 @@
 .service-slide.is-active .service-slide__content > :nth-child(4) { transition-delay: 0.86s; }
 
 .service-slide__index {
+  display: flex;
+  gap: 1.25rem;
+  color: rgba(242, 240, 233, 0.85);
+}
+
+.service-slide__index span {
   color: var(--copper);
 }
 
@@ -114,9 +140,9 @@
 
 .service-slide__text {
   max-width: 30em;
-  color: rgba(242, 240, 233, 0.82);
-  font-size: var(--fs-body);
-  line-height: 1.65;
+  color: var(--ivory);
+  font-size: var(--fs-lead);
+  line-height: 1.45;
   margin-bottom: 0.5rem;
 }
 
@@ -130,8 +156,9 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: var(--grey);
+  color: rgba(242, 240, 233, 0.7);
   font-variant-numeric: tabular-nums;
+  text-shadow: 0 1px 10px rgba(11, 11, 10, 0.4);
 }
 
 .services__counter-current {
@@ -141,7 +168,7 @@
 .services__counter-rule {
   width: 3rem;
   height: 1px;
-  background: var(--rule-dark);
+  background: rgba(242, 240, 233, 0.45);
 }
 
 .services__tabs {
@@ -150,17 +177,27 @@
   left: calc((1 - var(--g, 1)) * 27%);
   z-index: 4;
   display: grid;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
+  grid-template-columns: repeat(var(--count, 4), minmax(0, 1fr));
   gap: 1.5rem;
 }
 
 /* Each tab sits on a hairline; the active one fills in copper */
 .services__tab {
   position: relative;
+  display: flex;
+  gap: 1rem;
   padding-top: 1rem;
   text-align: left;
-  color: var(--grey);
+  color: rgba(242, 240, 233, 0.7);
   transition: color 0.6s;
+}
+
+.services__tab-num {
+  color: var(--grey);
+}
+
+.services__tab.is-active .services__tab-num {
+  color: var(--copper);
 }
 
 .services__tab::before,
@@ -174,7 +211,7 @@
 }
 
 .services__tab::before {
-  background: var(--rule-dark);
+  background: rgba(242, 240, 233, 0.3);
 }
 
 .services__tab::after {
@@ -207,4 +244,11 @@
     flex: none;
     min-width: 7.5rem;
   }
+}
+
+/* Shot brief sits under the counter, clear of the copy and tabs */
+.service-slide .media-placeholder__caption {
+  top: clamp(4rem, 10vh, 5.5rem);
+  bottom: auto;
+  right: var(--gutter);
 }

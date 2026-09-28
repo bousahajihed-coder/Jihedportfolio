@@ -3,22 +3,26 @@
 }
 
 .work__header {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 2rem;
-  margin: clamp(3rem, 9vh, 7rem) 0 clamp(3.5rem, 9vh, 6.5rem);
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 2rem clamp(3rem, 7vw, 8rem);
+  margin: clamp(3rem, 9vh, 7rem) 0 clamp(3.5rem, 9vh, 6rem);
 }
 
 .work__title {
   font-size: var(--fs-section);
 }
 
-/* Editorial gallery: large frames, captions set beneath like a magazine */
+.work__intro {
+  max-width: 22em;
+}
+
+/* Gallery: stills dominate; captions sit underneath like film titles */
 .work__gallery {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: clamp(3.5rem, 9vh, 7rem) clamp(1rem, 2vw, 2rem);
+  gap: clamp(4rem, 11vh, 8rem) clamp(1rem, 2vw, 2rem);
 }
 
 .project--wide {
@@ -26,6 +30,8 @@
 }
 
 .project__frame {
+  --px: 0.5;
+  --py: 0.5;
   position: relative;
   display: block;
   width: 100%;
@@ -34,72 +40,83 @@
   cursor: pointer;
 }
 
-.project--wide .project__frame { aspect-ratio: 21 / 9; }
-.project--half .project__frame { aspect-ratio: 4 / 3; }
+.project--wide .project__frame { aspect-ratio: 2 / 1; }
+.project--half .project__frame { aspect-ratio: 4 / 5; }
 
-/* Hover: a slow push-in and a slight lift in exposure — no dramatic zoom */
-.project__frame .media-placeholder__light,
-.project__frame .media > img,
-.project__frame .media > video {
-  transition:
-    transform 2.2s var(--ease),
-    filter 1.2s var(--ease);
-  filter: brightness(0.92);
+/* The still is slightly oversized so it can drift with the pointer */
+.project__image {
+  position: absolute;
+  inset: -2%;
+  transition: transform 1.8s var(--ease);
 }
 
-.project__frame:hover .media-placeholder__light,
-.project__frame:hover .media > img,
-.project__frame:hover .media > video,
-.project__frame:focus-visible .media-placeholder__light,
-.project__frame:focus-visible .media > img {
-  transform: scale(1.025);
-  filter: brightness(1);
+.project__frame:hover .project__image,
+.project__frame:focus-visible .project__image {
+  transform:
+    scale(1.03)
+    translate(calc((0.5 - var(--px)) * 1.5%), calc((0.5 - var(--py)) * 1.5%));
 }
 
 .project__frame:focus-visible {
   outline-offset: 6px;
 }
 
-.project__logo {
+/* Cursor label follows the pointer inside the frame */
+.project__cursor {
   position: absolute;
-  top: 1.5rem;
-  left: 1.5rem;
-  max-width: 9rem;
-  max-height: 3rem;
-}
-
-.project__play {
-  position: absolute;
-  left: clamp(1rem, 2vw, 1.75rem);
-  bottom: clamp(1rem, 2vw, 1.5rem);
-  display: flex;
-  gap: 1.25rem;
-  color: var(--ivory);
+  left: calc(var(--px) * 100%);
+  top: calc(var(--py) * 100%);
+  padding: 0.7rem 1rem;
+  background: var(--ivory);
+  color: var(--black);
+  pointer-events: none;
   opacity: 0;
-  transform: translateY(0.5rem);
-  transition: opacity 0.8s var(--ease), transform 1s var(--ease);
+  transform: translate(-50%, -50%) scale(0.9);
+  transition:
+    opacity 0.5s var(--ease),
+    transform 0.6s var(--ease),
+    left 0.35s var(--ease),
+    top 0.35s var(--ease);
 }
 
-.project__play span {
-  color: var(--copper);
-}
-
-.project__frame:hover .project__play,
-.project__frame:focus-visible .project__play {
+.project__frame:hover .project__cursor {
   opacity: 1;
-  transform: none;
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .project__caption {
-  display: grid;
-  gap: 0.75rem;
-  padding-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem 2rem;
+  padding-top: 1.5rem;
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 1rem;
+}
+
+.project__title {
+  font-family: var(--font-display);
+  font-size: var(--fs-feature);
+  font-weight: 300;
+  line-height: 0.95;
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  transition: color 0.6s var(--ease);
+}
+
+.project--wide .project__title {
+  font-size: var(--fs-section);
+}
+
+.project:has(.project__frame:hover) .project__title {
+  color: var(--accent);
 }
 
 .project__meta {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.35rem 1.75rem;
+  gap: 0.35rem 1.5rem;
 }
 
 .project__num {
@@ -107,30 +124,18 @@
   font-variant-numeric: tabular-nums;
 }
 
-.project__title {
-  font-family: var(--font-display);
-  font-size: var(--fs-project);
-  font-weight: 400;
-  line-height: 1.1;
-  letter-spacing: -0.015em;
-}
-
-.project--wide .project__caption {
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+.work__footer {
+  display: flex;
+  flex-wrap: wrap;
   align-items: baseline;
-}
-
-.project--wide .project__title {
-  grid-column: 2;
-  grid-row: 1;
-  justify-self: end;
-  text-align: right;
+  justify-content: space-between;
+  gap: 1rem 2rem;
+  margin-top: clamp(4rem, 10vh, 7rem);
 }
 
 @media (max-width: 799px) {
   .work__header {
-    flex-direction: column;
-    align-items: flex-start;
+    grid-template-columns: 1fr;
   }
 
   .work__gallery {
@@ -139,23 +144,16 @@
 
   .project--wide .project__frame,
   .project--half .project__frame {
-    aspect-ratio: 4 / 3;
-  }
-
-  .project--wide .project__caption {
-    grid-template-columns: 1fr;
+    aspect-ratio: 4 / 5;
   }
 
   .project--wide .project__title {
-    grid-column: auto;
-    grid-row: auto;
-    justify-self: start;
-    text-align: left;
+    font-size: var(--fs-feature);
   }
+}
 
-  /* Touch screens have no hover: keep the play cue visible */
-  .project__play {
-    opacity: 1;
-    transform: none;
+@media (hover: none) {
+  .project__cursor {
+    display: none;
   }
 }

@@ -1,0 +1,78 @@
+.production {
+  padding-block: var(--section-pad);
+}
+
+.production__title {
+  margin: clamp(3rem, 9vh, 7rem) 0 clamp(3rem, 8vh, 5.5rem);
+  font-size: var(--fs-section);
+}
+
+.production__body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 3rem clamp(3rem, 7vw, 8rem);
+  margin-top: clamp(3rem, 8vh, 5.5rem);
+}
+
+.production__text {
+  display: grid;
+  gap: 1.25rem;
+  align-content: start;
+  max-width: 30em;
+  line-height: 1.7;
+}
+
+.production__lead {
+  font-family: var(--font-display);
+  font-size: var(--fs-project);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.015em;
+  text-wrap: balance;
+}
+
+/* Stages: a typographic run-sheet */
+.production__stages {
+  border-top: 1px solid var(--rule);
+}
+
+.production__stages li {
+  display: grid;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  align-items: baseline;
+  padding-block: 0.85rem 0.75rem;
+  border-bottom: 1px solid var(--rule);
+}
+
+.production__num {
+  color: var(--text-2);
+  transition: color 0.5s;
+}
+
+.production__stage {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 2.3vw, 2.4rem);
+  font-weight: 300;
+  line-height: 1.05;
+  letter-spacing: var(--tracking-display);
+  text-transform: uppercase;
+  transition: transform 0.9s var(--ease);
+}
+
+.production__stages li:hover .production__num {
+  color: var(--accent);
+}
+
+.production__stages li:hover .production__stage {
+  transform: translateX(0.5rem);
+}
+
+@media (max-width: 899px) {
+  .production__body {
+    grid-template-columns: 1fr;
+  }
+
+  .production__stages li {
+    grid-template-columns: 2.5rem minmax(0, 1fr);
+  }
+}

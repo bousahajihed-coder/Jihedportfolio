@@ -6,23 +6,25 @@ import Intro from './components/sections/Intro'
 import Services from './components/sections/Services'
 import Work from './components/sections/Work'
 import About from './components/sections/About'
-import Clients from './components/sections/Clients'
+import Production from './components/sections/Production'
+import International from './components/sections/International'
 import Contact from './components/sections/Contact'
 import ProjectViewer from './components/sections/ProjectViewer'
+import { site } from './config/site'
 import { hero } from './content/home'
 
 // The hero's play button opens the showreel in the same viewer the work
-// grid uses. Add `reel: { type, src | id }` to hero in content/home.js.
+// gallery uses. Add `reel: { type, src | id }` to hero in content/home.js.
 const reel = [
   {
     id: 'showreel',
     title: 'Showreel',
-    client: 'Studio Name',
-    service: 'Showreel',
+    type: 'Showreel',
+    location: site.base,
     year: new Date().getFullYear(),
-    description: 'Placeholder: the studio showreel plays here.',
+    description: `${site.name} showreel.`,
     video: hero.reel ?? null,
-    scene: 'hero',
+    image: hero.image,
   },
 ]
 
@@ -42,7 +44,8 @@ export default function App() {
         <Services />
         <Work />
         <About />
-        <Clients />
+        <Production />
+        <International />
         <Contact />
       </main>
       <Footer />
