@@ -9,8 +9,10 @@ export const hero = {
   cta: { label: 'View our work', href: '#work' },
   secondary: { label: 'Start a project', href: '#contact' },
   reelLabel: 'Play showreel',
-  // Background: { src: '/media/hero.mp4', type: 'video/mp4', poster: '/media/hero.jpg' }
-  video: null,
+  // Background loop behind the headline (muted, loops, plays while visible).
+  // File lives in public/media/. Add `poster: `${base}media/hero.jpg`` for a
+  // still that shows before the first frame loads.
+  video: { src: `${import.meta.env.BASE_URL}media/hero.mp4`, type: 'video/mp4' },
   image: images.hero,
 }
 

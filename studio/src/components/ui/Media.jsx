@@ -33,7 +33,7 @@ export default function Media({
   return (
     <div className={classes} style={style}>
       {hasVideo ? (
-        <AmbientVideo video={video} poster={video.poster ?? image?.src} />
+        <AmbientVideo video={video} poster={video.poster ?? image?.src} eager={priority} />
       ) : image?.src ? (
         <img
           src={image.src}
@@ -53,7 +53,7 @@ export default function Media({
   )
 }
 
-function AmbientVideo({ video, poster }) {
+function AmbientVideo({ video, poster, eager }) {
   const ref = useRef(null)
   const reduced = usePrefersReducedMotion()
 
@@ -61,6 +61,9 @@ function AmbientVideo({ video, poster }) {
   useEffect(() => {
     const el = ref.current
     if (!el) return
+    // React doesn't reliably reflect `muted` to the element; browsers only
+    // allow autoplay for muted video, so set it explicitly.
+    el.muted = true
     if (reduced) {
       el.pause()
       return
@@ -76,7 +79,16 @@ function AmbientVideo({ video, poster }) {
   const sources = video.sources ?? [{ src: video.src, type: video.type }]
 
   return (
-    <video ref={ref} muted loop playsInline preload="metadata" poster={poster} aria-hidden="true">
+    <video
+      ref={ref}
+      muted
+      loop
+      playsInline
+      autoPlay={!reduced}
+      preload={eager ? 'auto' : 'metadata'}
+      poster={poster}
+      aria-hidden="true"
+    >
       {sources.map((s) => (
         <source key={s.src} src={s.src} type={s.type} />
       ))}
