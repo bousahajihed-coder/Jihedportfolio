@@ -40,7 +40,12 @@ export const images = {
     width: 2000,
     height: 1334,
   },
-  serviceCrew: slot('crew', 'Director, DoP and camera team on an exterior location, wide shot', 'A film crew working on an exterior location'),
+  serviceCrew: {
+    ...slot('crew', 'Camera team on an exterior location: operator, focus puller, diffusion overhead', 'A camera crew filming on a city street location'),
+    src: `${import.meta.env.BASE_URL}media/crew.jpg`,
+    width: 2000,
+    height: 1125,
+  },
 
   workNorth: slot('city', 'Company headquarters at dusk, city street, warm windows', 'An office building at dusk'),
   workForm: slot('portrait', 'Founder portrait in a factory, practical light, looking off camera', 'A founder portrait in a factory'),
