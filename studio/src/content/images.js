@@ -60,6 +60,11 @@ export const images = {
     width: 2000,
     height: 1124,
   },
-  production: slot('set', 'Lighting set-up on a large interior location, crew rigging', 'A crew rigging lights on a large interior set'),
+  production: {
+    ...slot('set', 'Camera on a crane arm, rigged in a large interior location', 'A cinema camera on a crane arm rigged inside a large venue'),
+    src: `${import.meta.env.BASE_URL}media/production.jpg`,
+    width: 1335,
+    height: 2000,
+  },
   international: slot('harbour', 'Wide cinematic city harbour at blue hour, city lights on water', 'A city harbour at blue hour'),
 }

@@ -9,9 +9,20 @@
 
 .production__body {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  grid-template-columns: minmax(0, 0.85fr) minmax(0, 1fr);
   gap: 3rem clamp(3rem, 7vw, 8rem);
-  margin-top: clamp(3rem, 8vh, 5.5rem);
+  align-items: start;
+}
+
+/* The still stays in view while the text and stages scroll past it */
+.production__image {
+  position: sticky;
+  top: calc(var(--header-h) + 2rem);
+}
+
+.production__column {
+  display: grid;
+  gap: clamp(3rem, 8vh, 5rem);
 }
 
 .production__text {
@@ -70,6 +81,14 @@
 @media (max-width: 899px) {
   .production__body {
     grid-template-columns: 1fr;
+  }
+
+  .production__image {
+    position: static;
+  }
+
+  .production__image .media {
+    aspect-ratio: 4 / 5 !important;
   }
 
   .production__stages li {
