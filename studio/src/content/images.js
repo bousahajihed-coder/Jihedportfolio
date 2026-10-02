@@ -66,5 +66,10 @@ export const images = {
     width: 1335,
     height: 2000,
   },
-  international: slot('harbour', 'Wide cinematic city harbour at blue hour, city lights on water', 'A city harbour at blue hour'),
+  international: {
+    ...slot('harbour', 'Berlin skyline at golden hour, TV tower and river Spree', 'The Berlin skyline at sunset, with the TV tower and the river Spree'),
+    src: `${import.meta.env.BASE_URL}media/international.jpg`,
+    width: 2000,
+    height: 1224,
+  },
 }

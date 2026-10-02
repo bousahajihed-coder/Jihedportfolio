@@ -71,3 +71,12 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* On phones the copy covers the middle of the frame; deepen the veil there */
+@media (max-width: 699px) {
+  .international__shade {
+    background:
+      linear-gradient(180deg, rgba(11, 11, 10, 0.35) 0%, transparent 18%),
+      linear-gradient(0deg, rgba(11, 11, 10, 0.9) 0%, rgba(11, 11, 10, 0.75) 40%, rgba(11, 11, 10, 0.3) 62%, transparent 78%);
+  }
+}
