@@ -34,7 +34,12 @@ export const images = {
     width: 2000,
     height: 1333,
   },
-  serviceSocial: slot('product', 'Handheld vertical shoot on set: phone rig, monitor and soft light', 'A short-form social video being shot on set'),
+  serviceSocial: {
+    ...slot('product', 'Live content shoot: camera rig with tablet monitor, presenter behind', 'A presenter being filmed for social content with a camera and tablet rig'),
+    src: `${import.meta.env.BASE_URL}media/social.jpg`,
+    width: 2000,
+    height: 1334,
+  },
   serviceCrew: slot('crew', 'Director, DoP and camera team on an exterior location, wide shot', 'A film crew working on an exterior location'),
 
   workNorth: slot('city', 'Company headquarters at dusk, city street, warm windows', 'An office building at dusk'),
