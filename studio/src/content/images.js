@@ -22,7 +22,12 @@ export const images = {
     height: 1333,
   },
 
-  serviceFilms: slot('office', 'Modern office, people at work, soft daylight — observed, not staged', 'People at work in a bright modern office'),
+  serviceFilms: {
+    ...slot('set', 'Camera operator at a cinema camera on set', 'A camera operator with a cinema camera on a studio set'),
+    src: `${import.meta.env.BASE_URL}media/films.jpg`,
+    width: 2000,
+    height: 1124,
+  },
   serviceStories: slot('interview', 'Documentary interview set-up: subject lit by window, camera in foreground', 'A documentary interview in progress'),
   serviceSocial: slot('product', 'Handheld vertical shoot on set: phone rig, monitor and soft light', 'A short-form social video being shot on set'),
   serviceCrew: slot('crew', 'Director, DoP and camera team on an exterior location, wide shot', 'A film crew working on an exterior location'),
