@@ -15,7 +15,12 @@ const slot = (scene, brief, alt) => ({ src: null, srcSet: null, scene, brief, al
 export const images = {
   hero: slot('hero', 'Film crew on location at golden hour, camera and operator in frame', 'A film crew shooting on location at golden hour'),
 
-  intro: slot('workshop', 'Founder at work in an industrial workshop, daylight from high windows', 'A founder at work in an industrial workshop'),
+  intro: {
+    ...slot('workshop', 'Machinist at work in a workshop', 'A machinist operating a lathe in a workshop'),
+    src: `${import.meta.env.BASE_URL}media/intro.jpg`,
+    width: 2000,
+    height: 1333,
+  },
 
   serviceFilms: slot('office', 'Modern office, people at work, soft daylight — observed, not staged', 'People at work in a bright modern office'),
   serviceStories: slot('interview', 'Documentary interview set-up: subject lit by window, camera in foreground', 'A documentary interview in progress'),
