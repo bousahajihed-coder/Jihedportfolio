@@ -18,9 +18,9 @@ export const images = {
   intro: slot('workshop', 'Founder at work in an industrial workshop, daylight from high windows', 'A founder at work in an industrial workshop'),
 
   serviceFilms: slot('office', 'Modern office, people at work, soft daylight — observed, not staged', 'People at work in a bright modern office'),
-  serviceEditorial: slot('interview', 'Documentary interview set-up: subject lit by window, camera in foreground', 'A documentary interview in progress'),
-  serviceContent: slot('product', 'Product on a table being filmed, monitor and light stand visible', 'A product being filmed on set'),
-  serviceProduction: slot('crew', 'Crew and gear on an exterior location, wide shot', 'A production crew on an exterior location'),
+  serviceStories: slot('interview', 'Documentary interview set-up: subject lit by window, camera in foreground', 'A documentary interview in progress'),
+  serviceSocial: slot('product', 'Handheld vertical shoot on set: phone rig, monitor and soft light', 'A short-form social video being shot on set'),
+  serviceCrew: slot('crew', 'Director, DoP and camera team on an exterior location, wide shot', 'A film crew working on an exterior location'),
 
   workNorth: slot('city', 'Company headquarters at dusk, city street, warm windows', 'An office building at dusk'),
   workForm: slot('portrait', 'Founder portrait in a factory, practical light, looking off camera', 'A founder portrait in a factory'),
