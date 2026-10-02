@@ -252,3 +252,13 @@
   bottom: auto;
   right: var(--gutter);
 }
+
+/* On narrow screens the copy covers the lower half of the frame, so the
+   shade rises higher there to keep text readable over bright stills. */
+@media (max-width: 699px) {
+  .service-slide__shade {
+    background:
+      linear-gradient(180deg, rgba(11, 11, 10, 0.4) 0%, transparent 16%),
+      linear-gradient(0deg, rgba(11, 11, 10, 0.88) 0%, rgba(11, 11, 10, 0.7) 35%, rgba(11, 11, 10, 0.2) 60%, transparent 75%);
+  }
+}

@@ -28,7 +28,12 @@ export const images = {
     width: 2000,
     height: 1124,
   },
-  serviceStories: slot('interview', 'Documentary interview set-up: subject lit by window, camera in foreground', 'A documentary interview in progress'),
+  serviceStories: {
+    ...slot('interview', 'Story being filmed in a café: subject, camera and boom mic', 'A conversation being filmed in a café, with a camera and boom microphone'),
+    src: `${import.meta.env.BASE_URL}media/stories.jpg`,
+    width: 2000,
+    height: 1333,
+  },
   serviceSocial: slot('product', 'Handheld vertical shoot on set: phone rig, monitor and soft light', 'A short-form social video being shot on set'),
   serviceCrew: slot('crew', 'Director, DoP and camera team on an exterior location, wide shot', 'A film crew working on an exterior location'),
 
