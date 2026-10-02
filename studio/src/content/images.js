@@ -54,7 +54,12 @@ export const images = {
   workMonument: slot('architecture', 'Parisian architecture, morning light, people crossing a square', 'A square in Paris in morning light'),
   workKin: slot('kitchen', 'Family around a kitchen table, candid, warm afternoon light', 'A family talking around a kitchen table'),
 
-  about: slot('team', 'Behind the scenes: director and DoP at the monitor, crew around', 'A director and cinematographer reviewing a shot at the monitor'),
+  about: {
+    ...slot('team', 'Camera team and crew on set around a cinema camera', 'A film crew gathered around a cinema camera on set'),
+    src: `${import.meta.env.BASE_URL}media/about.jpg`,
+    width: 2000,
+    height: 1124,
+  },
   production: slot('set', 'Lighting set-up on a large interior location, crew rigging', 'A crew rigging lights on a large interior set'),
   international: slot('harbour', 'Wide cinematic city harbour at blue hour, city lights on water', 'A city harbour at blue hour'),
 }
