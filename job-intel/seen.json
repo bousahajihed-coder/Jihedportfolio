@@ -1,0 +1,22 @@
+{
+  "_note": "Opportunities already reported. Key = company|title|location. Do not re-report unless materially changed (new deadline, reposted with new date).",
+  "reported": [
+    {"key": "Mozilla|Creative Producer, Europe (Contract)|Remote Germany", "url": "https://www.mozilla.org/en-US/careers/position/gh/8037057/", "first_reported": "2026-10-04", "rating": "A"},
+    {"key": "MadeFor Film|Line Producer (m/w/d)|Berlin", "url": "https://www.dwdl.de/jobboerse/43200_madeforfilmgmbh.html", "first_reported": "2026-10-04", "rating": "B"},
+    {"key": "Wolt|Senior Creative Producer (Fixed-term, 6 months)|Berlin/Helsinki/Stockholm/Copenhagen/Athens", "url": "https://job-boards.greenhouse.io/wolt", "first_reported": "2026-10-04", "rating": "B"},
+    {"key": "Media.Monks|Integrated Producer - Freelance|Amsterdam", "url": "https://startup.jobs/integrated-producer-freelance-mediamonks-2-3550892", "first_reported": "2026-10-04", "rating": "B"},
+    {"key": "Untold Studios|Freelance Producer|London", "url": "https://careers.untoldstudios.tv/jobs/6040151-freelance-producer", "first_reported": "2026-10-04", "rating": "B"},
+    {"key": "Highsnobiety|Executive Producer|Berlin", "url": "https://jobs.highsnobiety.com/jobs", "first_reported": "2026-10-04", "rating": "Possible"},
+    {"key": "SCRL|Freelance Creative Producer DACH|Remote DACH", "url": "https://careers.scrl.com/jobs/8367538-freelance-creative-producer-dach", "first_reported": "2026-10-04", "rating": "C"},
+    {"key": "Markenfilm / M4|Assistant Producer (f/m/d)|Berlin", "url": "https://www.glassdoor.de/job-listing/markenfilm-hamburg-assistant-producer-fmd-m4-die-fernsehagentur-gmbh-co-kg-JV_IC2622109_KO0,41_KE42,74.htm?jl=1010157786271", "first_reported": "2026-10-04", "rating": "Possible"}
+  ],
+  "excluded_as_stale_or_irrelevant": [
+    "Richtig Cool|Freelance Senior Creative Producer|Berlin (2023 posting)",
+    "weareera|Senior Creative Producer|Berlin (since 2026-03-30, permanent)",
+    "Story House Productions|Produktionskoordinator*in|Berlin (since 2026-04-27, permanent)",
+    "BLAST|Production Coordinator (Content)|Berlin (early 2026, permanent)",
+    "DFFB/ZDF|Production manager|Berlin (shoot Sept-Oct 2026, already running)",
+    "Zalando|Content Producer & Manager|Berlin (removed)",
+    "Steve (Paris)|Producteur IA freelance (posted Jan 2026)"
+  ]
+}
