@@ -6,7 +6,8 @@ import './Media.css'
 //
 //   video: { src, type, poster } or { sources: [{ src, type }], poster }
 //          → muted, looping, plays only while visible
-//   image: { src, srcSet, alt, width, height }   (or a slot from content/images.js)
+//   image: { src, srcSet, alt, width, height, position }   (or a slot from content/images.js)
+//          `position` is a CSS object-position, e.g. '50% 20%', to choose the crop
 //   neither → a graded placeholder frame. For a slot without `src`, the
 //   slot's `scene` sets the look and its shot brief becomes the caption.
 //
@@ -49,6 +50,7 @@ export default function Media({
           loading={priority ? 'eager' : 'lazy'}
           fetchPriority={priority ? 'high' : undefined}
           decoding="async"
+          style={image.position ? { objectPosition: image.position } : undefined}
           onError={() => setFailedSrc(image.src)}
         />
       ) : (
