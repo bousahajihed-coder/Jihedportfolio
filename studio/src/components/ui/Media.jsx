@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { usePrefersReducedMotion } from '../../hooks/usePrefersReducedMotion'
 import './Media.css'
 
@@ -29,12 +29,16 @@ export default function Media({
   const hasVideo = Boolean(video?.src || video?.sources?.length)
   const placeholderScene = image?.scene ?? scene
   const placeholderCaption = image?.brief ?? caption
+  // A remote still that fails to load (or is blocked) falls back to the
+  // placeholder instead of a broken image.
+  const [failedSrc, setFailedSrc] = useState(null)
+  const showImage = image?.src && failedSrc !== image.src
 
   return (
     <div className={classes} style={style}>
       {hasVideo ? (
         <AmbientVideo video={video} poster={video.poster ?? image?.src} eager={priority} />
-      ) : image?.src ? (
+      ) : showImage ? (
         <img
           src={image.src}
           srcSet={image.srcSet}
@@ -45,6 +49,7 @@ export default function Media({
           loading={priority ? 'eager' : 'lazy'}
           fetchPriority={priority ? 'high' : undefined}
           decoding="async"
+          onError={() => setFailedSrc(image.src)}
         />
       ) : (
         <Placeholder scene={placeholderScene} caption={placeholderCaption} alt={image?.alt ?? alt} />
