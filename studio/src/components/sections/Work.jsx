@@ -9,9 +9,10 @@ import SectionLabel from '../ui/SectionLabel'
 import ProjectViewer from './ProjectViewer'
 import './Work.css'
 
-// Gallery rhythm: one wide film, then a pair, repeated. A project can
-// override its slot with `layout: 'wide' | 'half'`.
-const RHYTHM = ['wide', 'half', 'half']
+// Gallery rhythm: films sit in pairs, so stills display below their native
+// size and stay sharp. A project can still take a full-width slot with
+// `layout: 'wide'` once a large (2400px+) still is available for it.
+const RHYTHM = ['half']
 
 export default function Work() {
   const [openIndex, setOpenIndex] = useState(null)
@@ -66,7 +67,7 @@ function Project({ project, index, layout, onOpen }) {
   }
 
   return (
-    <Reveal as="li" className={`project project--${layout}`} delay={layout === 'half' && index % 3 === 2 ? 150 : 0}>
+    <Reveal as="li" className={`project project--${layout}`} delay={layout === 'half' && index % 2 === 1 ? 150 : 0}>
       <button
         ref={frameRef}
         type="button"
