@@ -104,11 +104,13 @@ function Player({ project }) {
     )
   }
 
-  if (video?.type === 'vimeo' || video?.type === 'youtube') {
+  if (video?.type === 'bunny' || video?.type === 'vimeo' || video?.type === 'youtube') {
     const src =
-      video.type === 'vimeo'
-        ? `https://player.vimeo.com/video/${video.id}?autoplay=1`
-        : `https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1`
+      video.type === 'bunny'
+        ? `https://player.mediadelivery.net/embed/${video.library}/${video.id}?autoplay=true&preload=true&responsive=true`
+        : video.type === 'vimeo'
+          ? `https://player.vimeo.com/video/${video.id}?autoplay=1`
+          : `https://www.youtube-nocookie.com/embed/${video.id}?autoplay=1`
     return (
       <div className="viewer__frame">
         <iframe
