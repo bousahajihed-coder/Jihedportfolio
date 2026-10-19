@@ -2,13 +2,13 @@
 // details here; nothing else in the codebase hard-codes them.
 
 export const site = {
-  name: 'ASTRA',
-  // Set to { src: '/logo.svg', alt: 'ASTRA', width: 160, height: 32 }
+  name: 'Briefly Media',
+  // Set to { src: '/logo.svg', alt: 'Briefly Media', width: 160, height: 32 }
   // once a logo exists. While null, the name is set as a wordmark.
   logo: null,
   tagline: 'Films for companies, people and ideas.',
 
-  email: 'hello@astra.studio',
+  email: 'hello@brieflymedia.com',
   phone: null,
   base: 'Berlin',
   offices: ['Berlin', 'Worldwide'],

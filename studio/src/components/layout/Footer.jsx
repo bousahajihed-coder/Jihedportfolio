@@ -23,7 +23,11 @@ export default function Footer() {
                 <li key={o}>{o}</li>
               ))}
               <li>
-                <a href={`mailto:${site.email}`}>{site.email}</a>
+                {/* Allow the address to break after the @ on narrow screens */}
+                <a href={`mailto:${site.email}`}>
+                  {site.email.split('@')[0]}@<wbr />
+                  {site.email.split('@')[1]}
+                </a>
               </li>
             </ul>
           </div>

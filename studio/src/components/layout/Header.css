@@ -250,3 +250,14 @@
     display: none;
   }
 }
+
+/* Very narrow phones: tighten the wordmark so it and the menu button fit */
+@media (max-width: 379px) {
+  .site-header .logo--text {
+    letter-spacing: 0.16em;
+  }
+
+  .site-header__inner {
+    gap: 1rem;
+  }
+}

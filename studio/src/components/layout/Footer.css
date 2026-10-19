@@ -12,9 +12,11 @@
 }
 
 .site-footer__brand .logo--text {
-  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  font-size: clamp(1.9rem, 5.2vw, 5rem);
   font-weight: 300;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.14em;
+  white-space: normal;
+  line-height: 1.05;
 }
 
 .site-footer__tagline {
@@ -67,10 +69,18 @@
 
 @media (max-width: 899px) {
   .site-footer__top {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 
   .site-footer__brand {
     grid-column: 1 / -1;
   }
+}
+
+.site-footer__brand {
+  min-width: 0;
+}
+
+.site-footer__col a {
+  overflow-wrap: break-word;
 }
