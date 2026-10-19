@@ -73,7 +73,7 @@ function Project({ project, index, layout, onOpen }) {
         className="project__frame"
         onClick={onOpen}
         onPointerMove={onPointerMove}
-        aria-label={`Watch ${project.title}, ${project.type}, ${project.location}`}
+        aria-label={['Watch', project.title, project.type, project.location].filter(Boolean).join(', ')}
       >
         <span className="project__image">
           <Media fill image={project.image} sizes={layout === 'wide' ? '100vw' : '(min-width: 800px) 50vw, 100vw'} />
@@ -88,7 +88,7 @@ function Project({ project, index, layout, onOpen }) {
         <p className="project__meta label">
           <span className="project__num">{String(index + 1).padStart(2, '0')}</span>
           <span>{project.type}</span>
-          <span className="text-2">{project.location}</span>
+          {project.location && <span className="text-2">{project.location}</span>}
         </p>
       </div>
     </Reveal>

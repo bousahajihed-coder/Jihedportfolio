@@ -68,7 +68,7 @@ export default function ProjectViewer({ projects, index, onChange, onClose }) {
               <Fact term="Year" value={project.year} />
               <Fact term="Duration" value={project.duration} />
             </dl>
-            <p className="viewer__desc">{project.description}</p>
+            {project.description && <p className="viewer__desc">{project.description}</p>}
             {project.credits?.length > 0 && (
               <dl className="viewer__credits">
                 {project.credits.map(([role, name]) => (
