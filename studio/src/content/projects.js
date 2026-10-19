@@ -19,7 +19,7 @@ const bunny = (id) => ({ type: 'bunny', library: BUNNY_LIBRARY, id })
 const bunnyStill = (slot, id) => ({ ...slot, src: `https://${BUNNY_CDN}/${id}/thumbnail.jpg` })
 
 export const projects = [
-  { id: 'shell', video: bunny('6a48b4c0-69ae-4e27-a54e-e1520d0de9e0'), title: 'Shell E-mobility Innovation', type: 'Corporate Film', duration: '09:33', image: bunnyStill(images.workNorth, '6a48b4c0-69ae-4e27-a54e-e1520d0de9e0') },
+  { id: 'shell', video: bunny('6a48b4c0-69ae-4e27-a54e-e1520d0de9e0'), title: 'Shell E-mobility', type: 'Corporate Film', duration: '09:33', image: bunnyStill(images.workNorth, '6a48b4c0-69ae-4e27-a54e-e1520d0de9e0') },
   { id: 'bayer', video: bunny('08250804-a968-49b3-975e-f69e0ee85f36'), title: 'Bayer Medical Breakthroughs', type: 'Corporate Film', duration: '05:25', image: bunnyStill(images.workForm, '08250804-a968-49b3-975e-f69e0ee85f36') },
   { id: 'air-up', video: bunny('52e7a82d-7a6c-4e78-bd18-273221d755f1'), title: 'Air Up Hydration Revolution', type: 'Brand Film', duration: '05:42', image: bunnyStill(images.workOrbit, '52e7a82d-7a6c-4e78-bd18-273221d755f1') },
   { id: 'field-notes', title: 'FIELD NOTES', type: 'Documentary', location: 'Berlin', year: 2025, duration: '28:00', image: images.workFieldNotes, description: 'An observational documentary filmed over four months with a research team outside Berlin.' },
