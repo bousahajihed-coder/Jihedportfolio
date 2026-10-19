@@ -40,21 +40,20 @@
   cursor: pointer;
 }
 
-.project--wide .project__frame { aspect-ratio: 2 / 1; }
-.project--half .project__frame { aspect-ratio: 4 / 5; }
+/* Film stills are 16:9; keep that shape so nothing is cropped */
+.project--wide .project__frame,
+.project--half .project__frame { aspect-ratio: 16 / 9; }
 
-/* The still is slightly oversized so it can drift with the pointer */
+/* The still fills the frame exactly; hover only scales it slightly */
 .project__image {
   position: absolute;
-  inset: -2%;
+  inset: 0;
   transition: transform 1.8s var(--ease);
 }
 
 .project__frame:hover .project__image,
 .project__frame:focus-visible .project__image {
-  transform:
-    scale(1.03)
-    translate(calc((0.5 - var(--px)) * 1.5%), calc((0.5 - var(--py)) * 1.5%));
+  transform: scale(1.02);
 }
 
 .project__frame:focus-visible {
@@ -142,10 +141,6 @@
     grid-template-columns: 1fr;
   }
 
-  .project--wide .project__frame,
-  .project--half .project__frame {
-    aspect-ratio: 4 / 5;
-  }
 
   .project--wide .project__title {
     font-size: var(--fs-feature);

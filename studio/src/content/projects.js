@@ -17,9 +17,9 @@ const bunny = (id) => ({ type: 'bunny', library: BUNNY_LIBRARY, id })
 const still = (file, alt, width, height, position) => ({ src: `${import.meta.env.BASE_URL}media/${file}`, alt, width, height, position })
 
 export const projects = [
-  { id: 'shell', video: bunny('6a48b4c0-69ae-4e27-a54e-e1520d0de9e0'), title: 'Shell E-mobility', type: 'Corporate Film', duration: '09:33', image: still('work-shell.jpg', 'Interview from the Shell E-mobility film', 1280, 720, '50% 15%') },
-  { id: 'bayer', video: bunny('08250804-a968-49b3-975e-f69e0ee85f36'), title: 'Bayer Medical Breakthroughs', type: 'Corporate Film', duration: '05:25', image: still('work-bayer.jpg', 'The Bayer logo on a building, from the Bayer Medical Breakthroughs film', 1920, 799) },
-  { id: 'air-up', video: bunny('52e7a82d-7a6c-4e78-bd18-273221d755f1'), title: 'Air Up Hydration Revolution', type: 'Brand Film', duration: '05:42', image: still('work-air-up.jpg', 'A conversation in an office, from the Air Up Hydration Revolution film', 1920, 1080, '62% 50%') },
+  { id: 'shell', video: bunny('6a48b4c0-69ae-4e27-a54e-e1520d0de9e0'), title: 'Shell E-mobility', type: 'Corporate Film', duration: '09:33', image: still('work-shell.jpg', 'Interview from the Shell E-mobility film', 1280, 720) },
+  { id: 'bayer', video: bunny('08250804-a968-49b3-975e-f69e0ee85f36'), title: 'Bayer Medical Breakthroughs', type: 'Corporate Film', duration: '05:25', image: still('work-bayer.jpg', 'The Bayer logo on a building, from the Bayer Medical Breakthroughs film', 1920, 1080) },
+  { id: 'air-up', video: bunny('52e7a82d-7a6c-4e78-bd18-273221d755f1'), title: 'Air Up Hydration Revolution', type: 'Brand Film', duration: '05:42', image: still('work-air-up.jpg', 'A conversation in an office, from the Air Up Hydration Revolution film', 1920, 1080) },
   { id: 'field-notes', title: 'FIELD NOTES', type: 'Documentary', location: 'Berlin', year: 2025, duration: '28:00', image: images.workFieldNotes, description: 'An observational documentary filmed over four months with a research team outside Berlin.' },
   { id: 'monument', title: 'MONUMENT', type: 'Image Film', location: 'Paris', year: 2025, duration: '02:20', image: images.workMonument, description: 'An image film shot in Paris over two early mornings, before the city wakes up.' },
   { id: 'kin', title: 'KIN', type: 'Editorial Film', location: 'Copenhagen', year: 2024, duration: '09:40', image: images.workKin, description: 'An editorial film about three generations of a family business in Copenhagen.' },
