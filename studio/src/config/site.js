@@ -2,13 +2,13 @@
 // details here; nothing else in the codebase hard-codes them.
 
 export const site = {
-  name: 'Briefly Media',
-  // Set to { src: '/logo.svg', alt: 'Briefly Media', width: 160, height: 32 }
+  name: 'Brievo Media',
+  // Set to { src: '/logo.svg', alt: 'Brievo Media', width: 160, height: 32 }
   // once a logo exists. While null, the name is set as a wordmark.
   logo: null,
   tagline: 'Films for companies, people and ideas.',
 
-  email: 'hello@brieflymedia.com',
+  email: 'hello@brievomedia.com',
   phone: null,
   base: 'Berlin',
   offices: ['Berlin', 'Worldwide'],

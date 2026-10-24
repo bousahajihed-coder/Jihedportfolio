@@ -1,6 +1,6 @@
-# Briefly Media — website
+# Brievo Media — website
 
-Homepage for Briefly Media, a Berlin film production studio making films about
+Homepage for Brievo Media, a Berlin film production studio making films about
 companies, people and ideas. Art direction: cinematic and editorial —
 black and ivory surfaces, warm grey metadata, burnt orange and copper as
 accents only. Project companies are fictional placeholders.

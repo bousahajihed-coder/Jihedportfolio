@@ -3,7 +3,7 @@
 import { images } from './images'
 
 export const hero = {
-  meta: ['Briefly Media', 'Film production', 'Berlin'],
+  meta: ['Brievo Media', 'Film production', 'Berlin'],
   title: [{ text: 'Films for' }, { text: 'companies,' }, { text: 'people' }, { text: 'and ideas.', bold: true }],
   text: 'We develop and produce films that make companies, people and ideas worth paying attention to.',
   cta: { label: 'View our work', href: '#work' },
@@ -22,7 +22,7 @@ export const intro = {
   lead: 'The strongest stories are not always the loudest.',
   text: [
     'They are found in the people behind a company, the ideas that shaped it, the products that changed something and the moments that deserve to be remembered.',
-    'Briefly Media develops and produces films that bring those stories into focus.',
+    'Brievo Media develops and produces films that bring those stories into focus.',
   ],
   image: images.intro,
 }
@@ -43,13 +43,13 @@ export const work = {
 export const about = {
   label: 'About',
   title: [{ text: 'We are' }, { text: 'producers,' }, { text: 'storytellers' }, { text: 'and filmmakers.', bold: true }],
-  lead: 'Briefly Media is a production studio working with companies, brands and people to create films with substance.',
+  lead: 'Brievo Media is a production studio working with companies, brands and people to create films with substance.',
   text: [
     'We bring together directors, cinematographers, editors, designers, crews and production partners depending on what each project requires.',
     'From a focused interview shoot to a multi-market production, we build the production around the story.',
     'We are based in Berlin and work internationally.',
   ],
-  cta: { label: 'More about Briefly Media', href: '#production' },
+  cta: { label: 'More about Brievo Media', href: '#production' },
   image: images.about,
   careers: {
     title: 'Careers',
@@ -64,7 +64,7 @@ export const production = {
   lead: 'Good production is invisible when it works.',
   text: [
     'It means the right people, the right locations, the right equipment, the right schedule and enough attention to detail that the creative can stay at the centre.',
-    'Briefly Media handles the practical side of production from development and pre-production through shoot management and post-production.',
+    'Brievo Media handles the practical side of production from development and pre-production through shoot management and post-production.',
   ],
   stages: [
     'Development',
@@ -92,5 +92,5 @@ export const contact = {
   title: [{ text: 'Have a story' }, { text: 'to make?', bold: true }],
   lead: 'Tell us what you are working on.',
   text: 'Whether you already have a script, a creative concept or simply the beginning of an idea, we can help shape the production around it.',
-  emailLabel: 'Contact Briefly Media',
+  emailLabel: 'Contact Brievo Media',
 }

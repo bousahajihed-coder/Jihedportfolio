@@ -1,4 +1,4 @@
-// What Briefly Media makes. Drives the pinned service slider, the menu, the
+// What Brievo Media makes. Drives the pinned service slider, the menu, the
 // contact form and the footer.
 import { images } from './images'
 
