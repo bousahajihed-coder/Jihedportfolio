@@ -3,7 +3,7 @@ import { motion } from 'framer-motion'
 const scopeTags = ['Commercials', 'Branded Content', 'Multi-Market Production']
 const locationTags = ['Berlin', 'DACH', 'Europe']
 const facts = ['€50k–€500k+ Budgets', '6+ European Markets', '6 Brand Ambassadors', 'DE · EN · FR · AR']
-const companies = ['AUTO1 Group', 'INLEGACY Studios', 'GMP Global Media Production', 'TBD Media']
+const companies = ['AUTO1 Group', 'wirkaufendeinauto.de', 'Autohero', 'INLEGACY Studios', 'GMP Global Media Production', 'TBD Media']
 
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 16 },

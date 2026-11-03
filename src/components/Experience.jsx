@@ -1,7 +1,7 @@
 import VerticalLabel from './VerticalLabel'
 
 const roles = [
-  { years: '2024 – now', title: 'Creative Producer', company: 'AUTO1 Group, Berlin' },
+  { years: '2024 – now', title: 'Creative Producer', company: 'AUTO1 Group (wirkaufendeinauto.de, Autohero), Berlin' },
   { years: '2024 – now', title: 'Producer (freelance)', company: 'INLEGACY Studios, Berlin' },
   { years: '2023 – 2024', title: 'Producer (freelance)', company: 'GMP Global Media Production, Berlin' },
   { years: '2023 – 2024', title: 'Video Producer / Director', company: 'TBD Media Deutschland, Berlin' },

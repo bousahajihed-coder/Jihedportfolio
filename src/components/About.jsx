@@ -38,7 +38,7 @@ export default function About() {
                   building the team, casting, budgets, locations, the shoot, post and versioning.
                 </p>
                 <p>
-                  Today I produce commercial and branded campaigns at AUTO1 Group, and take on
+                  Today I produce commercial and branded campaigns for AUTO1 Group’s brands wirkaufendeinauto.de and Autohero, and take on
                   commercial and branded productions with INLEGACY Studios. Working across markets,
                   cultures and languages is a big part of how I produce.
                 </p>
