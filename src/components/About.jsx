@@ -1,12 +1,11 @@
-import { motion } from 'framer-motion'
-import Counter from './Counter'
 import Reveal from './Reveal'
 import VerticalLabel from './VerticalLabel'
 
-const stats = [
-  { value: '6+', label: 'Years Experience' },
-  { value: '50+', label: 'Projects Completed' },
-  { value: '12+', label: 'Countries' },
+const facts = [
+  { value: '2019', label: 'In production since' },
+  { value: '€500k+', label: 'Largest budget' },
+  { value: '6+', label: 'European markets' },
+  { value: '4', label: 'Working languages' },
 ]
 
 const languages = [
@@ -14,105 +13,67 @@ const languages = [
   { name: 'English', level: 'Fluent' },
   { name: 'French', level: 'Fluent' },
   { name: 'German', level: 'Fluent' },
-  { name: 'Italian', level: 'Working knowledge' },
+  { name: 'Italian', level: 'Elementary' },
 ]
-
-const staggerContainer = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
-}
-
-const staggerItem = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: [0.16, 1, 0.3, 1] } },
-}
 
 export default function About() {
   return (
-    <section id="about" className="relative w-full bg-paper text-ink py-24 md:py-32">
+    <section id="about" className="relative w-full bg-sky text-ink py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-[48px_1fr] gap-4 md:gap-8">
         <VerticalLabel>About</VerticalLabel>
         <div>
-          <div className="grid md:grid-cols-2 gap-12 md:gap-16 mb-20">
+          <div className="grid md:grid-cols-2 gap-10 md:gap-16 mb-16">
             <Reveal>
-              <p className="font-display font-black text-3xl md:text-4xl leading-[1.1]">
-                I started small and worked my way through productions of all sizes, from small,
-                hands-on, <span className="italic">run and gun</span> teams to large scale
-                campaigns with budgets reaching over <span className="italic">€500k</span> and
-                brand ambassadors across multiple European markets.
+              <p className="font-display font-black text-2xl md:text-3xl leading-[1.15]">
+                I started in the camera department and worked my way up through productions of all
+                sizes, from small, hands-on <span className="italic">run and gun</span> teams to
+                campaigns with budgets over <span className="italic">€500k</span> and brand
+                ambassadors across multiple European markets.
               </p>
             </Reveal>
-            <Reveal delay={0.15}>
-              <div className="text-ink/70 text-base md:text-lg leading-relaxed space-y-5">
+            <Reveal delay={0.1}>
+              <div className="text-ink/75 text-base md:text-lg leading-relaxed space-y-5">
                 <p>
-                  I like being close to the process. From developing an idea and building the
-                  right team to casting, budgets, locations, production and delivery, I stay
-                  involved from the first conversation to the final delivery.
+                  I stay close to the process, from the first conversation to final delivery:
+                  building the team, casting, budgets, locations, the shoot, post and versioning.
                 </p>
                 <p>
-                  I have produced across Europe and work comfortably in German, English, French
-                  and Arabic, with working knowledge of Italian. Working across different markets,
-                  cultures and teams has become a big part of how I produce.
+                  Today I produce commercial and branded campaigns at AUTO1 Group, and take on
+                  commercial and branded productions with INLEGACY Studios. Working across markets,
+                  cultures and languages is a big part of how I produce.
                 </p>
                 <p>
-                  I am hands on, calm when things get complicated, and always focused on finding a
-                  way to make the idea work.
+                  I am hands on, calm when things get complicated, and focused on making the idea
+                  work within the budget.
                 </p>
               </div>
             </Reveal>
           </div>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-80px' }}
-            className="grid grid-cols-3 gap-6 mb-20 border-y border-ink/10 py-10"
-          >
-            {stats.map((stat) => (
-              <motion.div
-                key={stat.label}
-                variants={staggerItem}
-                whileHover={{ scale: 1.06 }}
-                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                className="text-center md:text-left cursor-default"
-              >
-                <div className="font-display font-black text-4xl md:text-5xl text-ink mb-1">
-                  <Counter value={stat.value} />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 border-y border-ink/10 py-8 mb-16">
+            {facts.map((fact) => (
+              <div key={fact.label}>
+                <div className="font-display font-black text-3xl md:text-4xl mb-1">{fact.value}</div>
+                <div className="text-xs md:text-sm text-ink/55 tracking-wide uppercase font-semibold">
+                  {fact.label}
                 </div>
-                <div className="text-xs md:text-sm text-ink/50 tracking-wide uppercase font-semibold">
-                  {stat.label}
-                </div>
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
 
-          <div>
-            <Reveal>
-              <h3 className="text-sm font-semibold tracking-[0.3em] uppercase text-ink/50 mb-6">
-                Languages
-              </h3>
-            </Reveal>
-            <motion.div
-              variants={staggerContainer}
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, margin: '-80px' }}
-              className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-4"
-            >
-              {languages.map((lang) => (
-                <motion.div
-                  key={lang.name}
-                  variants={staggerItem}
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="flex items-center justify-between py-2 border-b border-ink/10 cursor-default"
-                >
-                  <span className="font-semibold">{lang.name}</span>
-                  <span className="text-sm text-ink/50">{lang.level}</span>
-                </motion.div>
-              ))}
-            </motion.div>
+          <h3 className="text-sm font-semibold tracking-[0.3em] uppercase text-ink/50 mb-6">
+            Languages
+          </h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-4">
+            {languages.map((lang) => (
+              <div
+                key={lang.name}
+                className="flex items-center justify-between py-2 border-b border-ink/10"
+              >
+                <span className="font-semibold">{lang.name}</span>
+                <span className="text-sm text-ink/55">{lang.level}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

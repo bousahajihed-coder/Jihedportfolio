@@ -1,11 +1,10 @@
 import { AnimatePresence, motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { useState } from 'react'
-import AvailabilityBadge from './AvailabilityBadge'
 
 const links = [
   { label: 'Work', href: '#work' },
   { label: 'About', href: '#about' },
-  { label: 'What I Do', href: '#what-i-do' },
+  { label: 'Experience', href: '#experience' },
   { label: 'Contact', href: '#contact' },
 ]
 
@@ -19,10 +18,7 @@ export default function Header() {
   })
 
   return (
-    <motion.header
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+    <header
       className={`fixed top-0 left-0 w-full z-50 bg-sky border-b transition-shadow duration-300 ${
         scrolled ? 'border-ink/10 shadow-md' : 'border-transparent'
       }`}
@@ -45,9 +41,6 @@ export default function Header() {
           ))}
         </nav>
         <div className="flex items-center gap-4">
-          <div className="hidden lg:block">
-            <AvailabilityBadge className="text-ink/70" />
-          </div>
           <a
             href="#contact"
             className="inline-flex text-sm font-semibold bg-ink text-sky rounded-full px-4 py-2 hover:bg-ink/80 transition-colors"
@@ -97,11 +90,10 @@ export default function Header() {
                   {link.label}
                 </a>
               ))}
-              <AvailabilityBadge className="text-ink/70 mt-1" />
             </nav>
           </motion.div>
         )}
       </AnimatePresence>
-    </motion.header>
+    </header>
   )
 }

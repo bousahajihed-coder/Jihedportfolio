@@ -1,3 +1,11 @@
+// Each video can carry credits. Fill in only what is true; empty fields are not shown.
+//   brand:   'Brand name'
+//   title:   'Film or campaign title'
+//   client:  'Agency or client'
+//   company: 'Production company / employer (e.g. AUTO1 Group, INLEGACY Studios)'
+//   role:    'Producer' | 'Creative Producer' | ...
+//   year:    '2025'
+//   scope:   'One line, e.g. "3 shoot days · 2 countries · 12 cutdowns in 6 languages"'
 export const categories = [
   {
     name: 'Commercials',

@@ -1,8 +1,7 @@
-import { motion } from 'framer-motion'
 import Reveal from './Reveal'
 import VerticalLabel from './VerticalLabel'
 
-const roles = [
+const services = [
   {
     number: '01',
     title: 'For production companies',
@@ -24,76 +23,49 @@ const roles = [
 ]
 
 const skills = [
-  'Casting',
+  'Budgets & Scheduling',
+  'Crew & Vendor Management',
+  'Casting & Talent',
   'Location Scouting',
-  'Vendor & Crew Management',
-  'Budget Management',
+  'Brand Ambassador Campaigns',
   'Multi-Market Localization',
-  'Post-Production Coordination',
-  'Talent & Brand Ambassador Management',
+  'Post-Production Supervision',
 ]
-
-const staggerContainer = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.1 } },
-}
-
-const cardItem = {
-  hidden: { opacity: 0, y: 24 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.55, ease: [0.16, 1, 0.3, 1] } },
-}
 
 export default function WhatIDo() {
   return (
-    <section id="what-i-do" className="relative w-full bg-sky text-ink py-24 md:py-32">
+    <section id="what-i-do" className="relative w-full bg-paper text-ink py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-[48px_1fr] gap-4 md:gap-8">
         <VerticalLabel>What I Do</VerticalLabel>
         <div>
           <Reveal>
-            <h2 className="font-display font-black uppercase text-3xl md:text-5xl mb-14 max-w-2xl leading-[1.05]">
+            <h2 className="font-display font-black uppercase text-3xl md:text-4xl mb-12 max-w-2xl leading-[1.05]">
               How I work with you.
             </h2>
           </Reveal>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-80px' }}
-            className="grid md:grid-cols-3 gap-6"
-          >
-            {roles.map((role) => (
-              <motion.div
-                key={role.title}
-                variants={cardItem}
-                className="bg-ink text-paper rounded-xl p-8 hover:-translate-y-1 transition-transform"
-              >
+          <div className="grid md:grid-cols-3 gap-6">
+            {services.map((service) => (
+              <div key={service.title} className="bg-ink text-paper rounded-xl p-8">
                 <span className="font-display font-black text-blue text-sm tracking-widest">
-                  {role.number}
+                  {service.number}
                 </span>
-                <h3 className="text-xl font-bold mt-4 mb-3">{role.title}</h3>
-                <p className="text-paper/60 leading-relaxed">{role.description}</p>
-              </motion.div>
+                <h3 className="text-xl font-bold mt-4 mb-3">{service.title}</h3>
+                <p className="text-paper/65 leading-relaxed">{service.description}</p>
+              </div>
             ))}
-          </motion.div>
+          </div>
 
-          <motion.div
-            variants={staggerContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: true, margin: '-80px' }}
-            className="flex flex-wrap gap-2 mt-8"
-          >
+          <div className="flex flex-wrap gap-2 mt-8">
             {skills.map((skill) => (
-              <motion.span
+              <span
                 key={skill}
-                variants={cardItem}
                 className="text-xs font-semibold uppercase tracking-wide bg-ink/5 border border-ink/15 rounded-full px-3 py-1.5"
               >
                 {skill}
-              </motion.span>
+              </span>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>
