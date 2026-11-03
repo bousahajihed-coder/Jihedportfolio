@@ -6,7 +6,7 @@ export default function Contact() {
   return (
     <section id="contact" className="relative w-full bg-ink text-paper py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-6 md:px-10 text-center">
-        <p className="text-sky text-sm font-semibold tracking-[0.3em] uppercase mb-6">Contact</p>
+        <p className="text-paper/50 text-sm font-semibold tracking-[0.3em] uppercase mb-6">Contact</p>
         <Reveal>
           <h2 className="font-display font-black uppercase text-3xl md:text-5xl mb-6 max-w-2xl mx-auto leading-[1.05]">
             Need a producer?

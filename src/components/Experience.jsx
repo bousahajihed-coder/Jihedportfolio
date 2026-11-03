@@ -11,7 +11,7 @@ const roles = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="relative w-full bg-sky text-ink py-20 md:py-28">
+    <section id="experience" className="relative w-full bg-paper text-ink border-t border-ink/10 py-20 md:py-28">
       <div className="max-w-6xl mx-auto px-6 md:px-10 grid grid-cols-1 md:grid-cols-[48px_1fr] gap-4 md:gap-8">
         <VerticalLabel>Experience</VerticalLabel>
         <div>

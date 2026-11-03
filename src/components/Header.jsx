@@ -19,7 +19,7 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 w-full z-50 bg-sky border-b transition-shadow duration-300 ${
+      className={`fixed top-0 left-0 w-full z-50 bg-paper/95 backdrop-blur border-b transition-shadow duration-300 ${
         scrolled ? 'border-ink/10 shadow-md' : 'border-transparent'
       }`}
     >
@@ -35,7 +35,7 @@ export default function Header() {
         </a>
         <nav className="hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-wide text-ink/70">
           {links.map((link) => (
-            <a key={link.href} href={link.href} className="hover:text-ink transition-colors">
+            <a key={link.href} href={link.href} className="hover:text-blue transition-colors">
               {link.label}
             </a>
           ))}
@@ -43,7 +43,7 @@ export default function Header() {
         <div className="flex items-center gap-4">
           <a
             href="#contact"
-            className="inline-flex text-sm font-semibold bg-ink text-sky rounded-full px-4 py-2 hover:bg-ink/80 transition-colors"
+            className="inline-flex text-sm font-semibold bg-ink text-paper rounded-full px-4 py-2 hover:bg-blue transition-colors"
           >
             Get in touch
           </a>
@@ -85,7 +85,7 @@ export default function Header() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className="hover:text-ink transition-colors"
+                  className="hover:text-blue transition-colors"
                 >
                   {link.label}
                 </a>
