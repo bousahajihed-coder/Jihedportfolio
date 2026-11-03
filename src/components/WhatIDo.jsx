@@ -5,21 +5,21 @@ import VerticalLabel from './VerticalLabel'
 const roles = [
   {
     number: '01',
-    title: 'Producer',
+    title: 'For production companies',
     description:
-      'End-to-end production leadership, from concept and budgeting through shoot and delivery.',
+      'Producer on awarded jobs. I take over the budget, crew up and run the job through shoot, post and delivery.',
   },
   {
     number: '02',
-    title: 'Assistant Producer',
+    title: 'For agencies and brands',
     description:
-      'Close support on scheduling, budgets, and vendor coordination to keep a production on track.',
+      'Creative producer for campaigns and branded content, from brief and concept to production partners, approvals and delivery.',
   },
   {
     number: '03',
-    title: 'Production Coordinator',
+    title: 'For multi-market productions',
     description:
-      'On-set and remote coordination across crew, talent, and logistics for multi-market shoots.',
+      'Versioning, talent and logistics across European markets, produced in German, English, French and Arabic.',
   },
 ]
 
@@ -51,7 +51,7 @@ export default function WhatIDo() {
         <div>
           <Reveal>
             <h2 className="font-display font-black uppercase text-3xl md:text-5xl mb-14 max-w-2xl leading-[1.05]">
-              Roles I take on across a production.
+              How I work with you.
             </h2>
           </Reveal>
 

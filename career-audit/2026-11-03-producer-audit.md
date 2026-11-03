@@ -1,6 +1,12 @@
 # Career & Portfolio Audit — Jihed Bousaha
 *3 November 2026. Written from the point of view of a production-company MD who has been sent your link by a contact.*
 
+> **Update, 3 Nov 2026 (after your clarification).**
+> - **Target roles:** Producer and Creative Producer only, not Executive Producer.
+> - **EP job titles:** stay on the CV as factual titles, but they are not part of the pitch.
+> - **CV:** drop "Executive Producer" from the summary and "Executive Producing" from the skills list.
+> - **Assistant Producer / Production Coordinator offering:** removed from the site on this branch, in `WhatIDo.jsx` and `Marquee.jsx`.
+
 ---
 
 ## 0. What I could and could not see
